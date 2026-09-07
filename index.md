@@ -5,43 +5,31 @@ description: Coordination infrastructure research
 
 <section class="hero">
 
-  <div class="hero-kicker">
-    Independent Researcher · HCI · CSCW
+  <div class="hero-name">
+    Youyou Tang
   </div>
 
-  <h1>
-    Coordination<br>
-    Infrastructure<br>
-    Researcher.
-  </h1>
+  <div class="hero-main">
 
-  <p class="hero-description">
-    I study how participation, access, care, and coordination
-    are made possible — and where the work required to sustain
-    them goes.
-  </p>
+    <h1>
+      Where does<br>
+      the work go?
+    </h1>
 
-  <a class="hero-link" href="#research-question">
-    ↓ Explore the research
-  </a>
-
-</section>
-
-
-<section class="section" id="research-question">
-
-  <div class="section-label">
-    01 — Research Question
-  </div>
-
-  <div class="question">
-
-    <p class="question-text">
+    <p class="hero-question">
       Where does the work required to make participation,
       access, care, and coordination possible actually go?
     </p>
 
-    <p class="body-text">
+  </div>
+
+  <div class="hero-research">
+
+    <div class="research-label">
+      Coordination Infrastructure Research
+    </div>
+
+    <p>
       My research examines how coordination work is placed,
       distributed, and maintained across bodies, technologies,
       spaces, and institutions.
@@ -55,45 +43,7 @@ description: Coordination infrastructure research
 <section class="section">
 
   <div class="section-label">
-    02 — Situated Cost Placement
-  </div>
-
-  <div class="scp-intro">
-    A theoretical and methodological lens for studying
-    coordination infrastructure.
-  </div>
-
-  <div class="scp-grid">
-
-    <div class="scp-item">
-      <h3>Placement</h3>
-      <p>Where is the work located?</p>
-    </div>
-
-    <div class="scp-item">
-      <h3>Distribution</h3>
-      <p>Who or what performs it?</p>
-    </div>
-
-    <div class="scp-item">
-      <h3>Condition</h3>
-      <p>What makes the arrangement possible?</p>
-    </div>
-
-    <div class="scp-item">
-      <h3>Maintenance</h3>
-      <p>What must continue to be done?</p>
-    </div>
-
-  </div>
-
-</section>
-
-
-<section class="section">
-
-  <div class="section-label">
-    03 — Research Program
+    01 — Research Program
   </div>
 
   <div class="project-list">
@@ -159,7 +109,45 @@ description: Coordination infrastructure research
 <section class="section">
 
   <div class="section-label">
-    04 — Outputs
+    02 — Situated Cost Placement
+  </div>
+
+  <div class="scp-intro">
+    A theoretical and methodological lens for studying
+    coordination infrastructure.
+  </div>
+
+  <div class="scp-grid">
+
+    <div class="scp-item">
+      <h3>Placement</h3>
+      <p>Where is the work located?</p>
+    </div>
+
+    <div class="scp-item">
+      <h3>Distribution</h3>
+      <p>Who or what performs it?</p>
+    </div>
+
+    <div class="scp-item">
+      <h3>Condition</h3>
+      <p>What makes the arrangement possible?</p>
+    </div>
+
+    <div class="scp-item">
+      <h3>Maintenance</h3>
+      <p>What must continue to be done?</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-label">
+    03 — Selected Outputs
   </div>
 
   <div class="output-list">
