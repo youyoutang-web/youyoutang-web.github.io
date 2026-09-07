@@ -1,7 +1,8 @@
 /* =========================================================
-   YOUYOU TANG — RESEARCH WEBSITE 
-   Visual System:
-   Warm Ivory · Near Black · Prussian Blue
+   YOUYOU TANG — ACADEMIC RESEARCH WEBSITE
+   Visual direction:
+   Kim-inspired academic homepage
+   Clean · structured · editorial · research-focused
    ========================================================= */
 
 
@@ -10,15 +11,27 @@
    --------------------------------------------------------- */
 
 :root {
-  --bg: #F5F1E8;
+  --bg: #ffffff;
   --text: #171717;
-  --muted: #77736B;
-  --line: #D8D1C4;
+  --muted: #666666;
+  --light-muted: #888888;
 
-  --blue: #003153;
-  --blue-light: #174A68;
+  --blue: #0056b3;
+  --blue-dark: #00458f;
 
-  --max-width: 1180px;
+  --highlight-bg: #eef6ff;
+  --highlight-border: #b8d4f2;
+
+  --line: #d9d9d9;
+  --line-light: #eeeeee;
+
+  --max-width: 1040px;
+
+  --sidebar-width: 250px;
+  --content-gap: 42px;
+
+  --body-size: 16px;
+  --body-line: 1.62;
 }
 
 
@@ -44,100 +57,93 @@ body {
   font-family:
     -apple-system,
     BlinkMacSystemFont,
+    "Segoe UI",
     "Helvetica Neue",
-    Helvetica,
     Arial,
     sans-serif;
 
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: var(--body-size);
+  line-height: var(--body-line);
 
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+img {
+  display: block;
+  max-width: 100%;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
+a {
+  color: var(--blue);
+  text-decoration: none;
+
+  transition:
+    color 160ms ease,
+    background-color 160ms ease;
+}
+
+a:hover {
+  color: var(--blue-dark);
+  text-decoration: underline;
 }
 
 
 /* ---------------------------------------------------------
-   03. GLOBAL CONTAINER
+   03. PAGE CONTAINER
    --------------------------------------------------------- */
 
-.nav-container,
-main,
-.site-footer {
+.site-container {
   width: min(
     calc(100% - 48px),
     var(--max-width)
   );
 
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 
 
 /* ---------------------------------------------------------
-   04. NAVIGATION
+   04. HEADER
    --------------------------------------------------------- */
 
 .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-
-  background: rgba(245, 241, 232, 0.92);
-
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  padding: 18px 0 14px;
 
   border-bottom: 1px solid var(--line);
 }
 
-.nav-container {
-  min-height: 72px;
-
+.site-header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  gap: 40px;
 }
 
 .site-name {
+  color: var(--text);
+
   font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-weight: 600;
+
+  letter-spacing: -0.01em;
 }
 
 .site-name:hover {
   color: var(--blue);
+  text-decoration: none;
 }
 
 .site-nav {
   display: flex;
   align-items: center;
-
-  gap: 28px;
+  gap: 24px;
 }
 
 .site-nav a {
-  position: relative;
+  color: var(--muted);
 
   font-size: 13px;
   font-weight: 500;
-
-  color: var(--muted);
-
-  transition:
-    color 180ms ease;
 }
 
 .site-nav a:hover {
@@ -150,460 +156,764 @@ main,
    --------------------------------------------------------- */
 
 .hero {
-  min-height: calc(100vh - 72px);
+  display: grid;
 
-  padding-top: 72px;
-  padding-bottom: 120px;
+  grid-template-columns:
+    var(--sidebar-width)
+    minmax(0, 1fr);
 
+  column-gap: var(--content-gap);
+
+  padding-top: 48px;
+  padding-bottom: 72px;
+}
+
+
+/* ---------------------------------------------------------
+   06. LEFT COLUMN
+   --------------------------------------------------------- */
+
+.hero-sidebar {
+  position: relative;
+}
+
+.hero-photo {
+  width: 100%;
+  max-width: 230px;
+
+  aspect-ratio: 1 / 1;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+}
+
+.hero-contact {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 24px;
 }
 
-.hero-name {
-  font-size: 18px;
-  font-weight: 500;
+.contact-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  letter-spacing: -0.01em;
-}
+  width: 38px;
+  height: 38px;
 
-
-/* Main research question */
-
-.hero-main {
-  margin-top: 100px;
-  margin-bottom: 100px;
-}
-
-.hero h1 {
-  max-width: 900px;
-
-  margin: 0;
-
-  font-size: clamp(56px, 7vw, 92px);
-  line-height: 0.95;
-
-  font-weight: 500;
-
-  letter-spacing: -0.045em;
-}
-
-
-/* Long-form research question */
-
-.hero-question {
-  max-width: 680px;
-
-  margin: 42px 0 0 2px;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size: clamp(19px, 2vw, 24px);
-
-  line-height: 1.45;
-
-  color: var(--muted);
-}
-
-
-/* Research identity */
-
-.hero-research {
-  max-width: 720px;
-
-  margin-left: auto;
-
-  padding-top: 30px;
-
-  border-top: 1px solid var(--line);
-}
-
-.research-label {
-  margin-bottom: 18px;
+  border: 1px solid #b7d0ec;
+  border-radius: 50%;
 
   color: var(--blue);
 
   font-size: 14px;
-  font-weight: 700;
 
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease;
 }
 
-.hero-research p {
-  max-width: 650px;
+.contact-link:hover {
+  background: var(--highlight-bg);
+  border-color: #8db8e5;
 
+  text-decoration: none;
+
+  transform: translateY(-1px);
+}
+
+
+/* ---------------------------------------------------------
+   07. HERO — RIGHT COLUMN
+   --------------------------------------------------------- */
+
+.hero-content {
+  min-width: 0;
+}
+
+
+/* Name */
+
+.hero-name {
   margin: 0;
 
-  font-size: 19px;
+  color: var(--text);
+
+  font-size: 36px;
+  line-height: 1.12;
+
+  font-weight: 700;
+
+  letter-spacing: -0.035em;
+}
+
+
+/* Position / identity */
+
+.hero-position {
+  margin-top: 4px;
+
+  color: #496b91;
+
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+
+/* Research tags */
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 8px;
+
+  margin-top: 22px;
+}
+
+.hero-tag {
+  color: var(--blue);
+
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.hero-tag::before {
+  content: "#";
+}
+
+
+/* ---------------------------------------------------------
+   08. FEATURED / CURRENT STATUS BOX
+   --------------------------------------------------------- */
+
+.hero-highlight {
+  margin-top: 22px;
+  padding: 13px 15px;
+
+  background: var(--highlight-bg);
+
+  border: 1px solid var(--highlight-border);
+  border-radius: 7px;
+
+  color: #234d76;
+}
+
+.hero-highlight-title {
+  margin: 0 0 4px;
+
+  color: #0755a0;
+
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.hero-highlight p {
+  margin: 0;
+
+  font-size: 14px;
   line-height: 1.55;
 }
 
 
 /* ---------------------------------------------------------
-   06. SECTIONS
+   09. INTRODUCTION
+   --------------------------------------------------------- */
+
+.hero-introduction {
+  margin-top: 24px;
+}
+
+.hero-introduction p {
+  margin: 0 0 16px;
+
+  font-size: 17px;
+  line-height: 1.68;
+}
+
+.hero-introduction p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ---------------------------------------------------------
+   10. TYPOGRAPHIC EMPHASIS
+   --------------------------------------------------------- */
+
+strong {
+  font-weight: 700;
+}
+
+em {
+  font-style: italic;
+}
+
+
+/* Important concepts */
+
+.emphasis {
+  color: var(--text);
+  font-weight: 700;
+}
+
+
+/* Research concepts */
+
+.concept {
+  padding: 1px 4px;
+
+  background: #f2f7fc;
+
+  border-radius: 3px;
+
+  color: #164d7d;
+}
+
+
+/* ---------------------------------------------------------
+   11. INLINE EXPLANATION / DETAILS
+   --------------------------------------------------------- */
+
+.inline-detail {
+  margin: 18px 0 20px;
+}
+
+.inline-detail summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  cursor: pointer;
+
+  color: var(--blue);
+
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.inline-detail summary:hover {
+  text-decoration: underline;
+}
+
+.inline-detail summary::marker {
+  color: var(--blue);
+}
+
+.inline-detail-content {
+  margin-top: 14px;
+  padding: 16px 18px;
+
+  background: #fafcff;
+
+  border-left: 3px solid #b8d4f2;
+
+  color: #333333;
+
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.inline-detail-content p {
+  margin: 0 0 14px;
+}
+
+.inline-detail-content p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ---------------------------------------------------------
+   12. BEYOND RESEARCH
+   --------------------------------------------------------- */
+
+.beyond-research {
+  margin-top: 28px;
+}
+
+.beyond-research-title {
+  margin: 0 0 10px;
+
+  color: #4d6d8f;
+
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.beyond-research ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.beyond-research li {
+  margin-bottom: 8px;
+
+  font-size: 15px;
+  line-height: 1.58;
+}
+
+.beyond-research li:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ---------------------------------------------------------
+   13. SECTION SYSTEM
    --------------------------------------------------------- */
 
 .section {
-  padding-top: 120px;
-  padding-bottom: 120px;
+  padding: 68px 0;
 
   border-top: 1px solid var(--line);
 }
 
-.section-label {
-  margin-bottom: 56px;
-
-  color: var(--muted);
-
-  font-size: 12px;
-  font-weight: 600;
-
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.section-header {
+  margin-bottom: 32px;
 }
 
+.section-title {
+  margin: 0;
 
-/* ---------------------------------------------------------
-   07. PROJECT LIST
-   --------------------------------------------------------- */
-
-.project-list {
-  width: 100%;
-}
-
-.project {
-  display: grid;
-
-  grid-template-columns:
-    70px
-    minmax(280px, 1fr)
-    260px
-    40px;
-
-  align-items: center;
-
-  min-height: 110px;
-
-  border-top: 1px solid var(--line);
-
-  transition:
-    padding 220ms ease,
-    background-color 220ms ease;
-}
-
-.project:last-child {
-  border-bottom: 1px solid var(--line);
-}
-
-.project:hover {
-  padding-left: 16px;
-  padding-right: 16px;
-
-  background: rgba(0, 49, 83, 0.045);
-}
-
-.project-number {
-  color: var(--muted);
-
-  font-size: 12px;
-  font-variant-numeric: tabular-nums;
-}
-
-.project-title {
-  font-size: 25px;
-  line-height: 1.2;
-
-  letter-spacing: -0.025em;
-
-  transition: color 180ms ease;
-}
-
-.project:hover .project-title {
-  color: var(--blue);
-}
-
-.project-meta {
-  color: var(--muted);
-
-  font-size: 13px;
-}
-
-.project-arrow {
-  justify-self: end;
+  color: var(--text);
 
   font-size: 22px;
-
-  transition:
-    transform 180ms ease,
-    color 180ms ease;
-}
-
-.project:hover .project-arrow {
-  color: var(--blue);
-
-  transform: translateX(5px);
-}
-
-
-/* ---------------------------------------------------------
-   08. SCP
-   --------------------------------------------------------- */
-
-.scp-intro {
-  max-width: 700px;
-
-  margin-bottom: 64px;
-
-  font-size: 30px;
   line-height: 1.25;
 
-  letter-spacing: -0.025em;
-}
-
-.scp-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(4, 1fr);
-
-  border-top: 1px solid var(--line);
-}
-
-.scp-item {
-  min-height: 220px;
-
-  padding: 28px 24px 28px 0;
-
-  border-bottom: 1px solid var(--line);
-}
-
-.scp-item + .scp-item {
-  padding-left: 24px;
-
-  border-left: 1px solid var(--line);
-}
-
-.scp-item h3 {
-  margin: 0 0 36px;
-
-  color: var(--blue);
-
-  font-size: 14px;
   font-weight: 700;
 
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  letter-spacing: -0.02em;
 }
 
-.scp-item p {
-  max-width: 180px;
+.section-description {
+  max-width: 680px;
 
-  margin: 0;
+  margin: 9px 0 0;
 
   color: var(--muted);
 
   font-size: 15px;
-  line-height: 1.5;
-}
-
-
-/* ---------------------------------------------------------
-   09. OUTPUTS
-   --------------------------------------------------------- */
-
-.output-list {
-  border-top: 1px solid var(--line);
-}
-
-.output {
-  display: grid;
-
-  grid-template-columns:
-    100px
-    minmax(300px, 1fr)
-    220px;
-
-  gap: 30px;
-
-  padding: 28px 0;
-
-  border-bottom: 1px solid var(--line);
-}
-
-.output-year {
-  color: var(--muted);
-
-  font-size: 13px;
-
-  font-variant-numeric: tabular-nums;
-}
-
-.output-title {
-  font-size: 18px;
-  line-height: 1.4;
-
-  letter-spacing: -0.015em;
-}
-
-.output-venue {
-  color: var(--muted);
-
-  font-size: 13px;
-}
-
-
-/* ---------------------------------------------------------
-   10. FOOTER
-   --------------------------------------------------------- */
-
-.site-footer {
-  padding-top: 42px;
-  padding-bottom: 42px;
-
-  border-top: 1px solid var(--line);
-
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-
-  gap: 40px;
-
-  font-size: 12px;
-}
-
-.site-footer strong {
-  display: block;
-
-  margin-bottom: 5px;
-
-  font-size: 12px;
-  letter-spacing: 0.08em;
-}
-
-.site-footer span {
-  color: var(--muted);
-}
-
-.footer-links {
-  display: flex;
-  gap: 24px;
-}
-
-.footer-links a {
-  color: var(--muted);
-}
-
-.footer-links a:hover {
-  color: var(--blue);
-}
-
-
-/* ---------------------------------------------------------
-   11. PROJECT PAGE
-   --------------------------------------------------------- */
-
-.project-page-header {
-  padding-top: 100px;
-  padding-bottom: 120px;
-}
-
-.project-status {
-  margin-bottom: 36px;
-
-  color: var(--blue);
-
-  font-size: 12px;
-  font-weight: 700;
-
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.project-page-header h1 {
-  max-width: 850px;
-
-  margin: 0;
-
-  font-size: clamp(54px, 7vw, 90px);
-  line-height: 0.95;
-
-  font-weight: 500;
-
-  letter-spacing: -0.045em;
-}
-
-.project-subtitle {
-  max-width: 680px;
-
-  margin-top: 40px;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  color: var(--muted);
-
-  font-size: 22px;
-  line-height: 1.45;
-}
-
-.project-section {
-  display: grid;
-
-  grid-template-columns: 240px minmax(0, 1fr);
-
-  gap: 60px;
-
-  padding-top: 70px;
-  padding-bottom: 70px;
-
-  border-top: 1px solid var(--line);
-}
-
-.project-section-label {
-  color: var(--muted);
-
-  font-size: 12px;
-  font-weight: 600;
-
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.project-section-content {
-  max-width: 720px;
-
-  font-size: 20px;
   line-height: 1.6;
 }
 
 
 /* ---------------------------------------------------------
-   12. RESPONSIVE
+   14. PUBLICATION FILTERS
+   --------------------------------------------------------- */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  margin-bottom: 30px;
+}
+
+.filter {
+  padding: 5px 11px;
+
+  border: 1px solid #c9d9e9;
+  border-radius: 999px;
+
+  background: white;
+
+  color: #416789;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  cursor: pointer;
+}
+
+.filter:hover {
+  background: var(--highlight-bg);
+  text-decoration: none;
+}
+
+.filter.active {
+  background: #e8f2fc;
+
+  border-color: #9fc2e5;
+
+  color: #0755a0;
+  font-weight: 700;
+}
+
+
+/* ---------------------------------------------------------
+   15. PUBLICATIONS
+   --------------------------------------------------------- */
+
+.publication-year {
+  margin: 38px 0 16px;
+
+  color: #777777;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  letter-spacing: 0.04em;
+}
+
+.publication-year:first-child {
+  margin-top: 0;
+}
+
+.publication {
+  display: grid;
+
+  grid-template-columns:
+    145px
+    minmax(0, 1fr);
+
+  gap: 24px;
+
+  padding: 24px 0;
+
+  border-top: 1px solid var(--line-light);
+}
+
+.publication:last-child {
+  border-bottom: 1px solid var(--line-light);
+}
+
+.publication-preview {
+  width: 145px;
+  height: 105px;
+
+  object-fit: cover;
+
+  border: 1px solid var(--line);
+
+  border-radius: 4px;
+}
+
+.publication-meta {
+  color: #777777;
+
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.publication-title {
+  margin: 5px 0 8px;
+
+  color: var(--text);
+
+  font-size: 18px;
+  line-height: 1.4;
+
+  font-weight: 650;
+
+  letter-spacing: -0.015em;
+}
+
+.publication-authors {
+  margin: 0 0 9px;
+
+  color: #555555;
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.publication-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  font-size: 13px;
+}
+
+.publication-links a {
+  font-weight: 600;
+}
+
+
+/* ---------------------------------------------------------
+   16. PROJECTS
+   --------------------------------------------------------- */
+
+.project {
+  padding: 25px 0;
+
+  border-top: 1px solid var(--line-light);
+}
+
+.project:last-child {
+  border-bottom: 1px solid var(--line-light);
+}
+
+.project-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.project-title {
+  margin: 0;
+
+  font-size: 19px;
+  line-height: 1.4;
+
+  font-weight: 700;
+}
+
+.project-status {
+  flex-shrink: 0;
+
+  color: #777777;
+
+  font-size: 12px;
+}
+
+.project-description {
+  max-width: 760px;
+
+  margin: 8px 0 0;
+
+  color: #555555;
+
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+
+/* ---------------------------------------------------------
+   17. TALKS
+   --------------------------------------------------------- */
+
+.talk {
+  padding: 22px 0;
+
+  border-top: 1px solid var(--line-light);
+}
+
+.talk:last-child {
+  border-bottom: 1px solid var(--line-light);
+}
+
+.talk-date {
+  margin-bottom: 4px;
+
+  color: #777777;
+
+  font-size: 13px;
+}
+
+.talk-type {
+  margin-bottom: 4px;
+
+  color: #4d6d8f;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.talk-title {
+  margin: 0;
+
+  font-size: 18px;
+  line-height: 1.42;
+
+  font-weight: 700;
+}
+
+.talk-venue {
+  margin-top: 5px;
+
+  color: #555555;
+
+  font-size: 14px;
+}
+
+.talk-description {
+  max-width: 720px;
+
+  margin-top: 10px;
+
+  color: #555555;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* ---------------------------------------------------------
+   18. REPORTS / WHITE PAPERS
+   --------------------------------------------------------- */
+
+.report {
+  display: grid;
+
+  grid-template-columns:
+    90px
+    minmax(0, 1fr);
+
+  gap: 22px;
+
+  padding: 22px 0;
+
+  border-top: 1px solid var(--line-light);
+}
+
+.report:last-child {
+  border-bottom: 1px solid var(--line-light);
+}
+
+.report-date {
+  color: #777777;
+
+  font-size: 13px;
+}
+
+.report-title {
+  margin: 0;
+
+  font-size: 18px;
+  line-height: 1.4;
+
+  font-weight: 700;
+}
+
+.report-description {
+  margin: 7px 0 0;
+
+  color: #555555;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* ---------------------------------------------------------
+   19. GENERAL TEXT
+   --------------------------------------------------------- */
+
+.text-column {
+  max-width: 760px;
+}
+
+.text-column p {
+  margin: 0 0 18px;
+
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.text-column p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ---------------------------------------------------------
+   20. FOOTER
+   --------------------------------------------------------- */
+
+.site-footer {
+  margin-top: 20px;
+  padding: 28px 0 40px;
+
+  border-top: 1px solid var(--line);
+
+  color: #777777;
+
+  font-size: 13px;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 18px;
+}
+
+
+/* ---------------------------------------------------------
+   21. RESPONSIVE — TABLET
    --------------------------------------------------------- */
 
 @media (max-width: 800px) {
 
-  .nav-container,
-  main,
-  .site-footer {
+  :root {
+    --max-width: 680px;
+    --content-gap: 32px;
+  }
+
+  .site-container {
     width: min(
-      calc(100% - 32px),
+      calc(100% - 40px),
       var(--max-width)
     );
   }
 
-  .nav-container {
-    min-height: 64px;
+  .hero {
+    grid-template-columns:
+      190px
+      minmax(0, 1fr);
+
+    column-gap: 30px;
+
+    padding-top: 38px;
+    padding-bottom: 60px;
+  }
+
+  .hero-photo {
+    max-width: 180px;
+  }
+
+  .hero-name {
+    font-size: 32px;
+  }
+
+  .hero-position {
+    font-size: 16px;
+  }
+
+  .hero-introduction p {
+    font-size: 16px;
+  }
+
+  .publication {
+    grid-template-columns:
+      120px
+      minmax(0, 1fr);
+
+    gap: 18px;
+  }
+
+  .publication-preview {
+    width: 120px;
+    height: 90px;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   22. RESPONSIVE — MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 620px) {
+
+  .site-container {
+    width: calc(100% - 32px);
+  }
+
+  .site-header {
+    padding: 14px 0;
   }
 
   .site-nav {
-    gap: 16px;
+    gap: 13px;
   }
 
   .site-nav a {
@@ -611,186 +921,150 @@ main,
   }
 
 
-  /* Hero */
+  /* Hero becomes one column */
 
   .hero {
-    min-height: auto;
+    display: block;
 
-    padding-top: 48px;
-    padding-bottom: 90px;
+    padding-top: 32px;
+    padding-bottom: 54px;
   }
 
-  .hero-main {
-    margin-top: 80px;
-    margin-bottom: 80px;
+  .hero-sidebar {
+    margin-bottom: 30px;
   }
 
-  .hero h1 {
-    font-size: clamp(52px, 15vw, 78px);
+  .hero-photo {
+    width: 150px;
+    max-width: 150px;
   }
 
-  .hero-question {
-    margin-top: 30px;
-
-    font-size: 19px;
+  .hero-contact {
+    margin-top: 17px;
   }
 
-  .hero-research {
-    margin-left: 0;
+  .contact-link {
+    width: 36px;
+    height: 36px;
   }
 
-  .hero-research p {
-    font-size: 17px;
+
+  .hero-name {
+    font-size: 31px;
+  }
+
+  .hero-position {
+    font-size: 16px;
+  }
+
+  .hero-tags {
+    margin-top: 17px;
+  }
+
+  .hero-highlight {
+    margin-top: 19px;
+  }
+
+  .hero-introduction {
+    margin-top: 20px;
+  }
+
+  .hero-introduction p {
+    font-size: 16px;
+    line-height: 1.65;
   }
 
 
   /* Sections */
 
   .section {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding: 52px 0;
   }
 
-  .section-label {
-    margin-bottom: 40px;
+  .section-title {
+    font-size: 21px;
+  }
+
+
+  /* Publications */
+
+  .publication {
+    display: block;
+
+    padding: 22px 0;
+  }
+
+  .publication-preview {
+    width: 100%;
+    height: auto;
+
+    max-width: 360px;
+
+    margin-bottom: 13px;
+  }
+
+  .publication-title {
+    font-size: 17px;
   }
 
 
   /* Projects */
 
-  .project {
-    grid-template-columns:
-      40px
-      minmax(0, 1fr)
-      30px;
-
-    min-height: 100px;
-
-    gap: 10px;
+  .project-header {
+    display: block;
   }
 
-  .project-meta {
-    grid-column: 2;
-    grid-row: 2;
+  .project-status {
+    display: block;
 
-    padding-bottom: 20px;
-  }
-
-  .project-arrow {
-    grid-column: 3;
-    grid-row: 1;
-  }
-
-  .project-title {
-    font-size: 21px;
+    margin-top: 5px;
   }
 
 
-  /* SCP */
+  /* Reports */
 
-  .scp-intro {
-    font-size: 25px;
-  }
-
-  .scp-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .scp-item {
-    min-height: 190px;
-
-    padding: 24px 18px 24px 0;
-  }
-
-  .scp-item + .scp-item {
-    padding-left: 18px;
-  }
-
-  .scp-item:nth-child(3) {
-    border-left: none;
-  }
-
-
-  /* Outputs */
-
-  .output {
-    grid-template-columns:
-      60px
-      minmax(0, 1fr);
-
-    gap: 12px;
-  }
-
-  .output-venue {
-    grid-column: 2;
-  }
-
-
-  /* Project pages */
-
-  .project-page-header {
-    padding-top: 70px;
-    padding-bottom: 80px;
-  }
-
-  .project-section {
+  .report {
     grid-template-columns: 1fr;
-
-    gap: 20px;
-
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-
-  .project-section-content {
-    font-size: 18px;
+    gap: 5px;
   }
 
 
   /* Footer */
 
-  .site-footer {
-    flex-direction: column;
-    gap: 24px;
+  .footer-inner {
+    display: block;
   }
 
+  .footer-links {
+    margin-top: 12px;
+  }
 }
 
 
-@media (max-width: 500px) {
+/* ---------------------------------------------------------
+   23. VERY SMALL SCREENS
+   --------------------------------------------------------- */
+
+@media (max-width: 420px) {
 
   .site-nav {
-    gap: 12px;
+    gap: 10px;
   }
 
   .site-nav a {
     font-size: 11px;
   }
 
-  .hero h1 {
-    font-size: 52px;
+  .hero-name {
+    font-size: 29px;
   }
 
-  .hero-main {
-    margin-top: 65px;
-    margin-bottom: 65px;
+  .hero-highlight {
+    padding: 12px 13px;
   }
 
-  .scp-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .scp-item,
-  .scp-item + .scp-item {
-    min-height: auto;
-
-    padding: 24px 0;
-
-    border-left: none;
-  }
-
-  .scp-item h3 {
-    margin-bottom: 18px;
+  .hero-introduction p {
+    font-size: 15.5px;
   }
 
 }
