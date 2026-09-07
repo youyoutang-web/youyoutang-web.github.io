@@ -1,0 +1,11 @@
+title: Youyou Tang
+description: Coordination infrastructure research
+url: "https://youyoutang-web.github.io"
+
+markdown: kramdown
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
