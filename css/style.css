@@ -76,12 +76,22 @@ a:hover {
   color: var(--blue-dark);
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1, h2, h3, h4, p {
+  margin: 0;
+}
+
 
 /* =========================================================
    MAIN PAGE GRID
 ========================================================= */
 
-.site {
+.site-shell {
   width: min(
     var(--content-width),
     calc(100% - 44px)
@@ -98,27 +108,37 @@ a:hover {
 
 
 /* =========================================================
-   SIDEBAR
+   IDENTITY (sidebar)
 ========================================================= */
 
-.sidebar {
+.identity {
   position: sticky;
   top: 24px;
 
   padding-top: 28px;
 }
 
-.sidebar-name {
-  margin: 0;
+.identity-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
 
+.identity-name {
   color: var(--black);
 
   font-size: 16px;
   font-weight: 650;
   line-height: 1.3;
+
+  text-decoration: none;
 }
 
-.sidebar-role {
+.identity-name:hover {
+  color: var(--blue);
+}
+
+.identity-role {
   margin-top: 2px;
 
   color: var(--muted);
@@ -127,29 +147,45 @@ a:hover {
   line-height: 1.45;
 }
 
-.sidebar-links {
+.portrait {
+  margin: 14px 0 0;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--grey-soft);
+}
+
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.identity-links {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0 9px;
+  flex-direction: column;
+  gap: 1px;
 
   margin-top: 11px;
 }
 
-.sidebar-links a {
+.identity-links a {
   color: var(--muted);
 
   font-size: 11.5px;
   line-height: 1.5;
 
   text-decoration: none;
+  width: fit-content;
 }
 
-.sidebar-links a:hover {
+.identity-links a:hover {
   color: var(--blue);
   text-decoration: underline;
 }
 
-.nav {
+.main-nav {
   margin-top: 23px;
   padding-top: 11px;
 
@@ -160,7 +196,7 @@ a:hover {
   gap: 1px;
 }
 
-.nav a {
+.main-nav a {
   color: var(--text);
 
   font-size: 12px;
@@ -169,8 +205,8 @@ a:hover {
   text-decoration: none;
 }
 
-.nav a:hover,
-.nav a.active {
+.main-nav a:hover,
+.main-nav a[aria-current="page"] {
   color: var(--blue);
   font-weight: 600;
 }
@@ -180,11 +216,20 @@ a:hover {
    MAIN CONTENT
 ========================================================= */
 
-.main {
+.main-content {
   min-width: 0;
 
   padding-top: 28px;
   padding-bottom: 64px;
+}
+
+
+/* =========================================================
+   SITE HEADER (nav at top)
+========================================================= */
+
+.site-header {
+  margin-bottom: 18px;
 }
 
 
@@ -197,8 +242,21 @@ a:hover {
   padding: 0 0 27px;
 }
 
+.eyebrow,
+.section-kicker {
+  color: var(--light-muted);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+
+  line-height: 1.4;
+}
+
 .hero h1 {
-  margin: 0 0 8px;
+  margin: 4px 0 8px;
 
   color: var(--blue);
 
@@ -209,7 +267,7 @@ a:hover {
   letter-spacing: -0.012em;
 }
 
-.hero p {
+.hero-intro {
   max-width: 690px;
 
   margin: 0;
@@ -220,28 +278,52 @@ a:hover {
   line-height: 1.62;
 }
 
+.hero-question {
+  max-width: 690px;
+
+  margin: 14px 0 0;
+
+  color: var(--blue);
+
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
 
 /* =========================================================
    SECTION HEADING
 ========================================================= */
 
 .section-heading {
-  margin: 0;
+  margin: 0 0 0;
   padding: 0 0 7px;
 
   border-bottom: 1px solid var(--line);
+}
 
+.section-heading h2 {
   color: var(--black);
 
   font-size: 19px;
   font-weight: 650;
   line-height: 1.35;
+
+  margin-top: 3px;
+}
+
+.section-heading .section-kicker {
+  margin: 0;
 }
 
 
 /* =========================================================
-   RESEARCH ITEMS
+   RESEARCH LIST
 ========================================================= */
+
+.research-list {
+  margin-top: 0;
+}
 
 .research-item {
   border-bottom: 1px solid var(--line);
@@ -249,7 +331,7 @@ a:hover {
 
 
 /* =========================================================
-   RESEARCH ITEM HEADER
+   RESEARCH TRIGGER
 ========================================================= */
 
 .research-trigger {
@@ -289,6 +371,13 @@ a:hover {
   background: var(--grey-soft);
 }
 
+/* 你的 HTML 里 trigger 只有 2 个直接子元素，
+   所以用 display: contents 让内部 span 直接参与 grid */
+
+.research-trigger-text {
+  display: contents;
+}
+
 
 /* number */
 
@@ -304,9 +393,18 @@ a:hover {
 }
 
 
+/* title group */
+
+.research-title-group {
+  min-width: 0;
+}
+
+
 /* title */
 
 .research-title {
+  display: block;
+
   color: var(--black);
 
   font-size: 15.5px;
@@ -338,7 +436,7 @@ a:hover {
 
 /* plus / minus */
 
-.research-icon {
+.research-symbol {
   color: var(--blue);
 
   font-size: 16px;
@@ -378,10 +476,14 @@ a:hover {
 
 
 /* =========================================================
-   PROJECT TITLE
+   PROJECT INTRO
 ========================================================= */
 
-.project-title {
+.project-intro {
+  margin-bottom: 4px;
+}
+
+.project-intro h3 {
   margin: 0;
 
   color: var(--blue);
@@ -392,7 +494,7 @@ a:hover {
   line-height: 1.4;
 }
 
-.project-title::after {
+.project-intro h3::after {
   content: "";
 
   display: block;
@@ -405,114 +507,24 @@ a:hover {
   background: var(--blue);
 }
 
-
-/* =========================================================
-   PROJECT DESCRIPTION
-========================================================= */
-
-.project-description {
+.project-intro p {
   max-width: 750px;
+}
 
+.project-intro p:first-of-type {
   margin-top: 10px;
 }
 
 
 /* =========================================================
-   SECTION LABELS
+   RESEARCH BLOCKS
 ========================================================= */
 
-.info-label {
-  margin: 18px 0 5px;
-
-  color: var(--blue);
-
-  font-size: 10px;
-  font-weight: 750;
-
-  line-height: 1.35;
-
-  letter-spacing: 0.075em;
-  text-transform: uppercase;
+.research-block {
+  margin-top: 18px;
 }
 
-
-/* =========================================================
-   EMPIRICAL GROUNDING
-========================================================= */
-
-.empirical-grounding {
-  margin-top: 15px;
-  padding-top: 10px;
-
-  border-top: 1px solid var(--line);
-}
-
-.empirical-grounding .info-label {
-  margin-top: 0;
-}
-
-.empirical-grounding p {
-  margin-bottom: 0;
-
-  color: #505050;
-
-  font-size: 12.5px;
-}
-
-
-/* =========================================================
-   RESEARCH FOCUS
-========================================================= */
-
-.info-list {
-  margin: 0;
-  padding-left: 17px;
-
-  color: #414141;
-
-  font-size: 13px;
-}
-
-.info-list li {
-  margin: 2px 0;
-}
-
-.info-list li::marker {
-  color: var(--blue);
-}
-
-
-/* =========================================================
-   KEY OBSERVATIONS
-========================================================= */
-
-.key-observations {
-  position: relative;
-
-  margin: 20px 0;
-
-  padding: 14px 17px 15px;
-
-  background: var(--blue-soft);
-
-  border-left: 3px solid var(--blue-line);
-}
-
-.key-observations::before {
-  content: "";
-
-  position: absolute;
-
-  top: 0;
-  left: -3px;
-
-  width: 3px;
-  height: 28px;
-
-  background: var(--blue);
-}
-
-.key-observations-label {
+.research-block h4 {
   margin: 0 0 5px;
 
   color: var(--blue);
@@ -526,61 +538,58 @@ a:hover {
   text-transform: uppercase;
 }
 
-.key-observations p {
-  max-width: 750px;
 
+/* =========================================================
+   METADATA (empirical grounding)
+========================================================= */
+
+.metadata {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+
+  color: #505050;
+
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   RESEARCH LIST TEXT
+========================================================= */
+
+.research-list-text {
   margin: 0;
+  padding-left: 17px;
 
-  color: #2e3c44;
+  color: #414141;
 
   font-size: 13px;
-  line-height: 1.62;
+
+  list-style: disc;
+}
+
+.research-list-text li {
+  margin: 2px 0;
+}
+
+.research-list-text li::marker {
+  color: var(--blue);
 }
 
 
 /* =========================================================
-   INLINE EMPHASIS
-
-   Use selectively in HTML.
+   QUESTIONS
 ========================================================= */
 
-.concept {
-  color: var(--blue);
-
-  font-weight: 650;
-
-  text-decoration: underline;
-  text-decoration-color: var(--blue-line);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
+.questions {
+  margin: 0;
 }
 
-.concept-fill {
-  padding: 1px 4px;
+.questions p {
+  max-width: 750px;
 
-  background: var(--blue-soft);
-
-  color: var(--blue);
-
-  font-weight: 650;
-}
-
-.highlight {
-  color: var(--blue);
-
-  font-weight: 700;
-}
-
-
-/* =========================================================
-   CURRENT QUESTIONS
-========================================================= */
-
-.current-questions {
-  margin-top: 18px;
-}
-
-.current-questions p {
   margin: 0 0 7px;
 
   color: #414141;
@@ -589,25 +598,44 @@ a:hover {
   line-height: 1.6;
 }
 
-.current-questions p:last-child {
+.questions p:last-child {
   margin-bottom: 0;
 }
 
 
 /* =========================================================
-   SELECTED OUTPUTS
+   MUTED
 ========================================================= */
 
-.selected-outputs {
-  margin-top: 20px;
+.muted {
+  color: var(--muted);
+
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   OUTPUTS
+========================================================= */
+
+.outputs {
+  margin-top: 4px;
 }
 
 .output {
-  margin: 0 0 10px;
+  margin: 0 0 12px;
 }
 
 .output:last-child {
   margin-bottom: 0;
+}
+
+.output-year {
+  color: var(--muted);
+
+  font-size: 11.5px;
+  line-height: 1.5;
 }
 
 .output-title {
@@ -619,26 +647,35 @@ a:hover {
   line-height: 1.5;
 }
 
-.output-meta {
+.output-type,
+.output-description {
   color: var(--muted);
 
-  font-size: 11.5px;
+  font-size: 12px;
   line-height: 1.5;
 }
 
 .output a {
   font-weight: 600;
+  font-size: 12.5px;
 }
 
 
 /* =========================================================
-   STATUS
+   CURRENT STATUS
 ========================================================= */
 
-.research-status {
+.current-status {
+  margin-top: 14px;
+
+  color: var(--muted);
+
+  font-size: 12px;
+}
+
+.current-status strong {
   display: inline-block;
 
-  margin-top: 14px;
   padding: 2px 6px;
 
   background: #e9eff3;
@@ -654,18 +691,35 @@ a:hover {
 
 
 /* =========================================================
-   RECURRING QUESTION
+   PROJECT / SECTION LINKS
 ========================================================= */
 
-.question-section {
+.project-link,
+.section-link {
+  display: inline-block;
+
+  margin-top: 14px;
+
+  font-size: 12.5px;
+  font-weight: 600;
+
+  text-underline-offset: 3px;
+}
+
+
+/* =========================================================
+   CONCEPT SECTIONS
+========================================================= */
+
+.concept-section {
   margin-top: 34px;
   padding-top: 20px;
 
   border-top: 1px solid var(--line);
 }
 
-.question-section h2 {
-  margin: 0 0 8px;
+.concept-section h2 {
+  margin: 4px 0 8px;
 
   color: var(--black);
 
@@ -674,11 +728,13 @@ a:hover {
   line-height: 1.4;
 }
 
-.question {
+.concept-section p {
   max-width: 760px;
 
   margin: 0;
+}
 
+.recurring-question h2 {
   color: var(--blue);
 
   font-size: 17px;
@@ -687,36 +743,24 @@ a:hover {
   line-height: 1.5;
 }
 
+.recurring-question p {
+  margin-top: 8px;
+}
+
 
 /* =========================================================
-   DEVELOPING LENS
+   LENS SECTION / SEQUENCE
 ========================================================= */
 
 .lens-section {
   margin-top: 27px;
 }
 
-.lens-section h2 {
-  margin: 0 0 7px;
-
-  color: var(--black);
-
-  font-size: 18px;
-  font-weight: 650;
-}
-
 .lens-section p {
-  max-width: 760px;
-
-  margin: 0 0 10px;
+  margin-bottom: 10px;
 }
 
-
-/* =========================================================
-   SCP SEQUENCE
-========================================================= */
-
-.sequence {
+.lens-sequence {
   display: inline-flex;
   flex-wrap: wrap;
   align-items: center;
@@ -733,7 +777,7 @@ a:hover {
   line-height: 1.7;
 }
 
-.sequence span {
+.lens-sequence span:not(.sequence-arrow) {
   padding: 1px 4px;
 
   background: var(--blue-soft);
@@ -741,14 +785,13 @@ a:hover {
   border-bottom: 1px solid var(--blue-line);
 }
 
-.sequence .arrow {
+.sequence-arrow {
   padding: 0;
 
-  background: transparent;
-
-  border: 0;
-
   color: var(--light-muted);
+
+  background: transparent;
+  border: 0;
 }
 
 
@@ -763,32 +806,48 @@ a:hover {
   border-top: 1px solid var(--line);
 }
 
-.practice-section h2 {
-  margin: 0 0 7px;
-
-  color: var(--black);
-
-  font-size: 18px;
-  font-weight: 650;
+.practice-section .section-heading {
+  border-bottom: 0;
+  padding-bottom: 0;
 }
 
-.practice-section p {
+.practice-intro {
   max-width: 760px;
 
-  margin: 0 0 9px;
+  margin: 6px 0 0;
 }
+
+
+/* =========================================================
+   PRACTICE LINKS
+========================================================= */
 
 .practice-links {
   display: flex;
   flex-wrap: wrap;
   gap: 6px 17px;
+
+  margin-top: 12px;
 }
 
-.practice-links a {
+.practice-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
   font-size: 12.5px;
   font-weight: 600;
 
   text-underline-offset: 3px;
+}
+
+.practice-link span:last-child {
+  color: var(--light-muted);
+  transition: color 120ms ease;
+}
+
+.practice-link:hover span:last-child {
+  color: var(--blue);
 }
 
 
@@ -796,7 +855,7 @@ a:hover {
    FOOTER
 ========================================================= */
 
-.footer {
+.site-footer {
   margin-top: 43px;
   padding-top: 13px;
 
@@ -806,10 +865,26 @@ a:hover {
 
   font-size: 11px;
   line-height: 1.55;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-name {
+  color: var(--black);
+
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.footer-role {
+  color: var(--muted);
+  font-size: 11px;
 }
 
 .footer-links {
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
   gap: 0 11px;
 }
@@ -823,6 +898,11 @@ a:hover {
 .footer-links a:hover {
   color: var(--blue);
   text-decoration: underline;
+}
+
+.copyright {
+  color: var(--light-muted);
+  margin-top: 4px;
 }
 
 
@@ -840,7 +920,7 @@ a:hover {
     font-size: 14px;
   }
 
-  .site {
+  .site-shell {
     width: min(
       var(--content-width),
       calc(100% - 32px)
@@ -849,7 +929,7 @@ a:hover {
     display: block;
   }
 
-  .sidebar {
+  .identity {
     position: static;
 
     padding-top: 21px;
@@ -858,7 +938,42 @@ a:hover {
     border-bottom: 1px solid var(--line);
   }
 
-  .nav {
+  .identity-inner {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    grid-template-areas:
+      "portrait name"
+      "portrait role"
+      "links    links";
+    column-gap: 14px;
+    row-gap: 2px;
+    align-items: center;
+  }
+
+  .identity-name { grid-area: name; font-size: 15px; }
+  .identity-role { grid-area: role; margin-top: 0; }
+
+  .portrait {
+    grid-area: portrait;
+    width: 56px;
+    height: 56px;
+    margin: 0;
+  }
+
+  .identity-links {
+    grid-area: links;
+
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0 14px;
+
+    margin-top: 12px;
+    padding-top: 10px;
+
+    border-top: 1px solid var(--line);
+  }
+
+  .main-nav {
     margin-top: 16px;
     padding-top: 10px;
 
@@ -868,7 +983,7 @@ a:hover {
     gap: 2px 17px;
   }
 
-  .main {
+  .main-content {
     padding-top: 24px;
     padding-bottom: 48px;
   }
@@ -881,7 +996,7 @@ a:hover {
     font-size: 23px;
   }
 
-  .section-heading {
+  .section-heading h2 {
     font-size: 18px;
   }
 
@@ -904,7 +1019,7 @@ a:hover {
     padding: 18px 16px 21px;
   }
 
-  .question {
+  .recurring-question h2 {
     font-size: 16px;
   }
 }
@@ -919,7 +1034,8 @@ a:hover {
     scroll-behavior: auto;
   }
 
-  .research-trigger {
+  .research-trigger,
+  .practice-link span:last-child {
     transition: none;
   }
 }
