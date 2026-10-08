@@ -783,6 +783,185 @@ h1, h2, h3, h4, p {
 
 
 /* =========================================================
+   PAGE HEADER (GBA / Workshops)
+========================================================= */
+
+.page-header {
+  margin: 0;
+  padding: 4px 0 22px;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.page-title {
+  margin: 0 0 8px;
+
+  color: var(--blue);
+
+  font-size: 26px;
+  font-weight: 650;
+  line-height: 1.22;
+
+  letter-spacing: -0.018em;
+}
+
+.page-subtitle {
+  max-width: 620px;
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   PAGE INTRO
+========================================================= */
+
+.page-intro {
+  margin: 0;
+  padding: 22px 0 26px;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.page-intro p {
+  max-width: 690px;
+  margin: 0 0 10px;
+
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.page-intro p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   NOTES LIST (GBA archive)
+========================================================= */
+
+.notes-list {
+  margin: 0;
+}
+
+.note {
+  padding: 24px 0 26px;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.note:last-child {
+  border-bottom: 0;
+  padding-bottom: 32px;
+}
+
+.note-number {
+  margin: 0 0 8px;
+
+  color: var(--blue);
+
+  font-size: 18px;
+  font-weight: 700;
+
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+.note-title {
+  max-width: 640px;
+  margin: 0 0 7px;
+
+  color: var(--black);
+
+  font-size: 19px;
+  font-weight: 650;
+  line-height: 1.3;
+
+  letter-spacing: -0.008em;
+}
+
+.note-title a {
+  color: inherit;
+  text-decoration: none;
+
+  transition: color 120ms ease;
+}
+
+.note-title a:hover {
+  color: var(--blue);
+}
+
+.note-subtitle {
+  max-width: 640px;
+  margin: 0 0 12px;
+
+  color: var(--text);
+
+  font-size: 13.5px;
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.note-meta {
+  margin: 0 0 4px;
+
+  color: var(--muted);
+
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.note-tags {
+  margin: 0 0 14px;
+
+  color: var(--light-muted);
+
+  font-size: 11.5px;
+  line-height: 1.5;
+
+  letter-spacing: 0.01em;
+}
+
+.note-question {
+  max-width: 620px;
+  margin: 0;
+  padding-left: 14px;
+
+  border-left: 2px solid var(--blue-line);
+
+  color: var(--blue);
+
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   FOLLOWING SECTION (What I am following)
+========================================================= */
+
+.following-section {
+  margin-top: 34px;
+  padding-top: 22px;
+
+  border-top: 1px solid var(--line);
+}
+
+.following-section p {
+  max-width: 760px;
+  margin: 8px 0 0;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
    CONCEPT SECTIONS
 ========================================================= */
 
@@ -977,6 +1156,227 @@ h1, h2, h3, h4, p {
 
 .contact-inline code {
   font-size: 10.5px;
+}
+
+
+/* =========================================================
+   NOTE PAGE HEADER (single note)
+========================================================= */
+
+.note-page-header {
+  padding: 4px 0 22px;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.note-back {
+  display: inline-block;
+
+  margin-bottom: 20px;
+
+  color: var(--muted);
+
+  font-size: 12px;
+  text-decoration: none;
+
+  transition: color 120ms ease;
+}
+
+.note-back:hover {
+  color: var(--blue);
+}
+
+.note-page-number {
+  margin: 0 0 8px;
+
+  color: var(--blue);
+
+  font-size: 18px;
+  font-weight: 700;
+
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+.note-page-title {
+  max-width: 640px;
+  margin: 0 0 8px;
+
+  color: var(--black);
+
+  font-size: 22px;
+  font-weight: 650;
+  line-height: 1.3;
+
+  letter-spacing: -0.01em;
+}
+
+.note-page-subtitle {
+  max-width: 640px;
+  margin: 0 0 14px;
+
+  color: var(--text);
+
+  font-size: 13.5px;
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.note-page-meta {
+  margin: 0 0 4px;
+
+  color: var(--muted);
+
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.note-page-tags {
+  margin: 0;
+
+  color: var(--light-muted);
+
+  font-size: 11.5px;
+  line-height: 1.5;
+
+  letter-spacing: 0.01em;
+}
+
+
+/* =========================================================
+   NOTE BODY
+========================================================= */
+
+.note-body {
+  padding: 32px 0;
+}
+
+.note-body p {
+  max-width: 690px;
+  margin: 0 0 16px;
+
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.note-body h2 {
+  max-width: 690px;
+
+  margin: 32px 0 14px;
+
+  color: var(--black);
+
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.35;
+
+  letter-spacing: -0.005em;
+}
+
+.note-body h3 {
+  max-width: 690px;
+
+  margin: 30px 0 12px;
+
+  color: var(--black);
+
+  font-size: 15.5px;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+.note-body ul {
+  max-width: 690px;
+
+  margin: 0 0 16px;
+  padding-left: 20px;
+
+  list-style: disc;
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.note-body li {
+  margin: 4px 0;
+}
+
+.note-body li::marker {
+  color: var(--blue);
+}
+
+.note-body strong {
+  color: var(--black);
+  font-weight: 650;
+}
+
+.note-body blockquote {
+  max-width: 640px;
+
+  margin: 22px 0;
+  padding-left: 14px;
+
+  border-left: 2px solid var(--blue-line);
+
+  color: var(--blue);
+
+  font-style: italic;
+  line-height: 1.7;
+}
+
+.note-body blockquote p {
+  margin: 0;
+}
+
+.note-body a {
+  color: var(--blue);
+}
+
+.note-body img {
+  max-width: 690px;
+
+  margin: 18px 0;
+
+  border-radius: 3px;
+}
+
+.note-body figure {
+  max-width: 690px;
+
+  margin: 22px 0;
+}
+
+.note-body figcaption {
+  margin-top: 6px;
+
+  color: var(--muted);
+
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   NOTE FOOTER (back to GBA)
+========================================================= */
+
+.note-footer {
+  padding-top: 24px;
+
+  border-top: 1px solid var(--line);
+}
+
+.note-source {
+  max-width: 640px;
+
+  margin: 0 0 20px;
+
+  color: var(--muted);
+
+  font-size: 12.5px;
+  font-style: italic;
+  line-height: 1.6;
 }
 
 
@@ -1180,6 +1580,56 @@ h1, h2, h3, h4, p {
   .recurring-question h2 {
     font-size: 16px;
   }
+
+  /* GBA / Notes */
+
+  .page-title {
+    font-size: 22px;
+  }
+
+  .page-header {
+    padding-bottom: 18px;
+  }
+
+  .page-intro {
+    padding: 18px 0 22px;
+  }
+
+  .note {
+    padding: 20px 0 22px;
+  }
+
+  .note-title {
+    font-size: 17px;
+  }
+
+  .note-number {
+    font-size: 16px;
+  }
+
+  /* Note full page */
+
+  .note-page-title {
+    font-size: 19px;
+  }
+
+  .note-page-number {
+    font-size: 16px;
+  }
+
+  .note-body {
+    padding: 24px 0;
+  }
+
+  .note-body p,
+  .note-body ul {
+    font-size: 13.5px;
+  }
+
+  .note-body h2 {
+    font-size: 16px;
+    margin-top: 26px;
+  }
 }
 
 
@@ -1196,7 +1646,9 @@ h1, h2, h3, h4, p {
   .research-number,
   .practice-link span:last-child,
   .identity-links .contact summary,
-  .footer-links .contact summary {
+  .footer-links .contact summary,
+  .note-title a,
+  .note-back {
     transition: none;
   }
 }
