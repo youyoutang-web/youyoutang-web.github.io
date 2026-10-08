@@ -1,83 +1,69 @@
+/* =========================================================
+   Research Accordion
+   - Single-open behavior
+   - Keyboard accessible
+   - aria-expanded state
+   - Hidden panels
+========================================================= */
+
 document.addEventListener("DOMContentLoaded", () => {
-  const items = document.querySelectorAll(".research-item");
+  const triggers = document.querySelectorAll(".research-trigger");
 
-  items.forEach((item) => {
-    const trigger = item.querySelector(".research-trigger");
-    const content = item.querySelector(".research-content");
-    const icon = item.querySelector(".research-trigger__icon");
+  if (!triggers.length) {
+    return;
+  }
 
-    if (!trigger || !content || !icon) {
-      return;
+  function closeItem(trigger) {
+    const panelId = trigger.getAttribute("aria-controls");
+    const panel = document.getElementById(panelId);
+    const symbol = trigger.querySelector(".research-symbol");
+
+    trigger.setAttribute("aria-expanded", "false");
+
+    if (panel) {
+      panel.hidden = true;
     }
 
-    /*
-     * Set the initial visual state.
-     */
+    if (symbol) {
+      symbol.textContent = "+";
+    }
+  }
 
-    const initiallyExpanded =
-      trigger.getAttribute("aria-expanded") === "true";
+  function openItem(trigger) {
+    const panelId = trigger.getAttribute("aria-controls");
+    const panel = document.getElementById(panelId);
+    const symbol = trigger.querySelector(".research-symbol");
 
-    content.hidden = !initiallyExpanded;
-    icon.textContent = initiallyExpanded ? "−" : "+";
+    trigger.setAttribute("aria-expanded", "true");
 
+    if (panel) {
+      panel.hidden = false;
+    }
 
-    /*
-     * Open / close accordion.
-     *
-     * Only one research setting can remain open at a time.
-     */
+    if (symbol) {
+      symbol.textContent = "−";
+    }
+  }
 
-    trigger.addEventListener("click", () => {
-      const isExpanded =
-        trigger.getAttribute("aria-expanded") === "true";
+  function toggleItem(trigger) {
+    const isOpen = trigger.getAttribute("aria-expanded") === "true";
 
-      if (isExpanded) {
-        closeAccordion(trigger, content, icon);
-      } else {
-        closeAllAccordions();
-        openAccordion(trigger, content, icon);
+    triggers.forEach((otherTrigger) => {
+      if (otherTrigger !== trigger) {
+        closeItem(otherTrigger);
       }
+    });
+
+    if (isOpen) {
+      closeItem(trigger);
+    } else {
+      openItem(trigger);
+    }
+  }
+
+  triggers.forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      toggleItem(trigger);
     });
   });
-
-
-  /*
-   * Open an accordion.
-   */
-
-  function openAccordion(trigger, content, icon) {
-    trigger.setAttribute("aria-expanded", "true");
-    content.hidden = false;
-    icon.textContent = "−";
-  }
-
-
-  /*
-   * Close an accordion.
-   */
-
-  function closeAccordion(trigger, content, icon) {
-    trigger.setAttribute("aria-expanded", "false");
-    content.hidden = true;
-    icon.textContent = "+";
-  }
-
-
-  /*
-   * Close all accordions.
-   */
-
-  function closeAllAccordions() {
-    items.forEach((item) => {
-      const trigger = item.querySelector(".research-trigger");
-      const content = item.querySelector(".research-content");
-      const icon = item.querySelector(".research-trigger__icon");
-
-      if (!trigger || !content || !icon) {
-        return;
-      }
-
-      closeAccordion(trigger, content, icon);
-    });
-  }
 });
