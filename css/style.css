@@ -1,36 +1,26 @@
 /* =========================================================
-   YOUYOU TANG — ACADEMIC RESEARCH SITE
-   Compact academic / research-profile layout
+   Youyou Tang — Research Website
+   Compact academic / research profile
 ========================================================= */
 
 :root {
-  /* Core palette */
-  --black: #1b1b1b;
-  --text: #292929;
-  --muted: #6d6d6d;
-  --light-muted: #929292;
+  --black: #202020;
+  --text: #303030;
+  --muted: #707070;
+  --light-muted: #999999;
 
-  --blue: #234f73;
-  --blue-dark: #183d5a;
-
+  --blue: #244f73;
+  --blue-dark: #193d59;
   --blue-soft: #edf4f8;
-  --blue-softer: #f5f8fa;
-  --blue-line: #9db7c9;
+  --blue-line: #a9bfce;
 
-  --grey-soft: #f5f6f7;
-  --grey-hover: #f0f2f3;
-  --grey-line: #d8dadd;
+  --grey-soft: #f5f6f6;
+  --grey-hover: #f1f2f2;
+  --line: #d9d9d9;
 
-  --white: #ffffff;
-
-  /* Layout */
-  --max-width: 1120px;
-  --sidebar-width: 210px;
-  --column-gap: 52px;
-
-  /* Typography */
-  --body-size: 15px;
-  --body-line: 1.65;
+  --content-width: 1040px;
+  --sidebar-width: 170px;
+  --gap: 42px;
 }
 
 
@@ -38,9 +28,7 @@
    RESET
 ========================================================= */
 
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
 }
 
@@ -50,8 +38,7 @@ html {
 
 body {
   margin: 0;
-
-  background: var(--white);
+  background: #fff;
   color: var(--text);
 
   font-family:
@@ -62,27 +49,25 @@ body {
     Arial,
     sans-serif;
 
-  font-size: var(--body-size);
-  line-height: var(--body-line);
+  font-size: 14.5px;
+  line-height: 1.6;
 
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 img {
+  display: block;
   max-width: 100%;
-  height: auto;
 }
 
-button,
-input,
-textarea,
-select {
+button {
   font: inherit;
 }
 
 a {
   color: var(--blue);
+  text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
 }
@@ -93,37 +78,22 @@ a:hover {
 
 
 /* =========================================================
-   GLOBAL LAYOUT
+   MAIN PAGE GRID
 ========================================================= */
 
 .site {
   width: min(
-    var(--max-width),
-    calc(100% - 48px)
+    var(--content-width),
+    calc(100% - 44px)
   );
 
   margin: 0 auto;
 
   display: grid;
   grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
-
-  column-gap: var(--column-gap);
+  column-gap: var(--gap);
 
   align-items: start;
-}
-
-.sidebar {
-  position: sticky;
-  top: 28px;
-
-  padding-top: 30px;
-}
-
-.main {
-  min-width: 0;
-
-  padding-top: 30px;
-  padding-bottom: 70px;
 }
 
 
@@ -131,12 +101,19 @@ a:hover {
    SIDEBAR
 ========================================================= */
 
+.sidebar {
+  position: sticky;
+  top: 24px;
+
+  padding-top: 28px;
+}
+
 .sidebar-name {
   margin: 0;
 
   color: var(--black);
 
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 650;
   line-height: 1.3;
 }
@@ -146,46 +123,48 @@ a:hover {
 
   color: var(--muted);
 
-  font-size: 12.5px;
-  line-height: 1.5;
+  font-size: 12px;
+  line-height: 1.45;
 }
 
 .sidebar-links {
   display: flex;
   flex-wrap: wrap;
+  gap: 0 9px;
 
-  gap: 2px 10px;
-
-  margin-top: 13px;
+  margin-top: 11px;
 }
 
 .sidebar-links a {
   color: var(--muted);
 
-  font-size: 12px;
+  font-size: 11.5px;
+  line-height: 1.5;
+
+  text-decoration: none;
 }
 
 .sidebar-links a:hover {
   color: var(--blue);
+  text-decoration: underline;
 }
 
 .nav {
-  margin-top: 27px;
-  padding-top: 13px;
+  margin-top: 23px;
+  padding-top: 11px;
 
-  border-top: 1px solid var(--grey-line);
+  border-top: 1px solid var(--line);
 
   display: flex;
   flex-direction: column;
-
-  gap: 3px;
+  gap: 1px;
 }
 
 .nav a {
   color: var(--text);
 
-  font-size: 12.5px;
-  line-height: 1.6;
+  font-size: 12px;
+  line-height: 1.65;
 
   text-decoration: none;
 }
@@ -198,81 +177,92 @@ a:hover {
 
 
 /* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.main {
+  min-width: 0;
+
+  padding-top: 28px;
+  padding-bottom: 64px;
+}
+
+
+/* =========================================================
    HERO
 ========================================================= */
 
 .hero {
   margin: 0;
-  padding: 0 0 31px;
+  padding: 0 0 27px;
 }
 
 .hero h1 {
-  margin: 0 0 10px;
+  margin: 0 0 8px;
 
   color: var(--blue);
 
-  font-size: 27px;
+  font-size: 25px;
   font-weight: 650;
   line-height: 1.25;
 
-  letter-spacing: -0.015em;
+  letter-spacing: -0.012em;
 }
 
 .hero p {
-  max-width: 720px;
+  max-width: 690px;
 
   margin: 0;
 
   color: var(--text);
 
-  font-size: 15px;
-  line-height: 1.65;
+  font-size: 14.5px;
+  line-height: 1.62;
 }
 
 
 /* =========================================================
-   RESEARCH SECTION
+   SECTION HEADING
 ========================================================= */
 
-.research-section {
-  margin: 0;
-}
-
 .section-heading {
-  margin: 0 0 9px;
-  padding: 0 0 8px;
+  margin: 0;
+  padding: 0 0 7px;
 
-  border-bottom: 1px solid var(--grey-line);
+  border-bottom: 1px solid var(--line);
 
   color: var(--black);
 
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 650;
   line-height: 1.35;
 }
 
 
 /* =========================================================
-   RESEARCH ACCORDION
+   RESEARCH ITEMS
 ========================================================= */
 
 .research-item {
-  border-bottom: 1px solid var(--grey-line);
+  border-bottom: 1px solid var(--line);
 }
 
 
-/* ---------- clickable header ---------- */
+/* =========================================================
+   RESEARCH ITEM HEADER
+========================================================= */
 
 .research-trigger {
   width: 100%;
 
   display: grid;
-  grid-template-columns: 32px minmax(0, 1fr) 22px;
-  column-gap: 8px;
+  grid-template-columns: 29px minmax(0, 1fr) 18px;
+  column-gap: 7px;
 
   align-items: start;
 
-  padding: 14px 5px 14px 0;
+  margin: 0;
+  padding: 12px 3px 12px 0;
 
   border: 0;
   border-left: 3px solid transparent;
@@ -296,12 +286,11 @@ a:hover {
 
 .research-trigger[aria-expanded="true"] {
   border-left-color: var(--blue);
-
   background: var(--grey-soft);
 }
 
 
-/* ---------- number ---------- */
+/* number */
 
 .research-number {
   padding-top: 1px;
@@ -311,19 +300,19 @@ a:hover {
   font-size: 11px;
   font-weight: 600;
 
-  line-height: 1.7;
+  line-height: 1.55;
 }
 
 
-/* ---------- title ---------- */
+/* title */
 
 .research-title {
   color: var(--black);
 
-  font-size: 16px;
+  font-size: 15.5px;
   font-weight: 650;
 
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
 .research-trigger[aria-expanded="true"] .research-title {
@@ -331,12 +320,12 @@ a:hover {
 }
 
 
-/* ---------- subtitle ---------- */
+/* subtitle */
 
 .research-subtitle {
   display: block;
 
-  margin-top: 2px;
+  margin-top: 1px;
 
   color: var(--muted);
 
@@ -347,34 +336,32 @@ a:hover {
 }
 
 
-/* ---------- plus / minus ---------- */
+/* plus / minus */
 
 .research-icon {
-  padding-top: 0;
-
   color: var(--blue);
 
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 400;
 
-  line-height: 1.2;
+  line-height: 1.35;
 
   text-align: right;
 }
 
 
 /* =========================================================
-   EXPANDED PANEL
+   EXPANDED CONTENT
 ========================================================= */
 
 .research-panel {
   margin: 0;
 
-  padding: 23px 27px 28px;
+  padding: 20px 25px 24px;
 
   background: var(--grey-soft);
 
-  border-top: 1px solid #e3e4e5;
+  border-top: 1px solid #e3e3e3;
 
   color: var(--text);
 }
@@ -384,25 +371,25 @@ a:hover {
 }
 
 .research-panel p {
-  max-width: 780px;
+  max-width: 750px;
 
-  margin: 0 0 13px;
+  margin: 0 0 12px;
 }
 
 
 /* =========================================================
-   PROJECT INTRO
+   PROJECT TITLE
 ========================================================= */
 
 .project-title {
-  margin: 0 0 5px;
+  margin: 0;
 
   color: var(--blue);
 
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
 
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
 .project-title::after {
@@ -410,34 +397,39 @@ a:hover {
 
   display: block;
 
-  width: 28px;
+  width: 25px;
   height: 2px;
 
-  margin-top: 6px;
+  margin-top: 5px;
 
   background: var(--blue);
 }
 
-.project-description {
-  max-width: 760px;
 
-  margin-top: 12px;
+/* =========================================================
+   PROJECT DESCRIPTION
+========================================================= */
+
+.project-description {
+  max-width: 750px;
+
+  margin-top: 10px;
 }
 
 
 /* =========================================================
-   INFORMATION LABELS
+   SECTION LABELS
 ========================================================= */
 
 .info-label {
-  margin: 20px 0 6px;
+  margin: 18px 0 5px;
 
   color: var(--blue);
 
-  font-size: 10.5px;
+  font-size: 10px;
   font-weight: 750;
 
-  line-height: 1.4;
+  line-height: 1.35;
 
   letter-spacing: 0.075em;
   text-transform: uppercase;
@@ -449,11 +441,10 @@ a:hover {
 ========================================================= */
 
 .empirical-grounding {
-  margin-top: 14px;
+  margin-top: 15px;
+  padding-top: 10px;
 
-  padding-top: 11px;
-
-  border-top: 1px solid var(--grey-line);
+  border-top: 1px solid var(--line);
 }
 
 .empirical-grounding .info-label {
@@ -463,9 +454,9 @@ a:hover {
 .empirical-grounding p {
   margin-bottom: 0;
 
-  color: #444;
+  color: #505050;
 
-  font-size: 13px;
+  font-size: 12.5px;
 }
 
 
@@ -475,11 +466,11 @@ a:hover {
 
 .info-list {
   margin: 0;
-  padding-left: 18px;
+  padding-left: 17px;
 
-  color: #3d3d3d;
+  color: #414141;
 
-  font-size: 13.5px;
+  font-size: 13px;
 }
 
 .info-list li {
@@ -492,12 +483,65 @@ a:hover {
 
 
 /* =========================================================
-   INLINE CONCEPTUAL EMPHASIS
+   KEY OBSERVATIONS
+========================================================= */
 
-   Use these classes selectively in HTML:
-   <span class="concept">coordination requirement</span>
-   <span class="concept-fill">placement</span>
-   <span class="concept-link">dependency</span>
+.key-observations {
+  position: relative;
+
+  margin: 20px 0;
+
+  padding: 14px 17px 15px;
+
+  background: var(--blue-soft);
+
+  border-left: 3px solid var(--blue-line);
+}
+
+.key-observations::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -3px;
+
+  width: 3px;
+  height: 28px;
+
+  background: var(--blue);
+}
+
+.key-observations-label {
+  margin: 0 0 5px;
+
+  color: var(--blue);
+
+  font-size: 10px;
+  font-weight: 750;
+
+  line-height: 1.35;
+
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+}
+
+.key-observations p {
+  max-width: 750px;
+
+  margin: 0;
+
+  color: #2e3c44;
+
+  font-size: 13px;
+  line-height: 1.62;
+}
+
+
+/* =========================================================
+   INLINE EMPHASIS
+
+   Use selectively in HTML.
 ========================================================= */
 
 .concept {
@@ -521,95 +565,32 @@ a:hover {
   font-weight: 650;
 }
 
-.concept-link {
+.highlight {
   color: var(--blue);
 
-  font-weight: 650;
-
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
+  font-weight: 700;
 }
 
 
 /* =========================================================
-   KEY OBSERVATIONS
-
-   This is the strongest visual block inside projects.
+   CURRENT QUESTIONS
 ========================================================= */
 
-.key-observations {
-  margin: 22px 0;
-
-  padding: 16px 19px 17px;
-
-  background: var(--blue-soft);
-
-  border-left: 3px solid var(--blue-line);
-
-  position: relative;
+.current-questions {
+  margin-top: 18px;
 }
 
-.key-observations::before {
-  content: "";
+.current-questions p {
+  margin: 0 0 7px;
 
-  position: absolute;
-
-  top: 0;
-  left: -3px;
-
-  width: 3px;
-  height: 34px;
-
-  background: var(--blue);
-}
-
-.key-observations-label {
-  margin: 0 0 6px;
-
-  color: var(--blue);
-
-  font-size: 10.5px;
-  font-weight: 750;
-
-  line-height: 1.4;
-
-  letter-spacing: 0.075em;
-  text-transform: uppercase;
-}
-
-.key-observations p {
-  max-width: 760px;
-
-  margin: 0;
-
-  color: #263640;
-
-  font-size: 13.5px;
-  line-height: 1.65;
-}
-
-
-/* =========================================================
-   SECONDARY OBSERVATION / RESEARCH NOTE
-========================================================= */
-
-.research-note {
-  margin: 17px 0;
-
-  padding: 12px 15px;
-
-  background: rgba(255, 255, 255, 0.7);
-
-  border-left: 2px solid var(--grey-line);
-}
-
-.research-note p {
-  margin: 0;
-
-  color: #555;
+  color: #414141;
 
   font-size: 13px;
+  line-height: 1.6;
+}
+
+.current-questions p:last-child {
+  margin-bottom: 0;
 }
 
 
@@ -618,11 +599,11 @@ a:hover {
 ========================================================= */
 
 .selected-outputs {
-  margin-top: 23px;
+  margin-top: 20px;
 }
 
 .output {
-  margin: 0 0 11px;
+  margin: 0 0 10px;
 }
 
 .output:last-child {
@@ -632,15 +613,16 @@ a:hover {
 .output-title {
   color: var(--text);
 
-  font-size: 13.5px;
+  font-size: 13px;
   font-weight: 650;
+
   line-height: 1.5;
 }
 
 .output-meta {
   color: var(--muted);
 
-  font-size: 12px;
+  font-size: 11.5px;
   line-height: 1.5;
 }
 
@@ -650,23 +632,23 @@ a:hover {
 
 
 /* =========================================================
-   RESEARCH STATUS
+   STATUS
 ========================================================= */
 
 .research-status {
   display: inline-block;
 
-  margin-top: 17px;
-  padding: 2px 7px;
+  margin-top: 14px;
+  padding: 2px 6px;
 
-  background: #e8eef2;
+  background: #e9eff3;
 
   color: var(--blue);
 
-  font-size: 10.5px;
+  font-size: 9.5px;
   font-weight: 700;
 
-  letter-spacing: 0.03em;
+  letter-spacing: 0.035em;
   text-transform: uppercase;
 }
 
@@ -676,20 +658,20 @@ a:hover {
 ========================================================= */
 
 .question-section {
-  margin-top: 38px;
-  padding-top: 22px;
+  margin-top: 34px;
+  padding-top: 20px;
 
-  border-top: 1px solid var(--grey-line);
+  border-top: 1px solid var(--line);
 }
 
 .question-section h2 {
-  margin: 0 0 9px;
+  margin: 0 0 8px;
 
   color: var(--black);
 
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 650;
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
 .question {
@@ -699,9 +681,10 @@ a:hover {
 
   color: var(--blue);
 
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 650;
-  line-height: 1.45;
+
+  line-height: 1.5;
 }
 
 
@@ -710,41 +693,48 @@ a:hover {
 ========================================================= */
 
 .lens-section {
-  margin-top: 29px;
+  margin-top: 27px;
 }
 
 .lens-section h2 {
-  margin: 0 0 8px;
+  margin: 0 0 7px;
 
   color: var(--black);
 
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 650;
 }
 
 .lens-section p {
-  max-width: 780px;
+  max-width: 760px;
 
-  margin: 0 0 11px;
+  margin: 0 0 10px;
 }
+
+
+/* =========================================================
+   SCP SEQUENCE
+========================================================= */
 
 .sequence {
   display: inline-flex;
   flex-wrap: wrap;
   align-items: center;
 
-  gap: 4px;
+  gap: 3px;
 
-  margin-top: 2px;
+  margin-top: 1px;
 
   color: var(--blue);
 
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 650;
+
+  line-height: 1.7;
 }
 
 .sequence span {
-  padding: 2px 5px;
+  padding: 1px 4px;
 
   background: var(--blue-soft);
 
@@ -767,39 +757,37 @@ a:hover {
 ========================================================= */
 
 .practice-section {
-  margin-top: 31px;
-  padding-top: 21px;
+  margin-top: 29px;
+  padding-top: 19px;
 
-  border-top: 1px solid var(--grey-line);
+  border-top: 1px solid var(--line);
 }
 
 .practice-section h2 {
-  margin: 0 0 8px;
+  margin: 0 0 7px;
 
   color: var(--black);
 
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 650;
 }
 
 .practice-section p {
   max-width: 760px;
 
-  margin: 0 0 10px;
+  margin: 0 0 9px;
 }
 
 .practice-links {
   display: flex;
   flex-wrap: wrap;
-
-  gap: 8px 18px;
+  gap: 6px 17px;
 }
 
 .practice-links a {
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 600;
 
-  text-decoration: underline;
   text-underline-offset: 3px;
 }
 
@@ -809,59 +797,32 @@ a:hover {
 ========================================================= */
 
 .footer {
-  margin-top: 48px;
-  padding-top: 14px;
+  margin-top: 43px;
+  padding-top: 13px;
 
-  border-top: 1px solid var(--grey-line);
+  border-top: 1px solid var(--line);
 
   color: var(--muted);
 
-  font-size: 11.5px;
-  line-height: 1.6;
+  font-size: 11px;
+  line-height: 1.55;
 }
 
 .footer-links {
   display: inline-flex;
-
   flex-wrap: wrap;
-
-  gap: 0 12px;
+  gap: 0 11px;
 }
 
 .footer-links a {
   color: var(--muted);
+
+  text-decoration: none;
 }
 
 .footer-links a:hover {
   color: var(--blue);
-}
-
-
-/* =========================================================
-   SMALL HIGHLIGHT UTILITY
-
-   For especially important phrases.
-========================================================= */
-
-.highlight {
-  padding: 1px 4px;
-
-  background: var(--blue-soft);
-
-  color: var(--blue);
-
-  font-weight: 700;
-}
-
-.highlight-underline {
-  color: var(--blue);
-
-  font-weight: 650;
-
   text-decoration: underline;
-  text-decoration-color: var(--blue);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
 }
 
 
@@ -872,13 +833,17 @@ a:hover {
 @media (max-width: 800px) {
 
   :root {
-    --body-size: 14.5px;
+    --content-width: 680px;
+  }
+
+  body {
+    font-size: 14px;
   }
 
   .site {
     width: min(
-      100% - 32px,
-      680px
+      var(--content-width),
+      calc(100% - 32px)
     );
 
     display: block;
@@ -887,63 +852,60 @@ a:hover {
   .sidebar {
     position: static;
 
-    padding-top: 22px;
-    padding-bottom: 16px;
+    padding-top: 21px;
+    padding-bottom: 14px;
 
-    border-bottom: 1px solid var(--grey-line);
+    border-bottom: 1px solid var(--line);
   }
 
   .nav {
-    margin-top: 17px;
-    padding-top: 11px;
+    margin-top: 16px;
+    padding-top: 10px;
 
     flex-direction: row;
     flex-wrap: wrap;
 
-    gap: 4px 17px;
+    gap: 2px 17px;
   }
 
   .main {
-    padding-top: 25px;
-    padding-bottom: 50px;
+    padding-top: 24px;
+    padding-bottom: 48px;
   }
 
   .hero {
-    padding-bottom: 26px;
+    padding-bottom: 23px;
   }
 
   .hero h1 {
-    font-size: 24px;
+    font-size: 23px;
   }
 
   .section-heading {
-    font-size: 19px;
+    font-size: 18px;
   }
 
   .research-trigger {
-    grid-template-columns: 28px minmax(0, 1fr) 20px;
+    grid-template-columns: 27px minmax(0, 1fr) 17px;
 
-    padding: 13px 3px 13px 0;
+    padding-top: 11px;
+    padding-bottom: 11px;
   }
 
   .research-title {
     font-size: 15px;
   }
 
-  .research-panel {
-    padding: 19px 17px 23px;
+  .research-subtitle {
+    font-size: 12px;
   }
 
-  .project-title {
-    font-size: 17px;
+  .research-panel {
+    padding: 18px 16px 21px;
   }
 
   .question {
-    font-size: 17px;
-  }
-
-  .sequence {
-    line-height: 1.8;
+    font-size: 16px;
   }
 }
 
