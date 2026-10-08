@@ -2,6 +2,7 @@
    Research Accordion
    - Single-open behavior
    - Keyboard accessible
+   - Escape closes the open item
    - aria-expanded state
    - Hidden panels
 ========================================================= */
@@ -64,6 +65,22 @@ document.addEventListener("DOMContentLoaded", () => {
   triggers.forEach((trigger) => {
     trigger.addEventListener("click", () => {
       toggleItem(trigger);
+    });
+  });
+
+  /* ---------------------------------------------------------
+     Escape closes the currently open item and returns focus
+  --------------------------------------------------------- */
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") {
+      return;
+    }
+
+    triggers.forEach((trigger) => {
+      if (trigger.getAttribute("aria-expanded") === "true") {
+        closeItem(trigger);
+        trigger.focus();
+      }
     });
   });
 });
