@@ -1,33 +1,48 @@
-/* ========================================
-   Design Tokens
-   ======================================== */
+```css
+/* =========================================================
+   Youyou Tang — Personal Research Website
+   Visual System V3
+   JaeWon-inspired academic layout
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   01. Design tokens
+   --------------------------------------------------------- */
 
 :root {
-  --bg: #ffffff;
-  --text: #1a1a1a;
-  --text-muted: #555555;
-  --link: #2f5f9f;
-  --link-hover: #1d477d;
+  --background: #ffffff;
+  --text: #111111;
+  --muted: #666666;
+  --accent: #315f8a;
   --rule: #dddddd;
   --surface: #f7f7f7;
 
-  --content-width: 900px;
-  --page-padding: 40px;
+  --page-width: 1080px;
+  --content-width: 820px;
 
-  --space-xs: 8px;
-  --space-sm: 16px;
-  --space-md: 24px;
-  --space-lg: 40px;
-  --space-xl: 64px;
-  --space-2xl: 96px;
+  --font-sans:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  --text-size: 15.5px;
+  --text-line: 1.65;
+
+  --transition: 160ms ease;
 }
 
 
-/* ========================================
-   Base
-   ======================================== */
+/* ---------------------------------------------------------
+   02. Reset
+   --------------------------------------------------------- */
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -37,21 +52,13 @@ html {
 
 body {
   margin: 0;
-
-  background: var(--bg);
+  background: var(--background);
   color: var(--text);
-
-  font-family:
-    "Source Sans 3",
-    "Inter",
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
-
-  font-size: 16px;
-  line-height: 1.65;
+  font-family: var(--font-sans);
+  font-size: var(--text-size);
+  line-height: var(--text-line);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 img {
@@ -59,240 +66,219 @@ img {
   max-width: 100%;
 }
 
-a {
-  color: var(--link);
-
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-}
-
-a:hover,
-a:focus-visible {
-  color: var(--link-hover);
-}
-
-button {
+button,
+input,
+textarea,
+select {
   font: inherit;
 }
 
-button:focus-visible,
-a:focus-visible {
-  outline: 2px solid var(--link);
-  outline-offset: 3px;
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+::selection {
+  background: #dce7f0;
 }
 
 
-/* ========================================
-   Header
-   ======================================== */
+/* ---------------------------------------------------------
+   03. Site header
+   --------------------------------------------------------- */
 
 .site-header {
-  width: 100%;
+  width: min(
+    calc(100% - 48px),
+    var(--page-width)
+  );
+
+  margin: 0 auto;
+  padding: 24px 0;
+
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
 
   border-bottom: 1px solid var(--rule);
 }
 
-.site-header__inner {
-  width: min(
-    calc(100% - (var(--page-padding) * 2)),
-    1180px
-  );
-
-  min-height: 64px;
-
-  margin: 0 auto;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: var(--space-lg);
-}
-
 .site-header__logo {
   color: var(--text);
-
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 600;
-
-  text-decoration: none;
+  letter-spacing: -0.01em;
 }
 
-.site-header__logo:hover,
-.site-header__logo:focus-visible {
-  color: var(--link);
+.site-header__logo:hover {
+  text-decoration: none;
 }
 
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 22px;
 }
 
 .site-nav a {
+  color: var(--text);
   font-size: 14px;
-  text-decoration: none;
+}
+
+.site-nav a:hover {
+  color: var(--accent);
 }
 
 
-/* ========================================
-   Main Layout
-   ======================================== */
+/* ---------------------------------------------------------
+   04. Main layout
+   --------------------------------------------------------- */
 
 .site-layout {
   width: min(
-    calc(100% - (var(--page-padding) * 2)),
-    var(--content-width)
+    calc(100% - 48px),
+    var(--page-width)
   );
 
   margin: 0 auto;
 }
 
-
-/* ========================================
-   Identity
-   ======================================== */
-
 .identity {
-  padding: 56px 0 40px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  padding: 34px 0 30px;
+
+  border-bottom: 1px solid var(--rule);
 }
 
 .profile {
-  width: 112px;
-  margin: 0 0 24px;
+  flex: 0 0 auto;
+  width: 72px;
+  height: 72px;
+  margin: 0;
+  overflow: hidden;
+  background: var(--surface);
 }
 
 .profile img {
-  width: 112px;
-  height: 112px;
-
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+}
+
+.identity__text {
+  min-width: 0;
 }
 
 .identity__name {
   margin: 0;
 
-  font-size: 19px;
+  font-size: 18px;
   line-height: 1.25;
   font-weight: 600;
-
   letter-spacing: -0.01em;
 }
 
 .identity__role {
-  margin: 6px 0 0;
+  margin: 3px 0 0;
 
-  color: var(--text-muted);
-
-  font-size: 15px;
+  color: var(--muted);
+  font-size: 14px;
   line-height: 1.4;
 }
 
 .identity__links {
-  margin-top: 20px;
-
   display: flex;
   flex-wrap: wrap;
-  gap: 18px;
+  gap: 14px;
+
+  margin-top: 8px;
 }
 
 .identity__links a {
-  font-size: 14px;
-  text-decoration: none;
+  font-size: 13px;
 }
 
 
-/* ========================================
-   Main Content
-   ======================================== */
+/* ---------------------------------------------------------
+   05. Content column
+   --------------------------------------------------------- */
 
 .content {
-  width: 100%;
-
-  padding-bottom: 120px;
+  width: min(100%, var(--content-width));
+  margin: 0 auto;
+  padding: 72px 0 110px;
 }
 
 
-/* ========================================
-   Hero
-   ======================================== */
+/* ---------------------------------------------------------
+   06. Hero
+   --------------------------------------------------------- */
 
 .hero {
-  padding: 24px 0 80px;
+  margin-bottom: 76px;
 }
 
 .hero h1 {
-  margin: 0;
+  margin: 0 0 12px;
 
-  font-size: 36px;
+  font-size: 32px;
   line-height: 1.15;
-  font-weight: 500;
-
+  font-weight: 600;
   letter-spacing: -0.025em;
 }
 
 .hero__role {
-  margin: 8px 0 0;
+  margin: 0 0 25px;
 
-  color: var(--text-muted);
-
-  font-size: 17px;
-  line-height: 1.4;
+  color: var(--muted);
+  font-size: 16px;
 }
 
 .hero__statement {
-  max-width: 720px;
+  max-width: 700px;
+  margin: 0;
 
-  margin: 32px 0 0;
-
-  font-size: 21px;
-  line-height: 1.5;
-
+  font-size: 19px;
+  line-height: 1.55;
   letter-spacing: -0.01em;
 }
 
-.hero__question {
-  max-width: 720px;
 
-  margin: 20px 0 0;
+/* ---------------------------------------------------------
+   07. Section structure
+   --------------------------------------------------------- */
 
-  color: var(--link);
-
-  font-size: 22px;
-  line-height: 1.45;
-  font-weight: 500;
+section {
+  margin: 0 0 78px;
 }
 
-
-/* ========================================
-   Section Headers
-   ======================================== */
-
-.section-header {
-  margin-bottom: 16px;
-}
-
-.section-header h2,
-.question h2,
-.lens h2,
-.practice h2 {
-  margin: 0;
-
-  color: var(--text);
+.section-label {
+  margin: 0 0 25px;
 
   font-size: 13px;
   line-height: 1.4;
   font-weight: 600;
-
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 
-/* ========================================
-   Research Accordion
-   ======================================== */
+/* ---------------------------------------------------------
+   08. Research accordion
+   --------------------------------------------------------- */
 
 .research {
+  margin-bottom: 86px;
+}
+
+.research-list {
   border-top: 1px solid var(--rule);
 }
 
@@ -300,68 +286,78 @@ a:focus-visible {
   border-bottom: 1px solid var(--rule);
 }
 
+
+/* Trigger */
+
 .research-trigger {
   width: 100%;
-
+  margin: 0;
   padding: 22px 0;
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 24px;
+  align-items: start;
 
   border: 0;
   background: transparent;
+
   color: var(--text);
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 24px;
-
   text-align: left;
 
   cursor: pointer;
 }
 
 .research-trigger:hover {
-  color: var(--link);
+  color: var(--accent);
+}
+
+.research-trigger:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
 
 .research-trigger__text {
   min-width: 0;
-
-  display: flex;
-  flex-direction: column;
-
-  gap: 3px;
+  display: block;
 }
 
 .research-trigger__title {
-  font-size: 18px;
-  line-height: 1.35;
-  font-weight: 500;
+  display: block;
 
+  font-size: 17px;
+  line-height: 1.35;
+  font-weight: 600;
   letter-spacing: -0.01em;
 }
 
 .research-trigger__subtitle {
-  color: var(--text-muted);
+  display: block;
 
+  margin-top: 4px;
+
+  color: var(--muted);
   font-size: 14px;
   line-height: 1.45;
 }
 
 .research-trigger__icon {
-  flex: 0 0 auto;
+  width: 20px;
 
-  color: var(--link);
-
-  font-size: 19px;
-  line-height: 1;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.3;
   font-weight: 400;
+
+  text-align: right;
 }
+
+
+/* Expanded content */
 
 .research-content {
   max-width: 760px;
-
-  padding: 4px 0 44px;
+  padding: 4px 0 34px;
 }
 
 .research-content[hidden] {
@@ -369,298 +365,231 @@ a:focus-visible {
 }
 
 .research-content h3 {
-  margin: 12px 0 18px;
+  margin: 0 0 12px;
 
-  font-size: 24px;
+  font-size: 18px;
   line-height: 1.35;
-  font-weight: 500;
-
-  letter-spacing: -0.015em;
+  font-weight: 600;
 }
 
 .research-content p {
-  margin: 0 0 18px;
+  margin: 0 0 16px;
 }
 
-.research-content > p:last-of-type {
+.research-content p:last-child {
   margin-bottom: 0;
 }
 
-
-/* ========================================
-   Research Subsections
-   ======================================== */
-
-.research-subsection {
-  margin-top: 36px;
-}
-
-.research-subsection h4 {
-  margin: 0 0 12px;
-
-  color: var(--text-muted);
-
-  font-size: 11px;
-  line-height: 1.4;
-  font-weight: 600;
-
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.research-subsection p {
-  margin-bottom: 14px;
-}
-
-.research-subsection ul {
-  margin: 0;
+.research-content ul {
+  margin: 0 0 20px;
   padding-left: 20px;
 }
 
-.research-subsection li {
-  margin-bottom: 6px;
+.research-content li {
+  margin-bottom: 5px;
+}
+
+.research-content strong {
+  font-weight: 600;
 }
 
 
-/* ========================================
-   Outputs
-   ======================================== */
+/* Research subsections */
 
-.output {
-  margin-top: 28px;
-  padding-top: 18px;
-
-  border-top: 1px solid var(--rule);
+.research-subsection {
+  margin-top: 32px;
 }
 
-.output:first-of-type {
-  margin-top: 18px;
+.research-subsection:first-child {
+  margin-top: 0;
 }
 
-.output__venue {
-  margin: 0 0 6px;
+.research-subsection h4 {
+  margin: 0 0 10px;
 
-  color: var(--text-muted);
-
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.4;
   font-weight: 600;
-
-  letter-spacing: 0.06em;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
 }
 
+
+/* ---------------------------------------------------------
+   09. Selected outputs
+   --------------------------------------------------------- */
+
+.outputs {
+  margin-top: 30px;
+}
+
+.output {
+  margin: 0 0 22px;
+}
+
+.output:last-child {
+  margin-bottom: 0;
+}
+
+.output__venue {
+  margin-bottom: 3px;
+
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
 .output__title {
-  margin: 0 0 6px;
+  margin: 0;
 
   font-size: 15px;
-  line-height: 1.55;
-}
-
-.output__type,
-.output__meta {
-  margin: 0;
-
-  color: var(--text-muted);
-
-  font-size: 13px;
   line-height: 1.5;
-}
-
-.output__link {
-  margin: 8px 0 0;
-
-  font-size: 13px;
-}
-
-.output__link a {
-  text-decoration: none;
-}
-
-
-/* ========================================
-   Internal Links
-   ======================================== */
-
-.section-link {
-  display: inline-block;
-
-  margin-top: 32px;
-
-  font-size: 14px;
   font-weight: 500;
+}
 
-  text-decoration: none;
+.output__meta {
+  margin-top: 3px;
+
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
 }
 
 
-/* ========================================
-   Recurring Question
-   ======================================== */
+/* ---------------------------------------------------------
+   10. Research question
+   --------------------------------------------------------- */
 
 .question {
-  margin-top: 88px;
-  padding-top: 56px;
-
-  border-top: 1px solid var(--rule);
+  padding-top: 4px;
 }
 
-.question__main {
-  max-width: 720px;
+.question h2 {
+  margin: 0 0 18px;
 
-  margin: 28px 0 20px;
-
-  font-size: 27px;
-  line-height: 1.4;
-
-  letter-spacing: -0.02em;
+  font-size: 20px;
+  line-height: 1.35;
+  font-weight: 600;
 }
 
-.question > p:last-child {
-  max-width: 720px;
-
+.question__text {
+  max-width: 760px;
   margin: 0;
 
-  color: var(--text-muted);
-
-  font-size: 16px;
-  line-height: 1.65;
-}
-
-
-/* ========================================
-   Developing Lens
-   ======================================== */
-
-.lens {
-  margin-top: 80px;
-  padding-top: 56px;
-
-  border-top: 1px solid var(--rule);
-}
-
-.lens h3 {
-  margin: 28px 0 16px;
-
   font-size: 22px;
-  line-height: 1.4;
-  font-weight: 500;
-
+  line-height: 1.5;
   letter-spacing: -0.015em;
 }
 
-.lens > p:not(.lens__sequence) {
-  max-width: 720px;
 
+/* ---------------------------------------------------------
+   11. Developing lens
+   --------------------------------------------------------- */
+
+.lens h2 {
+  margin: 0 0 18px;
+
+  font-size: 20px;
+  line-height: 1.35;
+  font-weight: 600;
+}
+
+.lens h3 {
+  margin: 0 0 10px;
+
+  font-size: 17px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.lens p {
+  max-width: 760px;
   margin: 0;
-
-  color: var(--text-muted);
-
-  font-size: 16px;
-  line-height: 1.65;
 }
 
 .lens__sequence {
-  margin: 28px 0 0;
+  margin-top: 25px;
 
-  color: var(--link);
+  color: var(--muted);
 
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.7;
 }
 
 
-/* ========================================
-   Situated Practice
-   ======================================== */
+/* ---------------------------------------------------------
+   12. Situated practice
+   --------------------------------------------------------- */
 
-.practice {
-  margin-top: 80px;
-  padding-top: 56px;
+.practice h2 {
+  margin: 0 0 18px;
 
-  border-top: 1px solid var(--rule);
+  font-size: 20px;
+  line-height: 1.35;
+  font-weight: 600;
 }
 
-.practice > p {
-  max-width: 720px;
-
-  margin: 28px 0 0;
-
-  font-size: 16px;
-  line-height: 1.65;
-}
-
-.practice__links {
-  margin-top: 24px;
-
-  display: flex;
-  gap: 24px;
-}
-
-.practice__links a {
-  font-size: 14px;
-  font-weight: 500;
-
-  text-decoration: none;
+.practice p {
+  max-width: 760px;
+  margin: 0;
 }
 
 
-/* ========================================
-   Footer
-   ======================================== */
+/* ---------------------------------------------------------
+   13. Footer
+   --------------------------------------------------------- */
 
 .site-footer {
   width: min(
-    calc(100% - (var(--page-padding) * 2)),
-    var(--content-width)
+    calc(100% - 48px),
+    var(--page-width)
   );
 
   margin: 0 auto;
-
-  padding: 40px 0 56px;
+  padding: 26px 0 40px;
 
   border-top: 1px solid var(--rule);
 
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-
-  gap: 24px;
-
-  color: var(--text-muted);
-
+  color: var(--muted);
   font-size: 13px;
   line-height: 1.5;
 }
 
-.site-footer p {
-  margin: 0;
-}
-
-.site-footer nav {
+.site-footer__inner {
   display: flex;
-  gap: 18px;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
 }
 
 .site-footer a {
-  text-decoration: none;
+  color: var(--muted);
+}
+
+.site-footer a:hover {
+  color: var(--accent);
+}
+
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
 }
 
 
-/* ========================================
-   Responsive — Mobile
-   ======================================== */
+/* ---------------------------------------------------------
+   14. Responsive
+   --------------------------------------------------------- */
 
 @media (max-width: 768px) {
 
-  :root {
-    --page-padding: 20px;
-  }
+  .site-header {
+    width: min(
+      calc(100% - 32px),
+      var(--page-width)
+    );
 
-  .site-header__inner {
-    min-height: 60px;
-
-    gap: 20px;
+    padding: 20px 0;
   }
 
   .site-nav {
@@ -671,121 +600,147 @@ a:focus-visible {
     font-size: 13px;
   }
 
-  .identity {
-    padding-top: 40px;
-    padding-bottom: 28px;
+  .site-layout {
+    width: min(
+      calc(100% - 32px),
+      var(--page-width)
+    );
   }
 
-  .profile,
-  .profile img {
-    width: 96px;
-    height: 96px;
+  .identity {
+    padding: 26px 0 24px;
   }
 
   .profile {
-    margin-bottom: 20px;
-  }
-
-  .identity__links {
-    margin-top: 18px;
-
-    gap: 14px 20px;
+    width: 60px;
+    height: 60px;
   }
 
   .content {
-    padding-bottom: 88px;
+    padding: 52px 0 80px;
   }
 
   .hero {
-    padding-top: 16px;
-    padding-bottom: 64px;
+    margin-bottom: 58px;
   }
 
   .hero h1 {
-    font-size: 31px;
-  }
-
-  .hero__role {
-    font-size: 16px;
+    font-size: 28px;
   }
 
   .hero__statement {
-    margin-top: 28px;
-
-    font-size: 19px;
+    font-size: 18px;
   }
 
-  .hero__question {
-    margin-top: 18px;
+  section {
+    margin-bottom: 64px;
+  }
 
-    font-size: 21px;
+  .research {
+    margin-bottom: 70px;
   }
 
   .research-trigger {
     padding: 20px 0;
-
-    gap: 16px;
+    column-gap: 16px;
   }
 
   .research-trigger__title {
-    font-size: 17px;
+    font-size: 16px;
   }
 
   .research-trigger__subtitle {
-    font-size: 13px;
+    font-size: 13.5px;
   }
 
   .research-content {
-    padding-bottom: 36px;
+    padding-bottom: 30px;
   }
 
-  .research-content h3 {
-    font-size: 22px;
-  }
-
-  .question,
-  .lens,
-  .practice {
-    margin-top: 64px;
-    padding-top: 44px;
-  }
-
-  .question__main {
-    margin-top: 24px;
-
-    font-size: 24px;
-  }
-
-  .lens h3 {
-    margin-top: 24px;
-
-    font-size: 21px;
-  }
-
-  .practice__links {
-    gap: 20px;
+  .question__text {
+    font-size: 20px;
   }
 
   .site-footer {
-    display: block;
-
-    padding-top: 36px;
-    padding-bottom: 44px;
+    width: min(
+      calc(100% - 32px),
+      var(--page-width)
+    );
   }
 
-  .site-footer nav {
-    margin-top: 20px;
+  .site-footer__inner {
+    display: block;
+  }
+
+  .site-footer__links {
+    margin-top: 8px;
   }
 }
 
 
-/* ========================================
-   Reduced Motion
-   ======================================== */
+/* ---------------------------------------------------------
+   15. Small mobile
+   --------------------------------------------------------- */
+
+@media (max-width: 480px) {
+
+  .site-header {
+    align-items: center;
+  }
+
+  .site-header__logo {
+    font-size: 16px;
+  }
+
+  .site-nav {
+    gap: 12px;
+  }
+
+  .identity {
+    align-items: flex-start;
+  }
+
+  .profile {
+    width: 56px;
+    height: 56px;
+  }
+
+  .hero h1 {
+    font-size: 27px;
+  }
+
+  .hero__statement {
+    font-size: 17px;
+  }
+
+  .research-trigger {
+    grid-template-columns: minmax(0, 1fr) 18px;
+  }
+
+  .research-trigger__title {
+    font-size: 15.5px;
+  }
+
+  .question__text {
+    font-size: 19px;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   16. Reduced motion
+   --------------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
 
   html {
     scroll-behavior: auto;
   }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
 }
+```
