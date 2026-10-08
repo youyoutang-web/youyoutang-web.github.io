@@ -1,43 +1,6 @@
-```css
 /* =========================================================
-   Youyou Tang — Personal Research Website
-   Clean academic layout
-   ========================================================= */
-
-
-/* ---------------------------------------------------------
-   01. Design tokens
-   --------------------------------------------------------- */
-
-:root {
-  --bg: #ffffff;
-  --text: #111111;
-  --muted: #666666;
-  --light: #999999;
-  --line: #dddddd;
-  --accent: #315f8a;
-
-  --page-width: 1080px;
-  --content-width: 820px;
-
-  --font:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Helvetica,
-    Arial,
-    sans-serif;
-
-  --body-size: 15px;
-  --body-line: 1.7;
-
-  --ease: 160ms ease;
-}
-
-
-/* ---------------------------------------------------------
-   02. Reset
-   --------------------------------------------------------- */
+   01. RESET
+========================================================= */
 
 *,
 *::before,
@@ -46,24 +9,23 @@
 }
 
 html {
-  margin: 0;
-  padding: 0;
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  padding: 0;
-
-  background: var(--bg);
-  color: var(--text);
-
-  font-family: var(--font);
-  font-size: var(--body-size);
-  line-height: var(--body-line);
-
+  background: #ffffff;
+  color: #111111;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Helvetica,
+    Arial,
+    sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
 }
 
 img {
@@ -71,769 +33,722 @@ img {
   max-width: 100%;
 }
 
-button,
-input,
-textarea,
-select {
-  font: inherit;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 button {
-  color: inherit;
-}
-
-a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-::selection {
-  background: #e4ebf1;
+  font: inherit;
 }
 
 
-/* ---------------------------------------------------------
-   03. Header
-   --------------------------------------------------------- */
+/* =========================================================
+   02. DESIGN TOKENS
+========================================================= */
 
-.site-header {
-  width: min(
-    calc(100% - 48px),
-    var(--page-width)
-  );
+:root {
+  --text: #111111;
+  --muted: #666666;
+  --light: #999999;
+  --rule: #dddddd;
+  --accent: #315f8a;
+  --background: #ffffff;
 
-  margin: 0 auto;
-  padding: 24px 0;
+  --sidebar-width: 280px;
+  --content-width: 800px;
+  --page-width: 1180px;
 
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-
-  border-bottom: 1px solid var(--line);
-}
-
-.site-header__logo {
-  color: var(--text);
-
-  font-size: 16px;
-  line-height: 1.3;
-  font-weight: 600;
-
-  letter-spacing: -0.01em;
-}
-
-.site-header__logo:hover {
-  color: var(--text);
-  text-decoration: none;
-}
-
-.site-nav {
-  display: flex;
-  align-items: center;
-  gap: 22px;
-}
-
-.site-nav a {
-  color: var(--text);
-
-  font-size: 13px;
-  line-height: 1.4;
-}
-
-.site-nav a:hover {
-  color: var(--accent);
+  --space-xs: 0.5rem;
+  --space-sm: 0.875rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4.5rem;
+  --space-xxl: 7rem;
 }
 
 
-/* ---------------------------------------------------------
-   04. Main layout
-   --------------------------------------------------------- */
-
-.site-layout {
-  width: min(
-    calc(100% - 48px),
-    var(--page-width)
-  );
-
-  margin: 0 auto;
-}
-
-
-/* ---------------------------------------------------------
-   05. Identity
-   --------------------------------------------------------- */
-
-.identity {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-
-  padding: 30px 0 28px;
-
-  border-bottom: 1px solid var(--line);
-}
-
-.profile {
-  flex: 0 0 auto;
-
-  width: 68px;
-  height: 68px;
-
-  margin: 0;
-
-  overflow: hidden;
-
-  background: #f5f5f5;
-}
-
-.profile img {
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-}
-
-.identity__text {
-  min-width: 0;
-}
-
-.identity__name {
-  margin: 0;
-
-  color: var(--text);
-
-  font-size: 17px;
-  line-height: 1.3;
-  font-weight: 600;
-
-  letter-spacing: -0.01em;
-}
-
-.identity__role {
-  margin: 3px 0 0;
-
-  color: var(--muted);
-
-  font-size: 13px;
-  line-height: 1.4;
-}
-
-.identity__links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 13px;
-
-  margin-top: 7px;
-}
-
-.identity__links a {
-  font-size: 12px;
-  line-height: 1.4;
-}
-
-
-/* ---------------------------------------------------------
-   06. Main content
-   --------------------------------------------------------- */
-
-.content {
-  width: min(
-    100%,
-    var(--content-width)
-  );
-
-  margin: 0 auto;
-
-  padding: 68px 0 100px;
-}
-
-
-/* ---------------------------------------------------------
-   07. Hero
-   --------------------------------------------------------- */
-
-.hero {
-  margin-bottom: 72px;
-}
-
-.hero h1 {
-  margin: 0 0 8px;
-
-  font-size: 31px;
-  line-height: 1.15;
-  font-weight: 600;
-
-  letter-spacing: -0.025em;
-}
-
-.hero__role {
-  margin: 0 0 24px;
-
-  color: var(--muted);
-
-  font-size: 14px;
-  line-height: 1.45;
-}
-
-.hero__statement {
-  max-width: 690px;
-
-  margin: 0;
-
-  font-size: 18px;
-  line-height: 1.55;
-
-  letter-spacing: -0.008em;
-}
-
-
-/* ---------------------------------------------------------
-   08. Sections
-   --------------------------------------------------------- */
-
-section {
-  margin: 0 0 72px;
-}
-
-.section-label {
-  margin: 0 0 22px;
-
-  color: var(--text);
-
-  font-size: 12px;
-  line-height: 1.4;
-  font-weight: 600;
-
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-
-/* ---------------------------------------------------------
-   09. Research list
-   --------------------------------------------------------- */
-
-.research {
-  margin-bottom: 82px;
-}
-
-.research-list {
-  border-top: 1px solid var(--line);
-}
-
-.research-item {
-  margin: 0;
-
-  border-bottom: 1px solid var(--line);
-}
-
-
-/* ---------------------------------------------------------
-   10. Research trigger
-   --------------------------------------------------------- */
-
-.research-trigger {
-  width: 100%;
-
-  margin: 0;
-  padding: 20px 0;
-
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 20px;
-  column-gap: 24px;
-  align-items: start;
-
-  border: 0;
-  border-radius: 0;
-
-  background: transparent;
-
-  color: var(--text);
-
-  text-align: left;
-
-  cursor: pointer;
-}
-
-.research-trigger:hover {
-  color: var(--accent);
-}
-
-.research-trigger:focus {
-  outline: none;
-}
-
-.research-trigger:focus-visible {
-  outline: 1px solid var(--accent);
-  outline-offset: 5px;
-}
-
-.research-trigger__text {
-  min-width: 0;
-
-  display: block;
-}
-
-.research-trigger__title {
-  display: block;
-
-  font-size: 16px;
-  line-height: 1.35;
-  font-weight: 600;
-
-  letter-spacing: -0.008em;
-}
-
-.research-trigger__subtitle {
-  display: block;
-
-  margin-top: 4px;
-
-  color: var(--muted);
-
-  font-size: 13px;
-  line-height: 1.45;
-}
-
-.research-trigger__icon {
-  display: block;
-
-  color: var(--muted);
-
-  font-size: 17px;
-  line-height: 1.25;
-  font-weight: 400;
-
-  text-align: right;
-}
-
-
-/* ---------------------------------------------------------
-   11. Research content
-   --------------------------------------------------------- */
-
-.research-content {
-  max-width: 750px;
-
-  padding: 3px 0 32px;
-}
-
-.research-content[hidden] {
-  display: none;
-}
-
-.research-content h3 {
-  margin: 0 0 11px;
-
-  font-size: 17px;
-  line-height: 1.4;
-  font-weight: 600;
-}
-
-.research-content p {
-  margin: 0 0 15px;
-}
-
-.research-content p:last-child {
-  margin-bottom: 0;
-}
-
-.research-content ul {
-  margin: 0 0 18px;
-  padding-left: 19px;
-}
-
-.research-content li {
-  margin: 0 0 5px;
-}
-
-.research-content li:last-child {
-  margin-bottom: 0;
-}
-
-.research-content strong {
-  font-weight: 600;
-}
-
-
-/* ---------------------------------------------------------
-   12. Research subsections
-   --------------------------------------------------------- */
-
-.research-subsection {
-  margin-top: 29px;
-}
-
-.research-subsection:first-child {
+/* =========================================================
+   03. GLOBAL TYPOGRAPHY
+========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+p {
   margin-top: 0;
 }
 
-.research-subsection h4 {
-  margin: 0 0 9px;
-
-  color: var(--text);
-
-  font-size: 11px;
-  line-height: 1.45;
-  font-weight: 600;
-
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-
-/* ---------------------------------------------------------
-   13. Outputs
-   --------------------------------------------------------- */
-
-.outputs {
-  margin-top: 28px;
-}
-
-.output {
-  margin: 0 0 21px;
-}
-
-.output:last-child {
-  margin-bottom: 0;
-}
-
-.output__venue {
-  margin: 0 0 3px;
-
-  color: var(--muted);
-
-  font-size: 11px;
-  line-height: 1.45;
-}
-
-.output__title {
-  margin: 0;
-
-  color: var(--text);
-
-  font-size: 14px;
-  line-height: 1.55;
+h1,
+h2,
+h3,
+h4 {
   font-weight: 500;
+  letter-spacing: -0.02em;
 }
 
-.output__meta {
-  margin-top: 3px;
-
-  color: var(--muted);
-
-  font-size: 12px;
-  line-height: 1.5;
+p {
+  max-width: 72ch;
 }
 
-
-/* ---------------------------------------------------------
-   14. Recurring question
-   --------------------------------------------------------- */
-
-.question {
-  padding-top: 2px;
+a {
+  transition:
+    color 160ms ease,
+    opacity 160ms ease;
 }
 
-.question h2 {
-  margin: 0 0 17px;
-
-  font-size: 19px;
-  line-height: 1.35;
-  font-weight: 600;
+a:hover,
+a:focus-visible {
+  color: var(--accent);
 }
 
-.question__text {
-  max-width: 720px;
-
-  margin: 0 0 18px;
-
-  font-size: 21px;
-  line-height: 1.5;
-
-  letter-spacing: -0.012em;
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
 
 
-/* ---------------------------------------------------------
-   15. Developing lens
-   --------------------------------------------------------- */
+/* =========================================================
+   04. PAGE LAYOUT
+========================================================= */
 
-.lens h2 {
-  margin: 0 0 17px;
-
-  font-size: 19px;
-  line-height: 1.35;
-  font-weight: 600;
-}
-
-.lens h3 {
-  margin: 0 0 9px;
-
-  font-size: 16px;
-  line-height: 1.4;
-  font-weight: 600;
-}
-
-.lens p {
-  max-width: 750px;
-
-  margin: 0;
-}
-
-.lens__sequence {
-  margin-top: 23px !important;
-
-  color: var(--muted);
-
-  font-size: 13px;
-  line-height: 1.7;
-}
-
-
-/* ---------------------------------------------------------
-   16. Situated practice
-   --------------------------------------------------------- */
-
-.practice h2 {
-  margin: 0 0 17px;
-
-  font-size: 19px;
-  line-height: 1.35;
-  font-weight: 600;
-}
-
-.practice p {
-  max-width: 750px;
-
-  margin: 0 0 15px;
-}
-
-.practice p:last-child {
-  margin-bottom: 0;
-}
-
-
-/* ---------------------------------------------------------
-   17. Footer
-   --------------------------------------------------------- */
-
-.site-footer {
-  width: min(
-    calc(100% - 48px),
-    var(--page-width)
-  );
-
+.site-shell {
+  width: min(100% - 3rem, var(--page-width));
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  column-gap: 6rem;
+}
 
-  padding: 25px 0 38px;
+.identity {
+  position: relative;
+}
 
-  border-top: 1px solid var(--line);
+.identity-inner {
+  position: sticky;
+  top: 3rem;
+  padding: 3rem 0;
+}
 
+.main-content {
+  min-width: 0;
+}
+
+
+/* =========================================================
+   05. IDENTITY
+========================================================= */
+
+.identity-name {
+  display: inline-block;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.identity-role {
+  margin: 0.2rem 0 2rem;
   color: var(--muted);
-
-  font-size: 12px;
-  line-height: 1.5;
+  font-size: 0.9rem;
 }
 
-.site-footer__inner {
+.portrait {
+  width: 100%;
+  max-width: 180px;
+  margin: 0 0 2rem;
+}
+
+.portrait img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.identity-links {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-
-  gap: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
 }
 
-.site-footer__links {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-
-  gap: 13px;
-}
-
-.site-footer a {
+.identity-links a {
   color: var(--muted);
+  font-size: 0.875rem;
 }
 
-.site-footer a:hover {
+.identity-links a:hover,
+.identity-links a:focus-visible {
   color: var(--accent);
 }
 
 
-/* ---------------------------------------------------------
-   18. Responsive — tablet
-   --------------------------------------------------------- */
+/* =========================================================
+   06. HEADER / NAVIGATION
+========================================================= */
 
-@media (max-width: 768px) {
+.site-header {
+  padding: 3rem 0 0;
+}
 
-  .site-header {
-    width: min(
-      calc(100% - 32px),
-      var(--page-width)
-    );
+.main-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.75rem;
+}
 
-    padding: 20px 0;
+.main-nav a {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible,
+.main-nav a[aria-current="page"] {
+  color: var(--text);
+}
+
+
+/* =========================================================
+   07. HERO
+========================================================= */
+
+.hero {
+  padding: 8rem 0 7rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.eyebrow {
+  margin-bottom: 0.75rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hero h1 {
+  margin-bottom: 1.5rem;
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  line-height: 1.05;
+}
+
+.hero-intro {
+  max-width: 650px;
+  margin-bottom: 2rem;
+  font-size: 1.25rem;
+  line-height: 1.55;
+}
+
+.hero-question {
+  margin: 0;
+  color: var(--accent);
+  font-size: 1.35rem;
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   08. SECTION HEADINGS
+========================================================= */
+
+.research-section {
+  padding: var(--space-xxl) 0;
+}
+
+.section-heading {
+  margin-bottom: 3rem;
+}
+
+.section-kicker {
+  margin-bottom: 0.5rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: 1.75rem;
+  line-height: 1.3;
+}
+
+
+/* =========================================================
+   09. RESEARCH ACCORDION
+========================================================= */
+
+.research-list {
+  border-top: 1px solid var(--rule);
+}
+
+.research-item {
+  border-bottom: 1px solid var(--rule);
+}
+
+.research-trigger {
+  width: 100%;
+  padding: 1.5rem 0;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.research-trigger:hover .research-title,
+.research-trigger:focus-visible .research-title {
+  color: var(--accent);
+}
+
+.research-trigger-text {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  min-width: 0;
+}
+
+.research-number {
+  flex: 0 0 auto;
+  color: var(--light);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.research-title-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.research-title {
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.35;
+  transition: color 160ms ease;
+}
+
+.research-subtitle {
+  margin-top: 0.2rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.research-symbol {
+  flex: 0 0 auto;
+  color: var(--muted);
+  font-size: 1.25rem;
+  line-height: 1.3;
+  font-weight: 300;
+}
+
+.research-panel {
+  padding: 0 2.5rem 3.5rem 3.35rem;
+}
+
+.research-panel[hidden] {
+  display: none;
+}
+
+.project-intro {
+  margin-bottom: 3rem;
+}
+
+.project-intro h3 {
+  margin-bottom: 1rem;
+  font-size: 1.45rem;
+  line-height: 1.3;
+}
+
+.project-intro p {
+  color: #333333;
+}
+
+.research-block {
+  margin-top: 2.75rem;
+}
+
+.research-block h4 {
+  margin-bottom: 0.8rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.metadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.research-list-text {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.research-list-text li {
+  margin-bottom: 0.25rem;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.questions p {
+  margin-bottom: 1rem;
+  color: #333333;
+}
+
+.outputs {
+  border-top: 1px solid var(--rule);
+}
+
+.output {
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.output-year {
+  margin-bottom: 0.3rem;
+  color: var(--accent);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.output-title {
+  margin-bottom: 0.35rem;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.output-type,
+.output-description {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.output a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--accent);
+  font-size: 0.85rem;
+}
+
+.current-status {
+  margin-top: 1.5rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.project-link,
+.section-link {
+  display: inline-block;
+  margin-top: 2rem;
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   10. CONCEPTUAL SECTIONS
+========================================================= */
+
+.concept-section {
+  padding: var(--space-xxl) 0;
+  border-top: 1px solid var(--rule);
+}
+
+.concept-section h2 {
+  max-width: 720px;
+  margin-bottom: 1.75rem;
+  font-size: clamp(1.75rem, 3.5vw, 2.6rem);
+  line-height: 1.25;
+}
+
+.concept-section > p:last-child {
+  max-width: 680px;
+  color: #444444;
+}
+
+.recurring-question h2 {
+  max-width: 760px;
+}
+
+.lens-section h2 {
+  font-size: 1.8rem;
+}
+
+
+/* =========================================================
+   11. SCP SEQUENCE
+========================================================= */
+
+.lens-sequence {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  color: #333333;
+  font-size: 0.9rem;
+}
+
+.sequence-arrow {
+  color: var(--light);
+}
+
+
+/* =========================================================
+   12. SITUATED PRACTICE
+========================================================= */
+
+.practice-section {
+  padding: var(--space-xxl) 0;
+  border-top: 1px solid var(--rule);
+}
+
+.practice-intro {
+  max-width: 680px;
+  margin: 1rem 0 0;
+  color: #444444;
+}
+
+.practice-links {
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+.practice-link {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 1rem;
+}
+
+.practice-link span:last-child {
+  color: var(--accent);
+}
+
+
+/* =========================================================
+   13. FOOTER
+========================================================= */
+
+.site-footer {
+  padding: 3rem 0 4rem;
+  border-top: 1px solid var(--rule);
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 2rem;
+  row-gap: 1.5rem;
+}
+
+.footer-name,
+.footer-role,
+.copyright {
+  margin: 0;
+}
+
+.footer-name {
+  font-weight: 500;
+}
+
+.footer-role,
+.copyright {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.footer-links a {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.copyright {
+  grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   14. RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  :root {
+    --sidebar-width: 220px;
   }
 
-  .site-nav {
-    gap: 17px;
+  .site-shell {
+    column-gap: 3rem;
   }
 
-  .site-nav a {
-    font-size: 12px;
-  }
-
-  .site-layout {
-    width: min(
-      calc(100% - 32px),
-      var(--page-width)
-    );
-  }
-
-  .identity {
-    padding: 26px 0 24px;
-  }
-
-  .profile {
-    width: 60px;
-    height: 60px;
-  }
-
-  .content {
-    padding: 54px 0 78px;
+  .portrait {
+    max-width: 150px;
   }
 
   .hero {
-    margin-bottom: 60px;
+    padding-top: 6rem;
   }
 
-  .hero h1 {
-    font-size: 28px;
+  .research-panel {
+    padding-left: 3rem;
+  }
+}
+
+
+@media (max-width: 720px) {
+
+  :root {
+    --space-xxl: 5rem;
   }
 
-  .hero__statement {
-    font-size: 17px;
-  }
-
-  section {
-    margin-bottom: 60px;
-  }
-
-  .research {
-    margin-bottom: 68px;
-  }
-
-  .research-trigger {
-    padding: 19px 0;
-    column-gap: 16px;
-  }
-
-  .research-trigger__title {
-    font-size: 15.5px;
-  }
-
-  .research-trigger__subtitle {
-    font-size: 12.5px;
-  }
-
-  .research-content {
-    padding-bottom: 29px;
-  }
-
-  .question__text {
-    font-size: 20px;
-  }
-
-  .site-footer {
-    width: min(
-      calc(100% - 32px),
-      var(--page-width)
-    );
-  }
-
-  .site-footer__inner {
+  .site-shell {
+    width: min(100% - 2rem, 680px);
     display: block;
   }
 
-  .site-footer__links {
-    margin-top: 7px;
-  }
-}
-
-
-/* ---------------------------------------------------------
-   19. Responsive — mobile
-   --------------------------------------------------------- */
-
-@media (max-width: 480px) {
-
-  .site-header {
-    align-items: center;
-  }
-
-  .site-header__logo {
-    font-size: 15px;
-  }
-
-  .site-nav {
-    gap: 13px;
+  .identity-inner {
+    position: static;
+    padding: 1.5rem 0 0;
   }
 
   .identity {
-    align-items: flex-start;
+    border-bottom: 1px solid var(--rule);
   }
 
-  .profile {
-    width: 56px;
-    height: 56px;
+  .identity-role {
+    margin-bottom: 1.25rem;
   }
 
-  .identity__name {
-    font-size: 16px;
+  .portrait {
+    max-width: 120px;
+    margin-bottom: 1.25rem;
   }
 
-  .identity__role {
-    font-size: 12px;
+  .identity-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .site-header {
+    padding-top: 1rem;
+  }
+
+  .main-nav {
+    justify-content: flex-start;
+    gap: 1.25rem;
+  }
+
+  .hero {
+    padding: 5rem 0 4.5rem;
   }
 
   .hero h1 {
-    font-size: 27px;
+    font-size: 2.8rem;
   }
 
-  .hero__statement {
-    font-size: 16.5px;
+  .hero-intro {
+    font-size: 1.1rem;
   }
 
   .research-trigger {
-    grid-template-columns: minmax(0, 1fr) 18px;
+    gap: 1rem;
   }
 
-  .research-trigger__title {
-    font-size: 15px;
+  .research-trigger-text {
+    gap: 0.85rem;
   }
 
-  .research-trigger__subtitle {
-    font-size: 12px;
+  .research-title {
+    font-size: 1.05rem;
   }
 
-  .question__text {
-    font-size: 19px;
+  .research-panel {
+    padding: 0 0 3rem 1.9rem;
   }
 
-  .lens__sequence {
-    font-size: 12px;
+  .lens-sequence {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .sequence-arrow {
+    display: none;
+  }
+
+  .site-footer {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
   }
 }
 
 
-/* ---------------------------------------------------------
-   20. Reduced motion
-   --------------------------------------------------------- */
+@media (max-width: 480px) {
+
+  body {
+    font-size: 15px;
+  }
+
+  .site-shell {
+    width: min(100% - 1.5rem, 680px);
+  }
+
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+
+  .hero-question {
+    font-size: 1.2rem;
+  }
+
+  .research-trigger {
+    padding: 1.25rem 0;
+  }
+
+  .research-subtitle {
+    font-size: 0.82rem;
+  }
+
+  .research-panel {
+    padding-left: 1.65rem;
+  }
+
+  .metadata {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+}
+
+
+/* =========================================================
+   15. REDUCED MOTION
+========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -844,7 +759,8 @@ section {
   *,
   *::before,
   *::after {
-    transition: none !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
-```
