@@ -12,6 +12,7 @@
   --blue: #244f73;
   --blue-dark: #193d59;
   --blue-soft: #edf4f8;
+  --blue-tint: #e3edf4;
   --blue-line: #a9bfce;
 
   --grey-soft: #f5f6f6;
@@ -88,6 +89,59 @@ h1, h2, h3, h4, p {
 
 
 /* =========================================================
+   TOP NAV — 横排，页面最顶端
+========================================================= */
+
+.top-nav {
+  width: min(
+    var(--content-width),
+    calc(100% - 44px)
+  );
+  margin: 0 auto;
+
+  padding-top: 26px;
+}
+
+.top-nav-inner {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 10px;
+}
+
+.main-nav {
+  display: flex;
+  gap: 22px;
+}
+
+.main-nav a {
+  color: var(--text);
+
+  font-size: 12.5px;
+  line-height: 1.6;
+  font-weight: 500;
+
+  letter-spacing: 0.01em;
+
+  text-decoration: none;
+
+  padding-bottom: 2px;
+
+  border-bottom: 2px solid transparent;
+
+  transition: color 120ms ease, border-color 120ms ease;
+}
+
+.main-nav a:hover {
+  color: var(--blue);
+}
+
+.main-nav a[aria-current="page"] {
+  color: var(--blue);
+  font-weight: 650;
+  border-bottom-color: var(--blue);
+}
+
+
+/* =========================================================
    MAIN PAGE GRID
 ========================================================= */
 
@@ -121,7 +175,6 @@ h1, h2, h3, h4, p {
 .identity-inner {
   display: flex;
   flex-direction: column;
-  gap: 0;
 }
 
 .identity-name {
@@ -148,9 +201,9 @@ h1, h2, h3, h4, p {
 }
 
 .portrait {
-  margin: 14px 0 0;
-  width: 96px;
-  height: 96px;
+  margin: 16px 0 0;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   overflow: hidden;
   background: var(--grey-soft);
@@ -167,7 +220,7 @@ h1, h2, h3, h4, p {
   flex-direction: column;
   gap: 1px;
 
-  margin-top: 11px;
+  margin-top: 14px;
 }
 
 .identity-links a {
@@ -185,32 +238,6 @@ h1, h2, h3, h4, p {
   text-decoration: underline;
 }
 
-.main-nav {
-  margin-top: 23px;
-  padding-top: 11px;
-
-  border-top: 1px solid var(--line);
-
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-}
-
-.main-nav a {
-  color: var(--text);
-
-  font-size: 12px;
-  line-height: 1.65;
-
-  text-decoration: none;
-}
-
-.main-nav a:hover,
-.main-nav a[aria-current="page"] {
-  color: var(--blue);
-  font-weight: 600;
-}
-
 
 /* =========================================================
    MAIN CONTENT
@@ -219,17 +246,8 @@ h1, h2, h3, h4, p {
 .main-content {
   min-width: 0;
 
-  padding-top: 28px;
+  padding-top: 26px;
   padding-bottom: 64px;
-}
-
-
-/* =========================================================
-   SITE HEADER (nav at top)
-========================================================= */
-
-.site-header {
-  margin-bottom: 18px;
 }
 
 
@@ -239,32 +257,21 @@ h1, h2, h3, h4, p {
 
 .hero {
   margin: 0;
-  padding: 0 0 27px;
+  padding: 4px 0 22px;
 }
 
-.eyebrow,
-.section-kicker {
-  color: var(--light-muted);
+.hero-question {
+  max-width: 640px;
 
-  font-size: 10px;
-  font-weight: 700;
-
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-
-  line-height: 1.4;
-}
-
-.hero h1 {
-  margin: 4px 0 8px;
+  margin: 0 0 12px;
 
   color: var(--blue);
 
   font-size: 25px;
   font-weight: 650;
-  line-height: 1.25;
+  line-height: 1.28;
 
-  letter-spacing: -0.012em;
+  letter-spacing: -0.018em;
 }
 
 .hero-intro {
@@ -278,42 +285,38 @@ h1, h2, h3, h4, p {
   line-height: 1.62;
 }
 
-.hero-question {
-  max-width: 690px;
-
-  margin: 14px 0 0;
-
-  color: var(--blue);
-
-  font-size: 15px;
-  font-weight: 650;
-  line-height: 1.5;
-}
-
 
 /* =========================================================
    SECTION HEADING
 ========================================================= */
 
 .section-heading {
-  margin: 0 0 0;
+  margin: 0;
   padding: 0 0 7px;
 
   border-bottom: 1px solid var(--line);
 }
 
+.section-kicker {
+  color: var(--light-muted);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+
+  line-height: 1.4;
+}
+
 .section-heading h2 {
+  margin-top: 3px;
+
   color: var(--black);
 
   font-size: 19px;
   font-weight: 650;
   line-height: 1.35;
-
-  margin-top: 3px;
-}
-
-.section-heading .section-kicker {
-  margin: 0;
 }
 
 
@@ -371,15 +374,11 @@ h1, h2, h3, h4, p {
   background: var(--grey-soft);
 }
 
-/* 你的 HTML 里 trigger 只有 2 个直接子元素，
-   所以用 display: contents 让内部 span 直接参与 grid */
+/* 让内层 span 参与 grid 布局 */
 
 .research-trigger-text {
   display: contents;
 }
-
-
-/* number */
 
 .research-number {
   padding-top: 1px;
@@ -390,17 +389,17 @@ h1, h2, h3, h4, p {
   font-weight: 600;
 
   line-height: 1.55;
+
+  transition: color 120ms ease;
 }
 
-
-/* title group */
+.research-trigger[aria-expanded="true"] .research-number {
+  color: var(--blue);
+}
 
 .research-title-group {
   min-width: 0;
 }
-
-
-/* title */
 
 .research-title {
   display: block;
@@ -417,9 +416,6 @@ h1, h2, h3, h4, p {
   color: var(--blue);
 }
 
-
-/* subtitle */
-
 .research-subtitle {
   display: block;
 
@@ -432,9 +428,6 @@ h1, h2, h3, h4, p {
 
   line-height: 1.5;
 }
-
-
-/* plus / minus */
 
 .research-symbol {
   color: var(--blue);
@@ -449,7 +442,7 @@ h1, h2, h3, h4, p {
 
 
 /* =========================================================
-   EXPANDED CONTENT
+   EXPANDED PANEL
 ========================================================= */
 
 .research-panel {
@@ -470,7 +463,6 @@ h1, h2, h3, h4, p {
 
 .research-panel p {
   max-width: 750px;
-
   margin: 0 0 12px;
 }
 
@@ -517,7 +509,7 @@ h1, h2, h3, h4, p {
 
 
 /* =========================================================
-   RESEARCH BLOCKS
+   RESEARCH BLOCK
 ========================================================= */
 
 .research-block {
@@ -540,7 +532,7 @@ h1, h2, h3, h4, p {
 
 
 /* =========================================================
-   METADATA (empirical grounding)
+   EMPIRICAL GROUNDING (metadata)
 ========================================================= */
 
 .metadata {
@@ -556,7 +548,7 @@ h1, h2, h3, h4, p {
 
 
 /* =========================================================
-   RESEARCH LIST TEXT
+   RESEARCH FOCUS (list)
 ========================================================= */
 
 .research-list-text {
@@ -580,7 +572,43 @@ h1, h2, h3, h4, p {
 
 
 /* =========================================================
-   QUESTIONS
+   KEY OBSERVATIONS — highlighted block
+========================================================= */
+
+.research-block.key-observations {
+  position: relative;
+
+  margin: 20px 0 0;
+  padding: 14px 18px 15px;
+
+  background: var(--blue-tint);
+
+  border-left: 3px solid var(--blue);
+}
+
+.research-block.key-observations h4 {
+  margin-bottom: 6px;
+
+  color: var(--blue-dark);
+}
+
+.research-block.key-observations p {
+  max-width: 750px;
+  margin: 0 0 8px;
+
+  color: #2e3c44;
+
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.research-block.key-observations p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   CURRENT QUESTIONS
 ========================================================= */
 
 .questions {
@@ -589,7 +617,6 @@ h1, h2, h3, h4, p {
 
 .questions p {
   max-width: 750px;
-
   margin: 0 0 7px;
 
   color: #414141;
@@ -624,7 +651,12 @@ h1, h2, h3, h4, p {
 }
 
 .output {
+  position: relative;
+
   margin: 0 0 12px;
+  padding-left: 12px;
+
+  border-left: 2px solid var(--line);
 }
 
 .output:last-child {
@@ -678,7 +710,7 @@ h1, h2, h3, h4, p {
 
   padding: 2px 6px;
 
-  background: #e9eff3;
+  background: var(--blue-soft);
 
   color: var(--blue);
 
@@ -730,7 +762,6 @@ h1, h2, h3, h4, p {
 
 .concept-section p {
   max-width: 760px;
-
   margin: 0;
 }
 
@@ -749,7 +780,7 @@ h1, h2, h3, h4, p {
 
 
 /* =========================================================
-   LENS SECTION / SEQUENCE
+   LENS SECTION
 ========================================================= */
 
 .lens-section {
@@ -813,14 +844,8 @@ h1, h2, h3, h4, p {
 
 .practice-intro {
   max-width: 760px;
-
   margin: 6px 0 0;
 }
-
-
-/* =========================================================
-   PRACTICE LINKS
-========================================================= */
 
 .practice-links {
   display: flex;
@@ -856,6 +881,10 @@ h1, h2, h3, h4, p {
 ========================================================= */
 
 .site-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
   margin-top: 43px;
   padding-top: 13px;
 
@@ -865,10 +894,6 @@ h1, h2, h3, h4, p {
 
   font-size: 11px;
   line-height: 1.55;
-
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
 }
 
 .footer-name {
@@ -891,7 +916,6 @@ h1, h2, h3, h4, p {
 
 .footer-links a {
   color: var(--muted);
-
   text-decoration: none;
 }
 
@@ -920,6 +944,31 @@ h1, h2, h3, h4, p {
     font-size: 14px;
   }
 
+  /* 顶部导航 */
+
+  .top-nav {
+    width: min(
+      var(--content-width),
+      calc(100% - 32px)
+    );
+
+    padding-top: 18px;
+  }
+
+  .top-nav-inner {
+    padding-bottom: 9px;
+  }
+
+  .main-nav {
+    gap: 18px;
+  }
+
+  .main-nav a {
+    font-size: 12px;
+  }
+
+  /* 主体网格改为单列 */
+
   .site-shell {
     width: min(
       var(--content-width),
@@ -928,6 +977,8 @@ h1, h2, h3, h4, p {
 
     display: block;
   }
+
+  /* 侧边栏变成顶部卡片 */
 
   .identity {
     position: static;
@@ -940,7 +991,7 @@ h1, h2, h3, h4, p {
 
   .identity-inner {
     display: grid;
-    grid-template-columns: 56px 1fr;
+    grid-template-columns: 72px 1fr;
     grid-template-areas:
       "portrait name"
       "portrait role"
@@ -955,8 +1006,8 @@ h1, h2, h3, h4, p {
 
   .portrait {
     grid-area: portrait;
-    width: 56px;
-    height: 56px;
+    width: 72px;
+    height: 72px;
     margin: 0;
   }
 
@@ -973,27 +1024,20 @@ h1, h2, h3, h4, p {
     border-top: 1px solid var(--line);
   }
 
-  .main-nav {
-    margin-top: 16px;
-    padding-top: 10px;
-
-    flex-direction: row;
-    flex-wrap: wrap;
-
-    gap: 2px 17px;
-  }
+  /* 主内容 */
 
   .main-content {
-    padding-top: 24px;
+    padding-top: 22px;
     padding-bottom: 48px;
   }
 
   .hero {
-    padding-bottom: 23px;
+    padding: 0 0 20px;
   }
 
-  .hero h1 {
-    font-size: 23px;
+  .hero-question {
+    font-size: 21px;
+    max-width: 100%;
   }
 
   .section-heading h2 {
@@ -1035,6 +1079,7 @@ h1, h2, h3, h4, p {
   }
 
   .research-trigger,
+  .research-number,
   .practice-link span:last-child {
     transition: none;
   }
