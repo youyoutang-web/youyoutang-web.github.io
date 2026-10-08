@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,320 +5,274 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Youyou Tang — Independent Researcher</title>
-
   <meta
     name="description"
     content="Youyou Tang is an independent researcher studying how coordination is shaped by infrastructure, technology, space, and everyday practice."
   >
 
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/main.js" defer></script>
 </head>
 
 <body>
+  <div class="site-shell">
 
-  <header class="site-header">
-    <a class="site-header__logo" href="index.html">
-      Youyou Tang
-    </a>
+    <!-- =========================
+         SITE IDENTITY
+    ========================== -->
+    <aside class="identity" aria-label="Site identity">
 
-    <nav class="site-nav" aria-label="Primary navigation">
-      <a href="gba.html">GBA</a>
-      <a href="workshops.html">Workshops</a>
-    </nav>
-  </header>
-
-
-  <main class="site-layout">
-
-    <!-- Identity -->
-
-    <section class="identity" aria-label="Researcher identity">
-
-      <figure class="profile">
-        <img
-          src="assets/profile/youyou.jpg"
-          alt="Portrait of Youyou Tang"
-        >
-      </figure>
-
-      <div class="identity__text">
-
-        <p class="identity__name">
+      <div class="identity-inner">
+        <a class="identity-name" href="index.html">
           Youyou Tang
-        </p>
+        </a>
 
-        <p class="identity__role">
+        <p class="identity-role">
           Independent Researcher
         </p>
 
-        <div class="identity__links">
-          <a href="mailto:YTangResearch@outlook.com">
-            Email
-          </a>
-
-          <a
-            href="https://www.linkedin.com/"
-            target="_blank"
-            rel="noopener noreferrer"
+        <figure class="portrait">
+          <img
+            src="assets/profile/youyou.png"
+            alt="Portrait of Youyou Tang"
           >
-            LinkedIn
-          </a>
+        </figure>
 
-          <a href="#">
-            CV
-          </a>
-        </div>
-
+        <nav class="identity-links" aria-label="Contact and profile links">
+          <a href="mailto:YTangResearch@outlook.com">Email</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">CV</a>
+        </nav>
       </div>
 
-    </section>
+    </aside>
 
 
-    <div class="content">
+    <!-- =========================
+         MAIN
+    ========================== -->
+    <main class="main-content">
 
-      <!-- Hero -->
+      <!-- =========================
+           TOP NAVIGATION
+      ========================== -->
+      <header class="site-header">
+        <nav class="main-nav" aria-label="Primary navigation">
+          <a href="index.html" aria-current="page">Research</a>
+          <a href="gba.html">GBA</a>
+          <a href="workshops.html">Workshops</a>
+        </nav>
+      </header>
 
-      <section class="hero">
 
-        <h1>
+      <!-- =========================
+           HERO
+      ========================== -->
+      <section class="hero" aria-labelledby="hero-title">
+
+        <p class="eyebrow">Independent Researcher</p>
+
+        <h1 id="hero-title">
           Youyou Tang
         </h1>
 
-        <p class="hero__role">
-          Independent Researcher
-        </p>
-
-        <p class="hero__statement">
+        <p class="hero-intro">
           I study how coordination is shaped by infrastructure,
           technology, space, and everyday practice.
+        </p>
+
+        <p class="hero-question">
+          Where does the coordination work go?
         </p>
 
       </section>
 
 
-      <!-- Research -->
+      <!-- =========================
+           RESEARCH
+      ========================== -->
+      <section class="research-section" aria-labelledby="research-title">
 
-      <section class="research" aria-labelledby="research-heading">
+        <div class="section-heading">
+          <p class="section-kicker">Research</p>
+          <h2 id="research-title">Research across settings</h2>
+        </div>
 
-        <h2 id="research-heading" class="section-label">
-          Research across settings
-        </h2>
 
         <div class="research-list">
 
 
-          <!-- 01 Accessibility & Care -->
-
+          <!-- =====================
+               01 ACCESSIBILITY
+          ====================== -->
           <article class="research-item">
 
             <button
               class="research-trigger"
-              id="accessibility-care-trigger"
               type="button"
               aria-expanded="false"
-              aria-controls="accessibility-care-content"
+              aria-controls="research-panel-01"
+              id="research-trigger-01"
             >
-              <span class="research-trigger__text">
-
-                <span class="research-trigger__title">
-                  01 — Accessibility &amp; Care
+              <span class="research-trigger-text">
+                <span class="research-number">01</span>
+                <span class="research-title-group">
+                  <span class="research-title">
+                    Accessibility &amp; Care
+                  </span>
+                  <span class="research-subtitle">
+                    Everyday coordination and care infrastructure
+                  </span>
                 </span>
-
-                <span class="research-trigger__subtitle">
-                  Everyday coordination and care infrastructure
-                </span>
-
               </span>
 
-              <span
-                class="research-trigger__icon"
-                aria-hidden="true"
-              >
-                +
-              </span>
+              <span class="research-symbol" aria-hidden="true">+</span>
             </button>
 
 
             <div
-              class="research-content"
-              id="accessibility-care-content"
+              class="research-panel"
+              id="research-panel-01"
               role="region"
-              aria-labelledby="accessibility-care-trigger"
+              aria-labelledby="research-trigger-01"
               hidden
             >
 
-              <h3>
-                Touch to Listen
-              </h3>
-
-              <p>
-                A minimal NFC audio infrastructure for asynchronous
-                care coordination at home.
-              </p>
-
-              <p>
-                A four-week in-home deployment examining how physical
-                placement, updating, and maintenance shape continued access.
-              </p>
-
-              <p>
-                The system reduces interaction to a single physical action —
-                tapping a tagged object to listen — and uses this constraint
-                to examine where coordination work moves when interface
-                operation is minimized.
-              </p>
-
-
-              <div class="research-subsection">
-
-                <h4>
-                  Empirical grounding
-                </h4>
+              <div class="project-intro">
+                <h3>Touch to Listen</h3>
 
                 <p>
-                  4-week in-home deployment<br>
-                  6 households · 10 older adults · 8 family members
+                  A minimal NFC audio infrastructure for asynchronous
+                  care coordination at home.
                 </p>
 
+                <p>
+                  A four-week in-home deployment examining how physical
+                  placement, updating, and maintenance shape continued access.
+                </p>
+
+                <p>
+                  The system reduces interaction to a single physical action —
+                  tapping a tagged object to listen — and uses this constraint
+                  to examine where coordination work moves when interface
+                  operation is minimized.
+                </p>
               </div>
 
 
-              <div class="research-subsection">
+              <div class="research-block">
+                <h4>Empirical grounding</h4>
 
-                <h4>
-                  Research focus
-                </h4>
+                <div class="metadata">
+                  <span>4-week in-home deployment</span>
+                  <span>6 households · 10 older adults · 8 family members</span>
+                </div>
+              </div>
 
-                <ul>
+
+              <div class="research-block">
+                <h4>Research focus</h4>
+
+                <ul class="research-list-text">
                   <li>Physical placement and routine alignment</li>
                   <li>Distributed configuration and maintenance</li>
                   <li>Asynchronous care coordination</li>
                   <li>Breakdown, reconfiguration, and continued access</li>
                 </ul>
-
               </div>
 
 
-              <div class="research-subsection">
-
-                <h4>
-                  Key observations
-                </h4>
+              <div class="research-block">
+                <h4>Key observations</h4>
 
                 <p>
-                  Reducing interface interaction did not eliminate
-                  coordination work. Instead, configuration, relocation,
-                  updating, and repair became more visible across household
-                  members, physical environments, and everyday routines.
+                  Reducing interface interaction did not eliminate coordination
+                  work. Instead, configuration, relocation, updating, and repair
+                  became more visible across household members, physical
+                  environments, and everyday routines.
                 </p>
 
                 <p>
                   The study identified recurring patterns of stabilization,
-                  friction, delayed coordination, and unresolved drift,
-                  showing how continued access depends on whether
-                  coordination work can remain aligned over time.
+                  friction, delayed coordination, and unresolved drift, showing
+                  how continued access depends on whether coordination work can
+                  remain aligned over time.
                 </p>
-
               </div>
 
 
-              <div class="research-subsection outputs">
+              <div class="research-block">
+                <h4>Selected outputs</h4>
 
-                <h4>
-                  Selected outputs
-                </h4>
+                <div class="outputs">
 
+                  <div class="output">
+                    <p class="output-year">ECSCW 2026</p>
 
-                <div class="output">
+                    <p class="output-title">
+                      “Situated Cost Placement: A Method Lens for Mapping
+                      Accessibility Effort”
+                    </p>
 
-                  <div class="output__venue">
-                    ECSCW 2026
-                  </div>
+                    <p class="output-type">
+                      Paper / Workshop contribution
+                    </p>
 
-                  <p class="output__title">
-                    Situated Cost Placement: A Method Lens for Mapping
-                    Accessibility Effort
-                  </p>
-
-                  <div class="output__meta">
-                    Paper / Workshop contribution ·
                     <a
                       href="https://doi.org/10.48340/ecscw2026_ws01_06"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      DOI
+                      DOI →
                     </a>
                   </div>
 
-                </div>
 
+                  <div class="output">
+                    <p class="output-year">CSCW 2026</p>
 
-                <div class="output">
+                    <p class="output-title">
+                      “Touch to Listen: Surfacing Asynchronous Care Coordination
+                      Through Minimal NFC Audio Infrastructure”
+                    </p>
 
-                  <div class="output__venue">
-                    CSCW 2026
+                    <p class="output-type">
+                      Poster
+                    </p>
                   </div>
 
-                  <p class="output__title">
-                    Touch to Listen: Surfacing Asynchronous Care Coordination
-                    Through Minimal NFC Audio Infrastructure
-                  </p>
 
-                  <div class="output__meta">
-                    Poster
+                  <div class="output">
+                    <p class="output-year">UbiComp 2026</p>
+
+                    <p class="output-title">
+                      “Touch to Listen: A One-Tap NFC Audio System for
+                      Screen-Free, Physically Situated Access”
+                    </p>
+
+                    <p class="output-type">
+                      Poster
+                    </p>
                   </div>
 
-                </div>
 
+                  <div class="output">
+                    <p class="output-year">DIS 2026 Workshop</p>
 
-                <div class="output">
+                    <p class="output-title">
+                      “From Home to Housing: Redistributing Care Work in Smart
+                      Home Ecologies through Situated Cost Placement”
+                    </p>
 
-                  <div class="output__venue">
-                    UbiComp 2026
-                  </div>
-
-                  <p class="output__title">
-                    Touch to Listen: A One-Tap NFC Audio System for
-                    Screen-Free, Physically Situated Access
-                  </p>
-
-                  <div class="output__meta">
-                    Poster
-                  </div>
-
-                </div>
-
-
-                <div class="output">
-
-                  <div class="output__venue">
-                    DIS 2026 Workshop
-                  </div>
-
-                  <p class="output__title">
-                    From Home to Housing: Redistributing Care Work in
-                    Smart Home Ecologies through Situated Cost Placement
-                  </p>
-
-                  <div class="output__meta">
-                    Workshop paper
+                    <p class="output-type">
+                      Workshop paper
+                    </p>
                   </div>
 
                 </div>
 
-
-                <div class="output">
-
-                  <div class="output__meta">
-                    <a href="#">
-                      Project materials →
-                    </a>
-                  </div>
-
-                </div>
-
+                <a class="project-link" href="#">
+                  Project materials →
+                </a>
               </div>
 
             </div>
@@ -327,187 +280,173 @@
           </article>
 
 
-          <!-- 02 AI & Intelligent Media -->
-
+          <!-- =====================
+               02 AI
+          ====================== -->
           <article class="research-item">
 
             <button
               class="research-trigger"
-              id="ai-intelligent-media-trigger"
               type="button"
               aria-expanded="false"
-              aria-controls="ai-intelligent-media-content"
+              aria-controls="research-panel-02"
+              id="research-trigger-02"
             >
-              <span class="research-trigger__text">
+              <span class="research-trigger-text">
+                <span class="research-number">02</span>
 
-                <span class="research-trigger__title">
-                  02 — AI &amp; Intelligent Media
+                <span class="research-title-group">
+                  <span class="research-title">
+                    AI &amp; Intelligent Media
+                  </span>
+
+                  <span class="research-subtitle">
+                    Computationally mediated coordination
+                  </span>
                 </span>
-
-                <span class="research-trigger__subtitle">
-                  Computationally mediated coordination
-                </span>
-
               </span>
 
-              <span
-                class="research-trigger__icon"
-                aria-hidden="true"
-              >
-                +
-              </span>
+              <span class="research-symbol" aria-hidden="true">+</span>
             </button>
 
 
             <div
-              class="research-content"
-              id="ai-intelligent-media-content"
+              class="research-panel"
+              id="research-panel-02"
               role="region"
-              aria-labelledby="ai-intelligent-media-trigger"
+              aria-labelledby="research-trigger-02"
               hidden
             >
 
-              <h3>
-                AI-mediated coordination
-              </h3>
+              <div class="project-intro">
 
-              <p>
-                Current research examines how AI-mediated production,
-                translation, communication, and cultural work reorganize
-                coordination between people, computational systems, and
-                institutional contexts.
-              </p>
+                <h3>AI-mediated coordination</h3>
 
-              <p>
-                Rather than treating AI as a replacement for creative or
-                organizational work, this research examines the coordination
-                required to specify, screen, calibrate, translate, evaluate,
-                and revise AI-mediated outputs.
-              </p>
+                <p>
+                  Current research examines how AI-mediated production,
+                  translation, communication, and cultural work reorganize
+                  coordination between people, computational systems, and
+                  institutional contexts.
+                </p>
+
+                <p>
+                  Rather than treating AI as a replacement for creative or
+                  organizational work, this research examines the coordination
+                  required to specify, screen, calibrate, translate, evaluate,
+                  and revise AI-mediated outputs.
+                </p>
+
+              </div>
 
 
-              <div class="research-subsection">
+              <div class="research-block">
+                <h4>Research focus</h4>
 
-                <h4>
-                  Research focus
-                </h4>
-
-                <ul>
+                <ul class="research-list-text">
                   <li>Human–AI specification and calibration</li>
                   <li>Screening and selection of generated content</li>
                   <li>Cultural judgment in multilingual media production</li>
                   <li>Translation, versioning, and revision</li>
                   <li>Coordination across human and computational actors</li>
                 </ul>
+              </div>
+
+
+              <div class="research-block">
+
+                <h4>Current questions</h4>
+
+                <div class="questions">
+
+                  <p>
+                    “What coordination work emerges when generation becomes
+                    easier but evaluation becomes more consequential?”
+                  </p>
+
+                  <p>
+                    “How are cultural judgments distributed between people,
+                    computational systems, and organizational workflows?”
+                  </p>
+
+                  <p>
+                    “What happens to coordination when the same content must
+                    be generated, translated, reviewed, and adapted across
+                    different linguistic and cultural contexts?”
+                  </p>
+
+                </div>
 
               </div>
 
 
-              <div class="research-subsection">
+              <div class="research-block">
 
-                <h4>
-                  Current questions
-                </h4>
+                <h4>Selected conference contributions · 2026</h4>
 
-                <p>
-                  What coordination work emerges when generation becomes
-                  easier but evaluation becomes more consequential?
-                </p>
-
-                <p>
-                  How are cultural judgments distributed between people,
-                  computational systems, and organizational workflows?
-                </p>
-
-                <p>
-                  What happens to coordination when the same content must
-                  be generated, translated, reviewed, and adapted across
-                  different linguistic and cultural contexts?
-                </p>
-
-              </div>
-
-
-              <div class="research-subsection outputs">
-
-                <h4>
-                  Selected conference contributions · 2026
-                </h4>
-
-                <p>
+                <p class="muted">
                   Current work presented across several academic and
                   professional forums.
                 </p>
 
+                <div class="outputs">
 
-                <div class="output">
+                  <div class="output">
+                    <p class="output-year">
+                      International Conference on AI, Technology,
+                      and Emerging Media
+                    </p>
 
-                  <div class="output__venue">
-                    International Conference on AI, Technology, and
-                    Emerging Media
+                    <p class="output-title">
+                      “When AI Moderation Fails to Sustain Inclusion:
+                      Coordination Work, Contestability, and Situated Cost
+                      Placement in Platform Governance”
+                    </p>
                   </div>
 
-                  <p class="output__title">
-                    When AI Moderation Fails to Sustain Inclusion:
-                    Coordination Work, Contestability, and Situated Cost
-                    Placement in Platform Governance
-                  </p>
 
-                </div>
+                  <div class="output">
+                    <p class="output-year">
+                      International Conference on Global Cultural and
+                      Creative Industries Cooperation and Development
+                    </p>
 
-
-                <div class="output">
-
-                  <div class="output__venue">
-                    International Conference on Global Cultural and
-                    Creative Industries Cooperation and Development
+                    <p class="output-title">
+                      “Beyond Preservation: Hybrid Intelligence as a
+                      Participation Infrastructure for Living Cultural Heritage”
+                    </p>
                   </div>
 
-                  <p class="output__title">
-                    Beyond Preservation: Hybrid Intelligence as a
-                    Participation Infrastructure for Living Cultural Heritage
-                  </p>
 
-                </div>
+                  <div class="output">
+                    <p class="output-year">
+                      Tsinghua National Image Forum
+                    </p>
 
-
-                <div class="output">
-
-                  <div class="output__venue">
-                    Tsinghua National Image Forum
+                    <p class="output-title">
+                      “From Being Seen to Being Understood: The Configuration
+                      of Coordination Requirements in China’s International
+                      Cultural Communication in the Generative AI Era”
+                    </p>
                   </div>
 
-                  <p class="output__title">
-                    From Being Seen to Being Understood: The Configuration
-                    of Coordination Requirements in China’s International
-                    Cultural Communication in the Generative AI Era
-                  </p>
 
-                </div>
+                  <div class="output">
+                    <p class="output-year">
+                      Peking University New Media Institute Doctoral Forum
+                    </p>
 
-
-                <div class="output">
-
-                  <div class="output__venue">
-                    Peking University New Media Institute Doctoral Forum
-                  </div>
-
-                  <p class="output__title">
-                    From Computational Capability to Coordinated Action:
-                    Situated Cost Placement and the Infrastructure of
-                    Intelligent Communication
-                  </p>
-
-                </div>
-
-
-                <div class="output">
-
-                  <div class="output__meta">
-                    Current status: Ongoing
+                    <p class="output-title">
+                      “From Computational Capability to Coordinated Action:
+                      Situated Cost Placement and the Infrastructure of
+                      Intelligent Communication”
+                    </p>
                   </div>
 
                 </div>
+
+                <p class="current-status">
+                  <strong>Current status:</strong> Ongoing
+                </p>
 
               </div>
 
@@ -516,86 +455,79 @@
           </article>
 
 
-          <!-- 03 GBA Urban & Cultural Infrastructure -->
-
+          <!-- =====================
+               03 GBA
+          ====================== -->
           <article class="research-item">
 
             <button
               class="research-trigger"
-              id="gba-urban-cultural-trigger"
               type="button"
               aria-expanded="false"
-              aria-controls="gba-urban-cultural-content"
+              aria-controls="research-panel-03"
+              id="research-trigger-03"
             >
-              <span class="research-trigger__text">
+              <span class="research-trigger-text">
+                <span class="research-number">03</span>
 
-                <span class="research-trigger__title">
-                  03 — GBA Urban &amp; Cultural Infrastructure
+                <span class="research-title-group">
+                  <span class="research-title">
+                    GBA Urban &amp; Cultural Infrastructure
+                  </span>
+
+                  <span class="research-subtitle">
+                    Situated, multi-actor coordination
+                  </span>
                 </span>
-
-                <span class="research-trigger__subtitle">
-                  Situated, multi-actor coordination
-                </span>
-
               </span>
 
-              <span
-                class="research-trigger__icon"
-                aria-hidden="true"
-              >
-                +
-              </span>
+              <span class="research-symbol" aria-hidden="true">+</span>
             </button>
 
 
             <div
-              class="research-content"
-              id="gba-urban-cultural-content"
+              class="research-panel"
+              id="research-panel-03"
               role="region"
-              aria-labelledby="gba-urban-cultural-trigger"
+              aria-labelledby="research-trigger-03"
               hidden
             >
 
-              <h3>
-                Regional and urban-cultural research
-              </h3>
+              <div class="project-intro">
 
-              <p>
-                Ongoing research examining how cultural, spatial, and
-                organizational arrangements are coordinated in changing
-                urban environments.
-              </p>
+                <h3>Regional and urban-cultural research</h3>
 
-              <p>
-                The research follows how local resources, organizations,
-                businesses, researchers, artists, and public-facing
-                projects become connected — and where the coordination
-                required to sustain these connections is situated.
-              </p>
+                <p>
+                  Ongoing research examining how cultural, spatial, and
+                  organizational arrangements are coordinated in changing
+                  urban environments.
+                </p>
+
+                <p>
+                  The research follows how local resources, organizations,
+                  businesses, researchers, artists, and public-facing
+                  projects become connected — and where the coordination
+                  required to sustain these connections is situated.
+                </p>
+
+              </div>
 
 
-              <div class="research-subsection">
+              <div class="research-block">
+                <h4>Research focus</h4>
 
-                <h4>
-                  Research focus
-                </h4>
-
-                <ul>
+                <ul class="research-list-text">
                   <li>Coordination across local actors and organizations</li>
                   <li>Cultural and spatial infrastructure</li>
                   <li>Heritage, tourism, and urban change</li>
                   <li>Participation and cultural production</li>
                   <li>Informal coordination and organizational gaps</li>
                 </ul>
-
               </div>
 
 
-              <div class="research-subsection">
-
-                <h4>
-                  Current observations
-                </h4>
+              <div class="research-block">
+                <h4>Current observations</h4>
 
                 <p>
                   Projects, resources, and decisions can move faster than
@@ -605,152 +537,131 @@
                 <p>
                   The research examines how responsibilities are assigned,
                   negotiated, redistributed, or left without a stable
-                  organizational placement, particularly when multiple
-                  actors participate without a clear division of roles,
-                  authority, and executional responsibility.
+                  organizational placement, particularly when multiple actors
+                  participate without a clear division of roles, authority,
+                  and executional responsibility.
+                </p>
+              </div>
+
+
+              <div class="research-block">
+                <h4>Selected work</h4>
+
+                <div class="outputs">
+
+                  <div class="output">
+                    <p class="output-year">
+                      24th Swiss Geoscience Meeting · Fribourg 2026
+                    </p>
+
+                    <p class="output-title">
+                      Session 31, “Capital, Time and the Politics of and in
+                      Urban Megaprojects”
+                    </p>
+
+                    <p class="output-description">
+                      “Who Aligns the Project? Situated Cost Placement and
+                      the Temporal Politics of Urban Megaprojects”
+                    </p>
+                  </div>
+
+
+                  <div class="output">
+                    <p class="output-year">
+                      Research Handbook on Communication in China · forthcoming
+                    </p>
+
+                    <p class="output-type">
+                      Edward Elgar Publishing
+                    </p>
+
+                    <p class="output-title">
+                      “Invited chapter contribution on communication,
+                      coordination, and urban-cultural practice in China.”
+                    </p>
+                  </div>
+
+                </div>
+
+                <p class="current-status">
+                  <strong>Current status:</strong> Ongoing
                 </p>
 
               </div>
 
-
-              <div class="research-subsection outputs">
-
-                <h4>
-                  Selected work
-                </h4>
-
-
-                <div class="output">
-
-                  <div class="output__venue">
-                    24th Swiss Geoscience Meeting · Fribourg 2026
-                  </div>
-
-                  <p class="output__title">
-                    Session 31, “Capital, Time and the Politics of and in
-                    Urban Megaprojects”
-                  </p>
-
-                  <div class="output__meta">
-                    “Who Aligns the Project? Situated Cost Placement and
-                    the Temporal Politics of Urban Megaprojects”
-                  </div>
-
-                </div>
-
-
-                <div class="output">
-
-                  <div class="output__venue">
-                    Research Handbook on Communication in China ·
-                    forthcoming
-                  </div>
-
-                  <div class="output__meta">
-                    Edward Elgar Publishing
-                  </div>
-
-                  <p class="output__title">
-                    Invited chapter contribution on communication,
-                    coordination, and urban-cultural practice in China.
-                  </p>
-
-                </div>
-
-
-                <div class="output">
-
-                  <div class="output__meta">
-                    Current status: Ongoing
-                  </div>
-
-                </div>
-
-
-                <div class="output">
-
-                  <div class="output__meta">
-                    <a href="gba.html">
-                      GBA notes →
-                    </a>
-                  </div>
-
-                </div>
-
-              </div>
+              <a class="section-link" href="gba.html">
+                GBA notes →
+              </a>
 
             </div>
 
           </article>
 
 
-          <!-- 04 Infrastructure Systems -->
-
+          <!-- =====================
+               04 INFRASTRUCTURE
+          ====================== -->
           <article class="research-item">
 
             <button
               class="research-trigger"
-              id="infrastructure-systems-trigger"
               type="button"
               aria-expanded="false"
-              aria-controls="infrastructure-systems-content"
+              aria-controls="research-panel-04"
+              id="research-trigger-04"
             >
-              <span class="research-trigger__text">
+              <span class="research-trigger-text">
+                <span class="research-number">04</span>
 
-                <span class="research-trigger__title">
-                  04 — Infrastructure Systems
+                <span class="research-title-group">
+                  <span class="research-title">
+                    Infrastructure Systems
+                  </span>
+
+                  <span class="research-subtitle">
+                    Coordination across large-scale sociotechnical systems
+                  </span>
                 </span>
-
-                <span class="research-trigger__subtitle">
-                  Coordination across large-scale sociotechnical systems
-                </span>
-
               </span>
 
-              <span
-                class="research-trigger__icon"
-                aria-hidden="true"
-              >
-                +
-              </span>
+              <span class="research-symbol" aria-hidden="true">+</span>
             </button>
 
 
             <div
-              class="research-content"
-              id="infrastructure-systems-content"
+              class="research-panel"
+              id="research-panel-04"
               role="region"
-              aria-labelledby="infrastructure-systems-trigger"
+              aria-labelledby="research-trigger-04"
               hidden
             >
 
-              <h3>
-                Infrastructure coordination
-              </h3>
+              <div class="project-intro">
 
-              <p>
-                An emerging research direction examining how coordination
-                requirements are organized across large-scale infrastructure
-                systems, and how different arrangements distribute
-                coordination work among organizations, technologies, and
-                operational actors.
-              </p>
+                <h3>Infrastructure coordination</h3>
 
-              <p>
-                The research extends coordination analysis beyond everyday
-                and cultural settings to systems where coordination depends
-                on shared information, temporal alignment, distributed
-                decision-making, and cross-organizational infrastructure.
-              </p>
+                <p>
+                  An emerging research direction examining how coordination
+                  requirements are organized across large-scale infrastructure
+                  systems, and how different arrangements distribute
+                  coordination work among organizations, technologies, and
+                  operational actors.
+                </p>
+
+                <p>
+                  The research extends coordination analysis beyond everyday
+                  and cultural settings to systems where coordination depends
+                  on shared information, temporal alignment, distributed
+                  decision-making, and cross-organizational infrastructure.
+                </p>
+
+              </div>
 
 
-              <div class="research-subsection">
+              <div class="research-block">
+                <h4>Research focus</h4>
 
-                <h4>
-                  Research focus
-                </h4>
-
-                <ul>
+                <ul class="research-list-text">
                   <li>Coordination across organizational boundaries</li>
                   <li>Shared information and decision infrastructure</li>
                   <li>Temporal coordination and operational dependencies</li>
@@ -760,15 +671,12 @@
                     coordination work
                   </li>
                 </ul>
-
               </div>
 
 
-              <div class="research-subsection">
+              <div class="research-block">
 
-                <h4>
-                  Current direction
-                </h4>
+                <h4>Current direction</h4>
 
                 <p>
                   Current work uses secondary evidence to examine how formal
@@ -777,58 +685,53 @@
                 </p>
 
                 <p>
-                  The research asks what coordination is required for a
-                  system to function, where that work is situated, what
-                  becomes dependent on its placement, and what capacities
-                  are needed to sustain coordination over time.
+                  The research asks what coordination is required for a system
+                  to function, where that work is situated, what becomes
+                  dependent on its placement, and what capacities are needed
+                  to sustain coordination over time.
                 </p>
 
                 <p>
                   The direction is being developed through comparative
-                  analysis, with future work extending toward interviews
-                  and collaboration with infrastructure and operational
-                  actors.
+                  analysis, with future work extending toward interviews and
+                  collaboration with infrastructure and operational actors.
                 </p>
 
               </div>
 
 
-              <div class="research-subsection outputs">
+              <div class="research-block">
 
-                <h4>
-                  Research development
-                </h4>
+                <h4>Research development</h4>
 
+                <div class="outputs">
 
-                <div class="output">
+                  <div class="output">
 
-                  <div class="output__venue">
-                    Feasibility of Flexibility Workshop ·
-                    Fridtjof Nansen Institute · 2026
-                  </div>
+                    <p class="output-year">
+                      Feasibility of Flexibility Workshop ·
+                      Fridtjof Nansen Institute · 2026
+                    </p>
 
-                  <p class="output__title">
-                    Accepted contribution to the workshop and linked
-                    Sustainability Science special issue.
-                  </p>
+                    <p class="output-title">
+                      Accepted contribution to the workshop and linked
+                      Sustainability Science special issue.
+                    </p>
 
-                  <div class="output__meta">
-                    The workshop provides an opportunity to develop this
-                    infrastructure-oriented line of research through
-                    comparative discussion with researchers working on
-                    flexibility, infrastructure, and sociotechnical systems.
-                  </div>
+                    <p class="output-description">
+                      The workshop provides an opportunity to develop this
+                      infrastructure-oriented line of research through
+                      comparative discussion with researchers working on
+                      flexibility, infrastructure, and sociotechnical systems.
+                    </p>
 
-                </div>
-
-
-                <div class="output">
-
-                  <div class="output__meta">
-                    Current status: Developing
                   </div>
 
                 </div>
+
+                <p class="current-status">
+                  <strong>Current status:</strong> Developing
+                </p>
 
               </div>
 
@@ -841,130 +744,117 @@
       </section>
 
 
-      <!-- Recurring question -->
+      <!-- =========================
+           RECURRING QUESTION
+      ========================== -->
+      <section class="concept-section recurring-question">
 
-      <section
-        class="question"
-        aria-labelledby="question-heading"
-      >
+        <p class="section-kicker">A recurring question</p>
 
-        <h2 id="question-heading">
-          A recurring question
-        </h2>
-
-        <p class="question__text">
+        <h2>
           When a system depends on coordination to work,
           where is that coordination actually situated?
-        </p>
+        </h2>
 
         <p>
-          Across different settings, I examine what coordination is
-          required, where it is placed, what becomes dependent on that
-          placement, and what sustains the resulting arrangement.
+          Across different settings, I examine what coordination is required,
+          where it is placed, what becomes dependent on that placement, and
+          what sustains the resulting arrangement.
         </p>
 
       </section>
 
 
-      <!-- Developing lens -->
+      <!-- =========================
+           DEVELOPING LENS
+      ========================== -->
+      <section class="concept-section lens-section">
 
-      <section
-        class="lens"
-        aria-labelledby="lens-heading"
-      >
+        <p class="section-kicker">A developing lens</p>
 
-        <h2 id="lens-heading">
-          A developing lens
-        </h2>
-
-        <h3>
-          Situated Coordination Placement
-        </h3>
+        <h2>Situated Coordination Placement</h2>
 
         <p>
           A developing analytical lens for examining where coordination
-          requirements are situated, what becomes dependent on that
-          placement, and what sustains the resulting arrangement.
+          requirements are situated, what becomes dependent on that placement,
+          and what sustains the resulting arrangement.
         </p>
 
-        <p class="lens__sequence">
-          Infrastructure → Coordination requirement → Placement →
-          Dependency → Sustaining capacity
-        </p>
+
+        <div class="lens-sequence" aria-label="Situated Coordination Placement sequence">
+          <span>Infrastructure</span>
+          <span class="sequence-arrow" aria-hidden="true">→</span>
+          <span>Coordination requirement</span>
+          <span class="sequence-arrow" aria-hidden="true">→</span>
+          <span>Placement</span>
+          <span class="sequence-arrow" aria-hidden="true">→</span>
+          <span>Dependency</span>
+          <span class="sequence-arrow" aria-hidden="true">→</span>
+          <span>Sustaining capacity</span>
+        </div>
 
       </section>
 
 
-      <!-- Situated practice -->
+      <!-- =========================
+           SITUATED PRACTICE
+      ========================== -->
+      <section class="practice-section">
 
-      <section
-        class="practice"
-        aria-labelledby="practice-heading"
-      >
+        <div class="section-heading">
+          <p class="section-kicker">Situated practice</p>
 
-        <h2 id="practice-heading">
-          Situated practice
-        </h2>
+          <p class="practice-intro">
+            My research is also grounded in situated practice in the
+            Greater Bay Area, where I work across field research,
+            cultural projects, workshops, and research conversations.
+          </p>
+        </div>
 
-        <p>
-          My research is also grounded in situated practice in the
-          Greater Bay Area, where I work across field research,
-          cultural projects, workshops, and research conversations.
-        </p>
 
-        <p>
-          <a href="gba.html">
-            GBA →
+        <div class="practice-links">
+
+          <a href="gba.html" class="practice-link">
+            <span>GBA</span>
+            <span aria-hidden="true">→</span>
           </a>
-          &nbsp;&nbsp;
-          <a href="workshops.html">
-            Workshops →
+
+          <a href="workshops.html" class="practice-link">
+            <span>Workshops</span>
+            <span aria-hidden="true">→</span>
           </a>
-        </p>
+
+        </div>
 
       </section>
 
-    </div>
 
-  </main>
+      <!-- =========================
+           FOOTER
+      ========================== -->
+      <footer class="site-footer">
 
+        <div>
+          <p class="footer-name">Youyou Tang</p>
+          <p class="footer-role">Independent Researcher</p>
+        </div>
 
-  <footer class="site-footer">
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="mailto:YTangResearch@outlook.com">Email</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">CV</a>
+        </nav>
 
-    <div class="site-footer__inner">
-
-      <div>
-        Youyou Tang · Independent Researcher
-      </div>
-
-      <div class="site-footer__links">
-
-        <a href="mailto:YTangResearch@outlook.com">
-          Email
-        </a>
-
-        <a
-          href="https://www.linkedin.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          LinkedIn
-        </a>
-
-        <a href="#">
-          CV
-        </a>
-
-        <span>
+        <p class="copyright">
           © 2026 Youyou Tang
-        </span>
+        </p>
 
-      </div>
+      </footer>
 
-    </div>
+    </main>
 
-  </footer>
+  </div>
 
+  <script src="js/main.js"></script>
 </body>
 </html>
-```
