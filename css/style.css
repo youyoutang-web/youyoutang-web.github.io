@@ -19,6 +19,9 @@
   --grey-hover: #f1f2f2;
   --line: #d9d9d9;
 
+  --card-bg: #ffffff;
+  --card-border: #e8e8e8;
+
   --content-width: 1040px;
   --sidebar-width: 170px;
   --gap: 42px;
@@ -89,7 +92,7 @@ h1, h2, h3, h4, p {
 
 
 /* =========================================================
-   TOP NAV — 横排，页面最顶端
+   TOP NAV
 ========================================================= */
 
 .top-nav {
@@ -374,8 +377,6 @@ h1, h2, h3, h4, p {
   background: var(--grey-soft);
 }
 
-/* 让内层 span 参与 grid 布局 */
-
 .research-trigger-text {
   display: contents;
 }
@@ -448,13 +449,17 @@ h1, h2, h3, h4, p {
 .research-panel {
   margin: 0;
 
-  padding: 20px 25px 24px;
+  padding: 14px;
 
   background: var(--grey-soft);
 
   border-top: 1px solid #e3e3e3;
 
   color: var(--text);
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .research-panel[hidden] {
@@ -466,13 +471,23 @@ h1, h2, h3, h4, p {
   margin: 0 0 12px;
 }
 
+.research-panel p:last-child {
+  margin-bottom: 0;
+}
+
 
 /* =========================================================
-   PROJECT INTRO
+   PROJECT INTRO — 白卡片
 ========================================================= */
 
 .project-intro {
-  margin-bottom: 4px;
+  margin: 0;
+  padding: 16px 18px 18px;
+
+  background: var(--card-bg);
+
+  border: 1px solid var(--card-border);
+  border-radius: 3px;
 }
 
 .project-intro h3 {
@@ -501,23 +516,34 @@ h1, h2, h3, h4, p {
 
 .project-intro p {
   max-width: 750px;
+  margin: 0 0 10px;
 }
 
 .project-intro p:first-of-type {
-  margin-top: 10px;
+  margin-top: 12px;
+}
+
+.project-intro p:last-child {
+  margin-bottom: 0;
 }
 
 
 /* =========================================================
-   RESEARCH BLOCK
+   RESEARCH BLOCK — 白卡片
 ========================================================= */
 
 .research-block {
-  margin-top: 18px;
+  margin: 0;
+  padding: 16px 18px;
+
+  background: var(--card-bg);
+
+  border: 1px solid var(--card-border);
+  border-radius: 3px;
 }
 
 .research-block h4 {
-  margin: 0 0 5px;
+  margin: 0 0 8px;
 
   color: var(--blue);
 
@@ -532,7 +558,7 @@ h1, h2, h3, h4, p {
 
 
 /* =========================================================
-   EMPIRICAL GROUNDING (metadata)
+   EMPIRICAL GROUNDING
 ========================================================= */
 
 .metadata {
@@ -548,7 +574,7 @@ h1, h2, h3, h4, p {
 
 
 /* =========================================================
-   RESEARCH FOCUS (list)
+   RESEARCH FOCUS
 ========================================================= */
 
 .research-list-text {
@@ -572,22 +598,25 @@ h1, h2, h3, h4, p {
 
 
 /* =========================================================
-   KEY OBSERVATIONS — highlighted block
+   KEY OBSERVATIONS — 浅蓝强调卡片
 ========================================================= */
 
 .research-block.key-observations {
   position: relative;
 
-  margin: 20px 0 0;
-  padding: 14px 18px 15px;
+  margin: 0;
+  padding: 16px 18px;
 
   background: var(--blue-tint);
 
+  border: 1px solid var(--blue-line);
   border-left: 3px solid var(--blue);
+
+  border-radius: 3px;
 }
 
 .research-block.key-observations h4 {
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 
   color: var(--blue-dark);
 }
@@ -617,7 +646,7 @@ h1, h2, h3, h4, p {
 
 .questions p {
   max-width: 750px;
-  margin: 0 0 7px;
+  margin: 0 0 8px;
 
   color: #414141;
 
@@ -653,10 +682,10 @@ h1, h2, h3, h4, p {
 .output {
   position: relative;
 
-  margin: 0 0 12px;
+  margin: 0 0 14px;
   padding-left: 12px;
 
-  border-left: 2px solid var(--line);
+  border-left: 2px solid #e0e0e0;
 }
 
 .output:last-child {
@@ -944,8 +973,6 @@ h1, h2, h3, h4, p {
     font-size: 14px;
   }
 
-  /* 顶部导航 */
-
   .top-nav {
     width: min(
       var(--content-width),
@@ -967,8 +994,6 @@ h1, h2, h3, h4, p {
     font-size: 12px;
   }
 
-  /* 主体网格改为单列 */
-
   .site-shell {
     width: min(
       var(--content-width),
@@ -977,8 +1002,6 @@ h1, h2, h3, h4, p {
 
     display: block;
   }
-
-  /* 侧边栏变成顶部卡片 */
 
   .identity {
     position: static;
@@ -1024,8 +1047,6 @@ h1, h2, h3, h4, p {
     border-top: 1px solid var(--line);
   }
 
-  /* 主内容 */
-
   .main-content {
     padding-top: 22px;
     padding-bottom: 48px;
@@ -1060,7 +1081,13 @@ h1, h2, h3, h4, p {
   }
 
   .research-panel {
-    padding: 18px 16px 21px;
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .project-intro,
+  .research-block {
+    padding: 14px 15px;
   }
 
   .recurring-question h2 {
