@@ -1,5 +1,41 @@
 /* =========================================================
-   01. RESET
+   YOUYOU TANG — ACADEMIC RESEARCH SITE
+   Compact academic / research-profile layout
+========================================================= */
+
+:root {
+  /* Core palette */
+  --black: #1b1b1b;
+  --text: #292929;
+  --muted: #6d6d6d;
+  --light-muted: #929292;
+
+  --blue: #234f73;
+  --blue-dark: #183d5a;
+
+  --blue-soft: #edf4f8;
+  --blue-softer: #f5f8fa;
+  --blue-line: #9db7c9;
+
+  --grey-soft: #f5f6f7;
+  --grey-hover: #f0f2f3;
+  --grey-line: #d8dadd;
+
+  --white: #ffffff;
+
+  /* Layout */
+  --max-width: 1120px;
+  --sidebar-width: 210px;
+  --column-gap: 52px;
+
+  /* Typography */
+  --body-size: 15px;
+  --body-line: 1.65;
+}
+
+
+/* =========================================================
+   RESET
 ========================================================= */
 
 *,
@@ -14,8 +50,10 @@ html {
 
 body {
   margin: 0;
-  background: #ffffff;
-  color: #111111;
+
+  background: var(--white);
+  color: var(--text);
+
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -23,744 +61,903 @@ body {
     Helvetica,
     Arial,
     sans-serif;
-  font-size: 16px;
-  line-height: 1.65;
+
+  font-size: var(--body-size);
+  line-height: var(--body-line);
+
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 img {
-  display: block;
   max-width: 100%;
+  height: auto;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button {
+button,
+input,
+textarea,
+select {
   font: inherit;
 }
 
-
-/* =========================================================
-   02. DESIGN TOKENS
-========================================================= */
-
-:root {
-  --text: #111111;
-  --muted: #666666;
-  --light: #999999;
-  --rule: #dddddd;
-  --accent: #315f8a;
-  --background: #ffffff;
-
-  --sidebar-width: 280px;
-  --content-width: 800px;
-  --page-width: 1180px;
-
-  --space-xs: 0.5rem;
-  --space-sm: 0.875rem;
-  --space-md: 1.5rem;
-  --space-lg: 2.5rem;
-  --space-xl: 4.5rem;
-  --space-xxl: 7rem;
-}
-
-
-/* =========================================================
-   03. GLOBAL TYPOGRAPHY
-========================================================= */
-
-h1,
-h2,
-h3,
-h4,
-p {
-  margin-top: 0;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  font-weight: 500;
-  letter-spacing: -0.02em;
-}
-
-p {
-  max-width: 72ch;
-}
-
 a {
-  transition:
-    color 160ms ease,
-    opacity 160ms ease;
+  color: var(--blue);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
 }
 
-a:hover,
-a:focus-visible {
-  color: var(--accent);
-}
-
-:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 4px;
+a:hover {
+  color: var(--blue-dark);
 }
 
 
 /* =========================================================
-   04. PAGE LAYOUT
+   GLOBAL LAYOUT
 ========================================================= */
 
-.site-shell {
-  width: min(100% - 3rem, var(--page-width));
+.site {
+  width: min(
+    var(--max-width),
+    calc(100% - 48px)
+  );
+
   margin: 0 auto;
+
   display: grid;
   grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
-  column-gap: 6rem;
+
+  column-gap: var(--column-gap);
+
+  align-items: start;
 }
 
-.identity {
-  position: relative;
-}
-
-.identity-inner {
+.sidebar {
   position: sticky;
-  top: 3rem;
-  padding: 3rem 0;
+  top: 28px;
+
+  padding-top: 30px;
 }
 
-.main-content {
+.main {
   min-width: 0;
+
+  padding-top: 30px;
+  padding-bottom: 70px;
 }
 
 
 /* =========================================================
-   05. IDENTITY
+   SIDEBAR
 ========================================================= */
 
-.identity-name {
-  display: inline-block;
-  font-size: 1.15rem;
-  font-weight: 600;
-  letter-spacing: -0.015em;
+.sidebar-name {
+  margin: 0;
+
+  color: var(--black);
+
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.3;
 }
 
-.identity-role {
-  margin: 0.2rem 0 2rem;
+.sidebar-role {
+  margin-top: 2px;
+
   color: var(--muted);
-  font-size: 0.9rem;
+
+  font-size: 12.5px;
+  line-height: 1.5;
 }
 
-.portrait {
-  width: 100%;
-  max-width: 180px;
-  margin: 0 0 2rem;
+.sidebar-links {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 2px 10px;
+
+  margin-top: 13px;
 }
 
-.portrait img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
+.sidebar-links a {
+  color: var(--muted);
+
+  font-size: 12px;
 }
 
-.identity-links {
+.sidebar-links a:hover {
+  color: var(--blue);
+}
+
+.nav {
+  margin-top: 27px;
+  padding-top: 13px;
+
+  border-top: 1px solid var(--grey-line);
+
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 0.25rem;
+
+  gap: 3px;
 }
 
-.identity-links a {
-  color: var(--muted);
-  font-size: 0.875rem;
-}
-
-.identity-links a:hover,
-.identity-links a:focus-visible {
-  color: var(--accent);
-}
-
-
-/* =========================================================
-   06. HEADER / NAVIGATION
-========================================================= */
-
-.site-header {
-  padding: 3rem 0 0;
-}
-
-.main-nav {
-  display: flex;
-  justify-content: flex-end;
-  gap: 1.75rem;
-}
-
-.main-nav a {
-  color: var(--muted);
-  font-size: 0.875rem;
-}
-
-.main-nav a:hover,
-.main-nav a:focus-visible,
-.main-nav a[aria-current="page"] {
+.nav a {
   color: var(--text);
+
+  font-size: 12.5px;
+  line-height: 1.6;
+
+  text-decoration: none;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: var(--blue);
+  font-weight: 600;
 }
 
 
 /* =========================================================
-   07. HERO
+   HERO
 ========================================================= */
 
 .hero {
-  padding: 8rem 0 7rem;
-  border-bottom: 1px solid var(--rule);
-}
-
-.eyebrow {
-  margin-bottom: 0.75rem;
-  color: var(--muted);
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  margin: 0;
+  padding: 0 0 31px;
 }
 
 .hero h1 {
-  margin-bottom: 1.5rem;
-  font-size: clamp(2.6rem, 5vw, 4rem);
-  line-height: 1.05;
+  margin: 0 0 10px;
+
+  color: var(--blue);
+
+  font-size: 27px;
+  font-weight: 650;
+  line-height: 1.25;
+
+  letter-spacing: -0.015em;
 }
 
-.hero-intro {
-  max-width: 650px;
-  margin-bottom: 2rem;
-  font-size: 1.25rem;
-  line-height: 1.55;
-}
+.hero p {
+  max-width: 720px;
 
-.hero-question {
   margin: 0;
-  color: var(--accent);
-  font-size: 1.35rem;
-  line-height: 1.4;
+
+  color: var(--text);
+
+  font-size: 15px;
+  line-height: 1.65;
 }
 
 
 /* =========================================================
-   08. SECTION HEADINGS
+   RESEARCH SECTION
 ========================================================= */
 
 .research-section {
-  padding: var(--space-xxl) 0;
+  margin: 0;
 }
 
 .section-heading {
-  margin-bottom: 3rem;
-}
+  margin: 0 0 9px;
+  padding: 0 0 8px;
 
-.section-kicker {
-  margin-bottom: 0.5rem;
-  color: var(--muted);
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
+  border-bottom: 1px solid var(--grey-line);
 
-.section-heading h2 {
-  margin: 0;
-  font-size: 1.75rem;
-  line-height: 1.3;
+  color: var(--black);
+
+  font-size: 20px;
+  font-weight: 650;
+  line-height: 1.35;
 }
 
 
 /* =========================================================
-   09. RESEARCH ACCORDION
+   RESEARCH ACCORDION
 ========================================================= */
 
-.research-list {
-  border-top: 1px solid var(--rule);
+.research-item {
+  border-bottom: 1px solid var(--grey-line);
 }
 
-.research-item {
-  border-bottom: 1px solid var(--rule);
-}
+
+/* ---------- clickable header ---------- */
 
 .research-trigger {
   width: 100%;
-  padding: 1.5rem 0;
+
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) 22px;
+  column-gap: 8px;
+
+  align-items: start;
+
+  padding: 14px 5px 14px 0;
+
   border: 0;
+  border-left: 3px solid transparent;
+
   background: transparent;
+
   color: var(--text);
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 2rem;
+
   text-align: left;
+
   cursor: pointer;
+
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease;
 }
 
-.research-trigger:hover .research-title,
-.research-trigger:focus-visible .research-title {
-  color: var(--accent);
+.research-trigger:hover {
+  background: var(--grey-hover);
 }
 
-.research-trigger-text {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.25rem;
-  min-width: 0;
+.research-trigger[aria-expanded="true"] {
+  border-left-color: var(--blue);
+
+  background: var(--grey-soft);
 }
+
+
+/* ---------- number ---------- */
 
 .research-number {
-  flex: 0 0 auto;
-  color: var(--light);
-  font-size: 0.8rem;
-  line-height: 1.5;
+  padding-top: 1px;
+
+  color: var(--light-muted);
+
+  font-size: 11px;
+  font-weight: 600;
+
+  line-height: 1.7;
 }
 
-.research-title-group {
-  display: flex;
-  flex-direction: column;
-}
+
+/* ---------- title ---------- */
 
 .research-title {
-  font-size: 1.15rem;
-  font-weight: 500;
+  color: var(--black);
+
+  font-size: 16px;
+  font-weight: 650;
+
   line-height: 1.35;
-  transition: color 160ms ease;
 }
 
+.research-trigger[aria-expanded="true"] .research-title {
+  color: var(--blue);
+}
+
+
+/* ---------- subtitle ---------- */
+
 .research-subtitle {
-  margin-top: 0.2rem;
+  display: block;
+
+  margin-top: 2px;
+
   color: var(--muted);
-  font-size: 0.9rem;
+
+  font-size: 12.5px;
+  font-weight: 400;
+
   line-height: 1.5;
 }
 
-.research-symbol {
-  flex: 0 0 auto;
-  color: var(--muted);
-  font-size: 1.25rem;
-  line-height: 1.3;
-  font-weight: 300;
+
+/* ---------- plus / minus ---------- */
+
+.research-icon {
+  padding-top: 0;
+
+  color: var(--blue);
+
+  font-size: 17px;
+  font-weight: 400;
+
+  line-height: 1.2;
+
+  text-align: right;
 }
 
+
+/* =========================================================
+   EXPANDED PANEL
+========================================================= */
+
 .research-panel {
-  padding: 0 2.5rem 3.5rem 3.35rem;
+  margin: 0;
+
+  padding: 23px 27px 28px;
+
+  background: var(--grey-soft);
+
+  border-top: 1px solid #e3e4e5;
+
+  color: var(--text);
 }
 
 .research-panel[hidden] {
   display: none;
 }
 
-.project-intro {
-  margin-bottom: 3rem;
+.research-panel p {
+  max-width: 780px;
+
+  margin: 0 0 13px;
 }
 
-.project-intro h3 {
-  margin-bottom: 1rem;
-  font-size: 1.45rem;
-  line-height: 1.3;
+
+/* =========================================================
+   PROJECT INTRO
+========================================================= */
+
+.project-title {
+  margin: 0 0 5px;
+
+  color: var(--blue);
+
+  font-size: 18px;
+  font-weight: 700;
+
+  line-height: 1.35;
 }
 
-.project-intro p {
-  color: #333333;
+.project-title::after {
+  content: "";
+
+  display: block;
+
+  width: 28px;
+  height: 2px;
+
+  margin-top: 6px;
+
+  background: var(--blue);
 }
 
-.research-block {
-  margin-top: 2.75rem;
+.project-description {
+  max-width: 760px;
+
+  margin-top: 12px;
 }
 
-.research-block h4 {
-  margin-bottom: 0.8rem;
-  color: var(--muted);
-  font-size: 0.78rem;
+
+/* =========================================================
+   INFORMATION LABELS
+========================================================= */
+
+.info-label {
+  margin: 20px 0 6px;
+
+  color: var(--blue);
+
+  font-size: 10.5px;
+  font-weight: 750;
+
+  line-height: 1.4;
+
+  letter-spacing: 0.075em;
   text-transform: uppercase;
-  letter-spacing: 0.07em;
 }
 
-.metadata {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem 1.5rem;
-  color: var(--muted);
-  font-size: 0.85rem;
+
+/* =========================================================
+   EMPIRICAL GROUNDING
+========================================================= */
+
+.empirical-grounding {
+  margin-top: 14px;
+
+  padding-top: 11px;
+
+  border-top: 1px solid var(--grey-line);
 }
 
-.research-list-text {
+.empirical-grounding .info-label {
+  margin-top: 0;
+}
+
+.empirical-grounding p {
+  margin-bottom: 0;
+
+  color: #444;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   RESEARCH FOCUS
+========================================================= */
+
+.info-list {
   margin: 0;
-  padding-left: 1.15rem;
+  padding-left: 18px;
+
+  color: #3d3d3d;
+
+  font-size: 13.5px;
 }
 
-.research-list-text li {
-  margin-bottom: 0.25rem;
+.info-list li {
+  margin: 2px 0;
 }
 
-.muted {
-  color: var(--muted);
+.info-list li::marker {
+  color: var(--blue);
 }
 
-.questions p {
-  margin-bottom: 1rem;
-  color: #333333;
+
+/* =========================================================
+   INLINE CONCEPTUAL EMPHASIS
+
+   Use these classes selectively in HTML:
+   <span class="concept">coordination requirement</span>
+   <span class="concept-fill">placement</span>
+   <span class="concept-link">dependency</span>
+========================================================= */
+
+.concept {
+  color: var(--blue);
+
+  font-weight: 650;
+
+  text-decoration: underline;
+  text-decoration-color: var(--blue-line);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
 
-.outputs {
-  border-top: 1px solid var(--rule);
+.concept-fill {
+  padding: 1px 4px;
+
+  background: var(--blue-soft);
+
+  color: var(--blue);
+
+  font-weight: 650;
+}
+
+.concept-link {
+  color: var(--blue);
+
+  font-weight: 650;
+
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+
+/* =========================================================
+   KEY OBSERVATIONS
+
+   This is the strongest visual block inside projects.
+========================================================= */
+
+.key-observations {
+  margin: 22px 0;
+
+  padding: 16px 19px 17px;
+
+  background: var(--blue-soft);
+
+  border-left: 3px solid var(--blue-line);
+
+  position: relative;
+}
+
+.key-observations::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -3px;
+
+  width: 3px;
+  height: 34px;
+
+  background: var(--blue);
+}
+
+.key-observations-label {
+  margin: 0 0 6px;
+
+  color: var(--blue);
+
+  font-size: 10.5px;
+  font-weight: 750;
+
+  line-height: 1.4;
+
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+}
+
+.key-observations p {
+  max-width: 760px;
+
+  margin: 0;
+
+  color: #263640;
+
+  font-size: 13.5px;
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   SECONDARY OBSERVATION / RESEARCH NOTE
+========================================================= */
+
+.research-note {
+  margin: 17px 0;
+
+  padding: 12px 15px;
+
+  background: rgba(255, 255, 255, 0.7);
+
+  border-left: 2px solid var(--grey-line);
+}
+
+.research-note p {
+  margin: 0;
+
+  color: #555;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   SELECTED OUTPUTS
+========================================================= */
+
+.selected-outputs {
+  margin-top: 23px;
 }
 
 .output {
-  padding: 1.4rem 0;
-  border-bottom: 1px solid var(--rule);
+  margin: 0 0 11px;
 }
 
-.output-year {
-  margin-bottom: 0.3rem;
-  color: var(--accent);
-  font-size: 0.78rem;
-  line-height: 1.5;
+.output:last-child {
+  margin-bottom: 0;
 }
 
 .output-title {
-  margin-bottom: 0.35rem;
   color: var(--text);
+
+  font-size: 13.5px;
+  font-weight: 650;
   line-height: 1.5;
 }
 
-.output-type,
-.output-description {
-  margin-bottom: 0;
+.output-meta {
   color: var(--muted);
-  font-size: 0.85rem;
+
+  font-size: 12px;
+  line-height: 1.5;
 }
 
 .output a {
-  display: inline-block;
-  margin-top: 0.5rem;
-  color: var(--accent);
-  font-size: 0.85rem;
-}
-
-.current-status {
-  margin-top: 1.5rem;
-  color: var(--muted);
-  font-size: 0.85rem;
-}
-
-.project-link,
-.section-link {
-  display: inline-block;
-  margin-top: 2rem;
-  color: var(--accent);
-  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 
 /* =========================================================
-   10. CONCEPTUAL SECTIONS
+   RESEARCH STATUS
 ========================================================= */
 
-.concept-section {
-  padding: var(--space-xxl) 0;
-  border-top: 1px solid var(--rule);
+.research-status {
+  display: inline-block;
+
+  margin-top: 17px;
+  padding: 2px 7px;
+
+  background: #e8eef2;
+
+  color: var(--blue);
+
+  font-size: 10.5px;
+  font-weight: 700;
+
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
-.concept-section h2 {
-  max-width: 720px;
-  margin-bottom: 1.75rem;
-  font-size: clamp(1.75rem, 3.5vw, 2.6rem);
-  line-height: 1.25;
+
+/* =========================================================
+   RECURRING QUESTION
+========================================================= */
+
+.question-section {
+  margin-top: 38px;
+  padding-top: 22px;
+
+  border-top: 1px solid var(--grey-line);
 }
 
-.concept-section > p:last-child {
-  max-width: 680px;
-  color: #444444;
+.question-section h2 {
+  margin: 0 0 9px;
+
+  color: var(--black);
+
+  font-size: 19px;
+  font-weight: 650;
+  line-height: 1.35;
 }
 
-.recurring-question h2 {
+.question {
   max-width: 760px;
+
+  margin: 0;
+
+  color: var(--blue);
+
+  font-size: 18px;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+
+/* =========================================================
+   DEVELOPING LENS
+========================================================= */
+
+.lens-section {
+  margin-top: 29px;
 }
 
 .lens-section h2 {
-  font-size: 1.8rem;
+  margin: 0 0 8px;
+
+  color: var(--black);
+
+  font-size: 19px;
+  font-weight: 650;
 }
 
+.lens-section p {
+  max-width: 780px;
 
-/* =========================================================
-   11. SCP SEQUENCE
-========================================================= */
+  margin: 0 0 11px;
+}
 
-.lens-sequence {
-  display: flex;
+.sequence {
+  display: inline-flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.55rem;
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--rule);
-  color: #333333;
-  font-size: 0.9rem;
+
+  gap: 4px;
+
+  margin-top: 2px;
+
+  color: var(--blue);
+
+  font-size: 12.5px;
+  font-weight: 650;
 }
 
-.sequence-arrow {
-  color: var(--light);
+.sequence span {
+  padding: 2px 5px;
+
+  background: var(--blue-soft);
+
+  border-bottom: 1px solid var(--blue-line);
+}
+
+.sequence .arrow {
+  padding: 0;
+
+  background: transparent;
+
+  border: 0;
+
+  color: var(--light-muted);
 }
 
 
 /* =========================================================
-   12. SITUATED PRACTICE
+   SITUATED PRACTICE
 ========================================================= */
 
 .practice-section {
-  padding: var(--space-xxl) 0;
-  border-top: 1px solid var(--rule);
+  margin-top: 31px;
+  padding-top: 21px;
+
+  border-top: 1px solid var(--grey-line);
 }
 
-.practice-intro {
-  max-width: 680px;
-  margin: 1rem 0 0;
-  color: #444444;
+.practice-section h2 {
+  margin: 0 0 8px;
+
+  color: var(--black);
+
+  font-size: 19px;
+  font-weight: 650;
+}
+
+.practice-section p {
+  max-width: 760px;
+
+  margin: 0 0 10px;
 }
 
 .practice-links {
-  margin-top: 2.5rem;
-  border-top: 1px solid var(--rule);
-}
-
-.practice-link {
   display: flex;
-  justify-content: space-between;
-  padding: 1.25rem 0;
-  border-bottom: 1px solid var(--rule);
-  font-size: 1rem;
+  flex-wrap: wrap;
+
+  gap: 8px 18px;
 }
 
-.practice-link span:last-child {
-  color: var(--accent);
+.practice-links a {
+  font-size: 13px;
+  font-weight: 600;
+
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 
 /* =========================================================
-   13. FOOTER
+   FOOTER
 ========================================================= */
 
-.site-footer {
-  padding: 3rem 0 4rem;
-  border-top: 1px solid var(--rule);
+.footer {
+  margin-top: 48px;
+  padding-top: 14px;
 
-  display: grid;
-  grid-template-columns: 1fr auto;
-  column-gap: 2rem;
-  row-gap: 1.5rem;
-}
+  border-top: 1px solid var(--grey-line);
 
-.footer-name,
-.footer-role,
-.copyright {
-  margin: 0;
-}
-
-.footer-name {
-  font-weight: 500;
-}
-
-.footer-role,
-.copyright {
   color: var(--muted);
-  font-size: 0.85rem;
+
+  font-size: 11.5px;
+  line-height: 1.6;
 }
 
 .footer-links {
-  display: flex;
-  gap: 1.25rem;
-  align-items: flex-start;
+  display: inline-flex;
+
+  flex-wrap: wrap;
+
+  gap: 0 12px;
 }
 
 .footer-links a {
   color: var(--muted);
-  font-size: 0.85rem;
 }
 
-.copyright {
-  grid-column: 1 / -1;
+.footer-links a:hover {
+  color: var(--blue);
 }
 
 
 /* =========================================================
-   14. RESPONSIVE
+   SMALL HIGHLIGHT UTILITY
+
+   For especially important phrases.
 ========================================================= */
 
-@media (max-width: 900px) {
+.highlight {
+  padding: 1px 4px;
 
-  :root {
-    --sidebar-width: 220px;
-  }
+  background: var(--blue-soft);
 
-  .site-shell {
-    column-gap: 3rem;
-  }
+  color: var(--blue);
 
-  .portrait {
-    max-width: 150px;
-  }
+  font-weight: 700;
+}
 
-  .hero {
-    padding-top: 6rem;
-  }
+.highlight-underline {
+  color: var(--blue);
 
-  .research-panel {
-    padding-left: 3rem;
-  }
+  font-weight: 650;
+
+  text-decoration: underline;
+  text-decoration-color: var(--blue);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
 
 
-@media (max-width: 720px) {
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
 
   :root {
-    --space-xxl: 5rem;
+    --body-size: 14.5px;
   }
 
-  .site-shell {
-    width: min(100% - 2rem, 680px);
+  .site {
+    width: min(
+      100% - 32px,
+      680px
+    );
+
     display: block;
   }
 
-  .identity-inner {
+  .sidebar {
     position: static;
-    padding: 1.5rem 0 0;
+
+    padding-top: 22px;
+    padding-bottom: 16px;
+
+    border-bottom: 1px solid var(--grey-line);
   }
 
-  .identity {
-    border-bottom: 1px solid var(--rule);
-  }
+  .nav {
+    margin-top: 17px;
+    padding-top: 11px;
 
-  .identity-role {
-    margin-bottom: 1.25rem;
-  }
-
-  .portrait {
-    max-width: 120px;
-    margin-bottom: 1.25rem;
-  }
-
-  .identity-links {
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 0.25rem 1.25rem;
-    margin-bottom: 1.5rem;
+
+    gap: 4px 17px;
   }
 
-  .site-header {
-    padding-top: 1rem;
-  }
-
-  .main-nav {
-    justify-content: flex-start;
-    gap: 1.25rem;
+  .main {
+    padding-top: 25px;
+    padding-bottom: 50px;
   }
 
   .hero {
-    padding: 5rem 0 4.5rem;
+    padding-bottom: 26px;
   }
 
   .hero h1 {
-    font-size: 2.8rem;
+    font-size: 24px;
   }
 
-  .hero-intro {
-    font-size: 1.1rem;
+  .section-heading {
+    font-size: 19px;
   }
 
   .research-trigger {
-    gap: 1rem;
-  }
+    grid-template-columns: 28px minmax(0, 1fr) 20px;
 
-  .research-trigger-text {
-    gap: 0.85rem;
+    padding: 13px 3px 13px 0;
   }
 
   .research-title {
-    font-size: 1.05rem;
-  }
-
-  .research-panel {
-    padding: 0 0 3rem 1.9rem;
-  }
-
-  .lens-sequence {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 0.35rem;
-  }
-
-  .sequence-arrow {
-    display: none;
-  }
-
-  .site-footer {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-links {
-    flex-wrap: wrap;
-  }
-}
-
-
-@media (max-width: 480px) {
-
-  body {
     font-size: 15px;
   }
 
-  .site-shell {
-    width: min(100% - 1.5rem, 680px);
-  }
-
-  .hero h1 {
-    font-size: 2.4rem;
-  }
-
-  .hero-question {
-    font-size: 1.2rem;
-  }
-
-  .research-trigger {
-    padding: 1.25rem 0;
-  }
-
-  .research-subtitle {
-    font-size: 0.82rem;
-  }
-
   .research-panel {
-    padding-left: 1.65rem;
+    padding: 19px 17px 23px;
   }
 
-  .metadata {
-    flex-direction: column;
-    gap: 0.2rem;
+  .project-title {
+    font-size: 17px;
+  }
+
+  .question {
+    font-size: 17px;
+  }
+
+  .sequence {
+    line-height: 1.8;
   }
 }
 
 
 /* =========================================================
-   15. REDUCED MOTION
+   REDUCED MOTION
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-
   html {
     scroll-behavior: auto;
   }
 
-  *,
-  *::before,
-  *::after {
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
+  .research-trigger {
+    transition: none;
   }
 }
