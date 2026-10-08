@@ -941,6 +941,39 @@ h1, h2, h3, h4, p {
   line-height: 1.6;
 }
 
+.note-read {
+  display: inline-block;
+
+  margin-top: 14px;
+
+  color: var(--blue);
+
+  font-size: 12.5px;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  border-bottom: 1px solid var(--blue-line);
+
+  padding-bottom: 1px;
+
+  transition: color 120ms ease, border-color 120ms ease;
+}
+
+.note-read span {
+  display: inline-block;
+  transition: transform 120ms ease;
+}
+
+.note-read:hover {
+  color: var(--blue-dark);
+  border-bottom-color: var(--blue);
+}
+
+.note-read:hover span {
+  transform: translateX(2px);
+}
+
 
 /* =========================================================
    FOLLOWING SECTION (What I am following)
@@ -958,6 +991,207 @@ h1, h2, h3, h4, p {
   margin: 8px 0 0;
 
   line-height: 1.65;
+}
+
+
+/* =========================================================
+   WORKSHOPS LIST
+========================================================= */
+
+.workshops-list {
+  margin: 0;
+}
+
+.workshop {
+  padding: 28px 0 32px;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.workshop:last-child {
+  border-bottom: 0;
+  padding-bottom: 40px;
+}
+
+.workshop-number {
+  margin: 0 0 8px;
+
+  color: var(--blue);
+
+  font-size: 18px;
+  font-weight: 700;
+
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+.workshop-title {
+  max-width: 640px;
+  margin: 0 0 7px;
+
+  color: var(--black);
+
+  font-size: 19px;
+  font-weight: 650;
+  line-height: 1.3;
+
+  letter-spacing: -0.008em;
+}
+
+.workshop-subtitle {
+  max-width: 640px;
+  margin: 0 0 10px;
+
+  color: var(--text);
+
+  font-size: 13.5px;
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.workshop-meta {
+  margin: 0 0 4px;
+
+  color: var(--muted);
+
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.workshop-tags {
+  margin: 0 0 18px;
+
+  color: var(--light-muted);
+
+  font-size: 11.5px;
+  line-height: 1.5;
+
+  letter-spacing: 0.01em;
+}
+
+
+/* =========================================================
+   WORKSHOP BODY
+========================================================= */
+
+.workshop-body {
+  max-width: 690px;
+}
+
+.workshop-body > p {
+  margin: 0 0 16px;
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   WORKSHOP IMAGE
+========================================================= */
+
+.workshop-figure {
+  margin: 20px 0 24px;
+}
+
+.workshop-figure img {
+  width: 100%;
+
+  border-radius: 3px;
+
+  background: var(--grey-soft);
+
+  border: 1px solid var(--card-border);
+}
+
+.workshop-figure figcaption {
+  margin-top: 8px;
+
+  color: var(--muted);
+
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   SECTION LABEL (Speakers / Collaborator)
+========================================================= */
+
+.workshop-section-label {
+  margin: 24px 0 12px;
+
+  color: var(--blue);
+
+  font-size: 10px;
+  font-weight: 750;
+
+  line-height: 1.35;
+
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   SPEAKERS
+========================================================= */
+
+.speakers {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  margin: 0 0 20px;
+}
+
+.speaker {
+  padding-left: 12px;
+
+  border-left: 2px solid #e0e0e0;
+}
+
+.speaker-name {
+  margin: 0 0 2px;
+
+  color: var(--black);
+
+  font-size: 13.5px;
+  font-weight: 650;
+
+  line-height: 1.4;
+}
+
+.speaker-bio {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 12.5px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   SUPPORTED BY
+========================================================= */
+
+.workshop-support {
+  margin: 18px 0 0;
+  padding-top: 14px;
+
+  border-top: 1px solid var(--line);
+
+  color: var(--muted);
+
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+.workshop-support strong {
+  color: var(--black);
+  font-weight: 650;
 }
 
 
@@ -1630,6 +1864,20 @@ h1, h2, h3, h4, p {
     font-size: 16px;
     margin-top: 26px;
   }
+
+  /* Workshops */
+
+  .workshop {
+    padding: 22px 0 26px;
+  }
+
+  .workshop-title {
+    font-size: 17px;
+  }
+
+  .workshop-number {
+    font-size: 16px;
+  }
 }
 
 
@@ -1648,6 +1896,8 @@ h1, h2, h3, h4, p {
   .identity-links .contact summary,
   .footer-links .contact summary,
   .note-title a,
+  .note-read,
+  .note-read span,
   .note-back {
     transition: none;
   }
