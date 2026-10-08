@@ -1,17 +1,18 @@
 /* ========================================
-   Base
+   Design Tokens
    ======================================== */
 
 :root {
-  --color-bg: #F5F1E8;
-  --color-text: #17191C;
-  --color-muted: #4C4D50;
-  --color-blue: #1F3A5F;
-  --color-rule: #D8D2C7;
-  --color-white: #FBFAF7;
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --text-muted: #555555;
+  --link: #2f5f9f;
+  --link-hover: #1d477d;
+  --rule: #dddddd;
+  --surface: #f7f7f7;
 
-  --content-max: 880px;
-  --page-max: 1440px;
+  --content-width: 900px;
+  --page-padding: 40px;
 
   --space-xs: 8px;
   --space-sm: 16px;
@@ -19,8 +20,12 @@
   --space-lg: 40px;
   --space-xl: 64px;
   --space-2xl: 96px;
-  --space-3xl: 128px;
 }
+
+
+/* ========================================
+   Base
+   ======================================== */
 
 * {
   box-sizing: border-box;
@@ -32,8 +37,9 @@ html {
 
 body {
   margin: 0;
-  background: var(--color-bg);
-  color: var(--color-text);
+
+  background: var(--bg);
+  color: var(--text);
 
   font-family:
     "Source Sans 3",
@@ -54,25 +60,25 @@ img {
 }
 
 a {
-  color: inherit;
+  color: var(--link);
+
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
 }
 
 a:hover,
 a:focus-visible {
-  color: var(--color-blue);
+  color: var(--link-hover);
 }
 
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
+button {
+  font: inherit;
 }
 
 button:focus-visible,
 a:focus-visible {
-  outline: 2px solid var(--color-blue);
-  outline-offset: 4px;
+  outline: 2px solid var(--link);
+  outline-offset: 3px;
 }
 
 
@@ -82,32 +88,45 @@ a:focus-visible {
 
 .site-header {
   width: 100%;
-  border-bottom: 1px solid var(--color-rule);
+
+  border-bottom: 1px solid var(--rule);
 }
 
 .site-header__inner {
-  width: min(100% - 64px, var(--page-max));
-  margin: 0 auto;
+  width: min(
+    calc(100% - (var(--page-padding) * 2)),
+    1180px
+  );
 
-  min-height: 72px;
+  min-height: 64px;
+
+  margin: 0 auto;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   gap: var(--space-lg);
 }
 
 .site-header__logo {
+  color: var(--text);
+
   font-size: 16px;
   font-weight: 600;
-  letter-spacing: -0.01em;
+
   text-decoration: none;
+}
+
+.site-header__logo:hover,
+.site-header__logo:focus-visible {
+  color: var(--link);
 }
 
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 24px;
 }
 
 .site-nav a {
@@ -121,12 +140,12 @@ a:focus-visible {
    ======================================== */
 
 .site-layout {
-  width: min(100% - 64px, var(--page-max));
-  margin: 0 auto;
+  width: min(
+    calc(100% - (var(--page-padding) * 2)),
+    var(--content-width)
+  );
 
-  display: grid;
-  grid-template-columns: 29% minmax(0, 71%);
-  align-items: start;
+  margin: 0 auto;
 }
 
 
@@ -135,49 +154,46 @@ a:focus-visible {
    ======================================== */
 
 .identity {
-  position: sticky;
-  top: 48px;
-  align-self: start;
-
-  padding: 72px 48px 80px 0;
+  padding: 56px 0 40px;
 }
 
 .profile {
-  width: 160px;
-  margin: 0 0 32px;
+  width: 112px;
+  margin: 0 0 24px;
 }
 
 .profile img {
-  width: 160px;
-  height: 160px;
+  width: 112px;
+  height: 112px;
+
   object-fit: cover;
 }
 
 .identity__name {
   margin: 0;
 
-  font-size: 20px;
-  line-height: 1.2;
+  font-size: 19px;
+  line-height: 1.25;
   font-weight: 600;
-  letter-spacing: -0.015em;
+
+  letter-spacing: -0.01em;
 }
 
 .identity__role {
-  margin: 8px 0 0;
+  margin: 6px 0 0;
 
-  color: var(--color-muted);
+  color: var(--text-muted);
 
   font-size: 15px;
   line-height: 1.4;
 }
 
 .identity__links {
-  margin-top: 40px;
+  margin-top: 20px;
 
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 18px;
 }
 
 .identity__links a {
@@ -192,13 +208,8 @@ a:focus-visible {
 
 .content {
   width: 100%;
-  max-width: var(--content-max);
 
-  padding:
-    88px
-    0
-    140px
-    5vw;
+  padding-bottom: 120px;
 }
 
 
@@ -207,48 +218,49 @@ a:focus-visible {
    ======================================== */
 
 .hero {
-  padding-bottom: var(--space-3xl);
+  padding: 24px 0 80px;
 }
 
 .hero h1 {
   margin: 0;
 
-  font-size: 44px;
-  line-height: 1.05;
+  font-size: 36px;
+  line-height: 1.15;
   font-weight: 500;
-  letter-spacing: -0.035em;
+
+  letter-spacing: -0.025em;
 }
 
 .hero__role {
-  margin: 12px 0 0;
+  margin: 8px 0 0;
 
-  color: var(--color-muted);
+  color: var(--text-muted);
 
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.4;
 }
 
 .hero__statement {
-  max-width: 680px;
-
-  margin: 56px 0 0;
-
-  font-size: 25px;
-  line-height: 1.4;
-  letter-spacing: -0.015em;
-}
-
-.hero__question {
-  max-width: 680px;
+  max-width: 720px;
 
   margin: 32px 0 0;
 
-  color: var(--color-blue);
+  font-size: 21px;
+  line-height: 1.5;
 
-  font-size: 31px;
-  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.hero__question {
+  max-width: 720px;
+
+  margin: 20px 0 0;
+
+  color: var(--link);
+
+  font-size: 22px;
+  line-height: 1.45;
   font-weight: 500;
-  letter-spacing: -0.02em;
 }
 
 
@@ -257,7 +269,7 @@ a:focus-visible {
    ======================================== */
 
 .section-header {
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .section-header h2,
@@ -266,14 +278,13 @@ a:focus-visible {
 .practice h2 {
   margin: 0;
 
-  color: var(--color-blue);
+  color: var(--text);
 
-  font-size: 12px;
-  line-height: 1.3;
+  font-size: 13px;
+  line-height: 1.4;
   font-weight: 600;
 
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 
@@ -282,34 +293,35 @@ a:focus-visible {
    ======================================== */
 
 .research {
-  border-top: 1px solid var(--color-rule);
+  border-top: 1px solid var(--rule);
 }
 
 .research-item {
-  border-bottom: 1px solid var(--color-rule);
+  border-bottom: 1px solid var(--rule);
 }
 
 .research-trigger {
   width: 100%;
-  padding: 28px 0;
+
+  padding: 22px 0;
 
   border: 0;
   background: transparent;
-  color: inherit;
+  color: var(--text);
 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 32px;
+
+  gap: 24px;
 
   text-align: left;
-  cursor: pointer;
 
-  font: inherit;
+  cursor: pointer;
 }
 
 .research-trigger:hover {
-  color: var(--color-blue);
+  color: var(--link);
 }
 
 .research-trigger__text {
@@ -317,40 +329,39 @@ a:focus-visible {
 
   display: flex;
   flex-direction: column;
-  gap: 5px;
+
+  gap: 3px;
 }
 
 .research-trigger__title {
-  font-size: 20px;
-  line-height: 1.3;
+  font-size: 18px;
+  line-height: 1.35;
   font-weight: 500;
-  letter-spacing: -0.015em;
+
+  letter-spacing: -0.01em;
 }
 
 .research-trigger__subtitle {
-  color: var(--color-muted);
+  color: var(--text-muted);
 
-  font-size: 15px;
-  line-height: 1.4;
+  font-size: 14px;
+  line-height: 1.45;
 }
 
 .research-trigger__icon {
   flex: 0 0 auto;
 
-  color: var(--color-blue);
+  color: var(--link);
 
-  font-size: 22px;
+  font-size: 19px;
   line-height: 1;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .research-content {
   max-width: 760px;
 
-  padding:
-    0
-    0
-    48px;
+  padding: 4px 0 44px;
 }
 
 .research-content[hidden] {
@@ -358,72 +369,36 @@ a:focus-visible {
 }
 
 .research-content h3 {
-  margin: 8px 0 20px;
+  margin: 12px 0 18px;
 
-  font-size: 27px;
-  line-height: 1.25;
+  font-size: 24px;
+  line-height: 1.35;
   font-weight: 500;
-  letter-spacing: -0.02em;
+
+  letter-spacing: -0.015em;
 }
 
 .research-content p {
-  margin: 0 0 20px;
+  margin: 0 0 18px;
 }
 
 .research-content > p:last-of-type {
   margin-bottom: 0;
 }
 
+
+/* ========================================
+   Research Subsections
+   ======================================== */
+
 .research-subsection {
-  margin-top: 40px;
+  margin-top: 36px;
 }
 
 .research-subsection h4 {
-  margin: 0 0 14px;
+  margin: 0 0 12px;
 
-  color: var(--color-blue);
-
-  font-size: 11px;
-  line-height: 1.3;
-  font-weight: 600;
-
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.research-subsection p {
-  margin-bottom: 16px;
-}
-
-.research-subsection ul {
-  margin: 0;
-  padding-left: 20px;
-}
-
-.research-subsection li {
-  margin-bottom: 7px;
-}
-
-
-/* ========================================
-   Outputs
-   ======================================== */
-
-.output {
-  margin-top: 32px;
-  padding-top: 20px;
-
-  border-top: 1px solid var(--color-rule);
-}
-
-.output:first-of-type {
-  margin-top: 20px;
-}
-
-.output__venue {
-  margin: 0 0 7px;
-
-  color: var(--color-blue);
+  color: var(--text-muted);
 
   font-size: 11px;
   line-height: 1.4;
@@ -433,48 +408,87 @@ a:focus-visible {
   text-transform: uppercase;
 }
 
-.output__title {
-  margin: 0 0 8px;
+.research-subsection p {
+  margin-bottom: 14px;
+}
 
-  font-size: 16px;
-  line-height: 1.5;
+.research-subsection ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.research-subsection li {
+  margin-bottom: 6px;
+}
+
+
+/* ========================================
+   Outputs
+   ======================================== */
+
+.output {
+  margin-top: 28px;
+  padding-top: 18px;
+
+  border-top: 1px solid var(--rule);
+}
+
+.output:first-of-type {
+  margin-top: 18px;
+}
+
+.output__venue {
+  margin: 0 0 6px;
+
+  color: var(--text-muted);
+
+  font-size: 11px;
+  line-height: 1.4;
+  font-weight: 600;
+
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.output__title {
+  margin: 0 0 6px;
+
+  font-size: 15px;
+  line-height: 1.55;
 }
 
 .output__type,
 .output__meta {
   margin: 0;
 
-  color: var(--color-muted);
+  color: var(--text-muted);
 
-  font-size: 14px;
-  line-height: 1.45;
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 .output__link {
-  margin: 10px 0 0;
+  margin: 8px 0 0;
 
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .output__link a {
-  color: var(--color-blue);
   text-decoration: none;
 }
 
 
 /* ========================================
-   Internal Section Links
+   Internal Links
    ======================================== */
 
 .section-link {
   display: inline-block;
 
-  margin-top: 40px;
-
-  color: var(--color-blue);
+  margin-top: 32px;
 
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
 
   text-decoration: none;
 }
@@ -485,30 +499,31 @@ a:focus-visible {
    ======================================== */
 
 .question {
-  margin-top: var(--space-3xl);
-  padding-top: var(--space-3xl);
+  margin-top: 88px;
+  padding-top: 56px;
 
-  border-top: 1px solid var(--color-rule);
+  border-top: 1px solid var(--rule);
 }
 
 .question__main {
   max-width: 720px;
 
-  margin: 40px 0 28px;
+  margin: 28px 0 20px;
 
-  font-size: 34px;
-  line-height: 1.25;
-  letter-spacing: -0.025em;
+  font-size: 27px;
+  line-height: 1.4;
+
+  letter-spacing: -0.02em;
 }
 
 .question > p:last-child {
-  max-width: 700px;
+  max-width: 720px;
 
   margin: 0;
 
-  color: var(--color-muted);
+  color: var(--text-muted);
 
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.65;
 }
 
@@ -518,39 +533,40 @@ a:focus-visible {
    ======================================== */
 
 .lens {
-  margin-top: var(--space-3xl);
-  padding-top: var(--space-3xl);
+  margin-top: 80px;
+  padding-top: 56px;
 
-  border-top: 1px solid var(--color-rule);
+  border-top: 1px solid var(--rule);
 }
 
 .lens h3 {
-  margin: 40px 0 20px;
+  margin: 28px 0 16px;
 
-  font-size: 25px;
-  line-height: 1.3;
+  font-size: 22px;
+  line-height: 1.4;
   font-weight: 500;
-  letter-spacing: -0.02em;
+
+  letter-spacing: -0.015em;
 }
 
 .lens > p:not(.lens__sequence) {
-  max-width: 700px;
+  max-width: 720px;
 
   margin: 0;
 
-  color: var(--color-muted);
+  color: var(--text-muted);
 
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.65;
 }
 
 .lens__sequence {
-  margin: 40px 0 0;
+  margin: 28px 0 0;
 
-  color: var(--color-blue);
+  color: var(--link);
 
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 15px;
+  line-height: 1.7;
 }
 
 
@@ -559,33 +575,31 @@ a:focus-visible {
    ======================================== */
 
 .practice {
-  margin-top: var(--space-3xl);
-  padding-top: var(--space-3xl);
+  margin-top: 80px;
+  padding-top: 56px;
 
-  border-top: 1px solid var(--color-rule);
+  border-top: 1px solid var(--rule);
 }
 
 .practice > p {
-  max-width: 700px;
+  max-width: 720px;
 
-  margin: 40px 0 0;
+  margin: 28px 0 0;
 
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.65;
 }
 
 .practice__links {
-  margin-top: 32px;
+  margin-top: 24px;
 
   display: flex;
-  gap: 28px;
+  gap: 24px;
 }
 
 .practice__links a {
-  color: var(--color-blue);
-
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
 
   text-decoration: none;
 }
@@ -596,19 +610,24 @@ a:focus-visible {
    ======================================== */
 
 .site-footer {
-  width: min(100% - 64px, var(--page-max));
+  width: min(
+    calc(100% - (var(--page-padding) * 2)),
+    var(--content-width)
+  );
+
   margin: 0 auto;
 
-  padding: 48px 0 64px;
+  padding: 40px 0 56px;
 
-  border-top: 1px solid var(--color-rule);
+  border-top: 1px solid var(--rule);
 
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 32px;
 
-  color: var(--color-muted);
+  gap: 24px;
+
+  color: var(--text-muted);
 
   font-size: 13px;
   line-height: 1.5;
@@ -620,51 +639,11 @@ a:focus-visible {
 
 .site-footer nav {
   display: flex;
-  gap: 20px;
+  gap: 18px;
 }
 
 .site-footer a {
   text-decoration: none;
-}
-
-
-/* ========================================
-   Responsive — Tablet
-   ======================================== */
-
-@media (max-width: 1000px) {
-
-  .site-header__inner,
-  .site-layout,
-  .site-footer {
-    width: min(100% - 48px, var(--page-max));
-  }
-
-  .site-layout {
-    grid-template-columns: 25% minmax(0, 75%);
-  }
-
-  .identity {
-    padding-right: 32px;
-  }
-
-  .profile,
-  .profile img {
-    width: 140px;
-    height: 140px;
-  }
-
-  .content {
-    padding-left: 4vw;
-  }
-
-  .hero h1 {
-    font-size: 40px;
-  }
-
-  .hero__question {
-    font-size: 29px;
-  }
 }
 
 
@@ -674,140 +653,128 @@ a:focus-visible {
 
 @media (max-width: 768px) {
 
-  html {
-    scroll-behavior: auto;
+  :root {
+    --page-padding: 20px;
   }
 
   .site-header__inner {
-    width: min(100% - 40px, var(--page-max));
+    min-height: 60px;
 
-    min-height: 64px;
+    gap: 20px;
   }
 
   .site-nav {
-    gap: 18px;
+    gap: 16px;
   }
 
   .site-nav a {
     font-size: 13px;
   }
 
-  .site-layout {
-    width: min(100% - 40px, var(--page-max));
-
-    display: block;
-  }
-
   .identity {
-    position: static;
-
-    padding:
-      48px
-      0
-      56px;
+    padding-top: 40px;
+    padding-bottom: 28px;
   }
 
   .profile,
   .profile img {
-    width: 128px;
-    height: 128px;
+    width: 96px;
+    height: 96px;
+  }
+
+  .profile {
+    margin-bottom: 20px;
   }
 
   .identity__links {
-    margin-top: 28px;
+    margin-top: 18px;
 
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 16px 24px;
+    gap: 14px 20px;
   }
 
   .content {
-    max-width: none;
-
-    padding:
-      0
-      0
-      96px;
+    padding-bottom: 88px;
   }
 
   .hero {
-    padding-bottom: 80px;
+    padding-top: 16px;
+    padding-bottom: 64px;
   }
 
   .hero h1 {
-    font-size: 32px;
+    font-size: 31px;
   }
 
   .hero__role {
-    font-size: 17px;
+    font-size: 16px;
   }
 
   .hero__statement {
-    margin-top: 40px;
+    margin-top: 28px;
 
-    font-size: 21px;
-    line-height: 1.45;
+    font-size: 19px;
   }
 
   .hero__question {
-    margin-top: 28px;
+    margin-top: 18px;
 
-    font-size: 27px;
+    font-size: 21px;
   }
 
   .research-trigger {
-    padding: 24px 0;
+    padding: 20px 0;
+
+    gap: 16px;
   }
 
   .research-trigger__title {
-    font-size: 18px;
+    font-size: 17px;
   }
 
   .research-trigger__subtitle {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .research-content {
-    padding-bottom: 40px;
+    padding-bottom: 36px;
   }
 
   .research-content h3 {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .question,
   .lens,
   .practice {
-    margin-top: 96px;
-    padding-top: 72px;
+    margin-top: 64px;
+    padding-top: 44px;
   }
 
   .question__main {
-    margin-top: 32px;
+    margin-top: 24px;
 
-    font-size: 27px;
+    font-size: 24px;
   }
 
   .lens h3 {
-    margin-top: 32px;
+    margin-top: 24px;
 
-    font-size: 23px;
+    font-size: 21px;
   }
 
-  .lens__sequence {
-    line-height: 1.8;
+  .practice__links {
+    gap: 20px;
   }
 
   .site-footer {
-    width: min(100% - 40px, var(--page-max));
-
-    padding: 40px 0 48px;
-
     display: block;
+
+    padding-top: 36px;
+    padding-bottom: 44px;
   }
 
   .site-footer nav {
-    margin: 24px 0;
+    margin-top: 20px;
   }
 }
 
@@ -821,5 +788,4 @@ a:focus-visible {
   html {
     scroll-behavior: auto;
   }
-
 }
